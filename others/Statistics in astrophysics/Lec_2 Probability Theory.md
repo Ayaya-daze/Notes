@@ -67,7 +67,7 @@ $$\mathcal{P}(AB\mid I)=F[\mathcal{P}(A\mid I),\mathcal{P}(B\mid AI)]=F[\mathcal
 * 若 $A$ 是假的 ($I\implies \overline{A}$) 可以得到 $$q(A\mid I)=0$$
 
 Negation mapping
-考虑补 $$q(\overline{A}\mid I)=S[q(A\mid I)]$$有边界条件 $$S(0)=1\quad S(1)=0$$对任意命题 $A,B$ 有 $$q(AB\mid I)=q(A\mid I)q(B\mid AI)\quad q(A\overline{B}\mid I)=q(A\mid I)q(\overline{B}\mid AI)$$可以得到 $$q(AB\mid I)=q(A\mid I)S[q(\overline{B}\mid AI)]=q(A\mid I)S[\frac{q(A\overline{B}\mid I)}{q(A\mid I)}]$$利用交换律可以得到 $$q(A\mid I)S[\frac{q(A\overline{B}\mid I)}{q(A\mid I)}=q(B\mid I)S[\frac{q(B\overline{A}\mid I)}{q(B\mid I)}$$考虑一些情况
+考虑补 $$q(\overline{A}\mid I)=S[q(A\mid I)]$$有边界条件 $$S(0)=1\quad S(1)=0$$对任意命题 $A,B$ 有 $$q(AB\mid I)=q(A\mid I)q(B\mid AI)\quad q(A\overline{B}\mid I)=q(A\mid I)q(\overline{B}\mid AI)$$可以得到 $$q(AB\mid I)=q(A\mid I)S[q(\overline{B}\mid AI)]=q(A\mid I)S[\frac{q(A\overline{B}\mid I)}{q(A\mid I)}]$$利用交换律可以得到 $$q(A\mid I)S[\frac{q(A\overline{B}\mid I)}{q(A\mid I)}]=q(B\mid I)S[\frac{q(B\overline{A}\mid I)}{q(B\mid I)}]$$考虑一些情况
 * $\overline{B}\implies A$ , 有 $$A\overline{B}=\overline{B}\quad B\overline{A}=\overline{A}$$
 * 可以得到 $$xS[\frac{S(y)}{x}]=yS[\frac{S(x)}{y}]$$
 * 在 $y=1$ 时, $S[S(x)]=x$ , 此时有唯一解 $$S(x)=(1-x^m)^{1/m} \quad $$
