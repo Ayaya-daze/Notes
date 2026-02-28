@@ -257,7 +257,7 @@ $$\text{吸收率}\sim N_g |a|^2 (\overline{n}_\omega)$$
 > 故在 $k$ 空间中, 频率为 $\omega$ 到 $\omega +\Delta \omega$ 的光子分布在一个 $k$ 到 $k+\Delta k$ 的球壳上
 > 这需要更换体积元, 实际上就是先对球上的方向做一次积分
 
-在频率区间内光子的能量 $$\boxed{\frac{\mathrm{d}E}{\mathrm{d}\omega}=\frac{V}{\pi^2c^3}\omega^2\mathrm{d}\omega\times \frac{\hbar \omega}{e^{\hbar\omega/kT}-1}}$$
+在频率区间内光子的能量 $$\boxed{\frac{\mathrm{d}E}{\mathrm{d}\omega}=\frac{V}{\pi^2c^3}\omega^2\times \frac{\hbar \omega}{e^{\hbar\omega/kT}-1}}$$
 * 数固定频率区间上光子的模式数
 * 问一个给定的状态上的光子的平均数
 * 考虑每个光子的能量

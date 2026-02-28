@@ -218,7 +218,7 @@ $$\langle j\mid \psi(t)\rangle\sim e^{-iE_0t/\hbar}\times e^{-\Gamma t/2}$$
 
 并且 $V'(x)$ 应该足够小, 势能变化不太剧烈
 
-有两种可能的解: $$\psi_{\pm}^{WKB}=\frac{C_{\pm}}{\sqrt{p(x)}}\exp\left[\pm\frac{i}{\hbar}\int^xp(x')\mathrm{d}x'\right]\times e^{iEt/\hbar}$$
+有两种可能的解: $$\psi_{\pm}^{WKB}=\frac{C_{\pm}}{\sqrt{p(x)}}\exp\left[\pm\frac{i}{\hbar}\int^xp(x')\mathrm{d}x'\right]\times e^{-iEt/\hbar}$$
 这其实是在模仿上面的写法
 
 > 为什么相因子里面是积分?
@@ -233,7 +233,7 @@ $$\langle j\mid \psi(t)\rangle\sim e^{-iE_0t/\hbar}\times e^{-\Gamma t/2}$$
 即粒子有一个经典禁戒区: $E<V(x)$ 
 现在用 WKB 近似做这件事情: 方法是解析延拓, 在经典禁戒区动量是虚值
 定义一种虚动量 $$\kappa=\sqrt{2m(V(x)-E)}$$
-则 WKB 解 $$\psi_{\pm}^{WKB}=\frac{C_{\pm}}{\sqrt{\kappa(x)}}\exp\left[\pm\frac{1}{\hbar}\int^x\kappa(x')\mathrm{d}x'\right]\times e^{iEt/\hbar}$$
+则 WKB 解 $$\psi_{\pm}^{WKB}=\frac{C_{\pm}}{\sqrt{\kappa(x)}}\exp\left[\pm\frac{1}{\hbar}\int^x\kappa(x')\mathrm{d}x'\right]\times e^{-iEt/\hbar}$$
 即出现一个实指数
 
 >解 Schrodinger 方程的定态解并不是在做近似, 实际上是在做分离变量

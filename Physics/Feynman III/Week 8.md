@@ -301,7 +301,7 @@ $$m_{\pi}\sim O(100MeV)\quad E_{\pi}\sim O(MeV)$$
 完成文中跳过的一些计算和补充一些内容
 首先是方程的解: 
 $$i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0\left[e^{i(\omega\mp\omega_0)t}+e^{-i(\omega\pm\omega_0)t}\right]\gamma_{\mp} \quad \omega_0 =2A/\hbar$$
-在共振情形, 在尺度分隔的意义上, 对时间做平均得到 
+在共振情形, 在尺度分隔的意义上, 对时间做平均得到(下面是共振情形的解)
 $$i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0 e^{\pm i(\omega-\omega_0)t}\gamma_{\mp}\implies i\hbar\ddot{\gamma_{\pm}}=\mu\varepsilon_0 e^{i(\omega-\omega_0)t}\dot{\gamma_{\mp}}=\mu^2\varepsilon_0^2 \gamma_{\pm}/i\hbar$$
 即
 $$\ddot{\gamma}_{\pm}=-\left(\frac{\mu\varepsilon_0}{\hbar}\right)^2 \gamma_{\pm}$$
