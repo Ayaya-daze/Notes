@@ -2,15 +2,33 @@
 
 复习前面的内容
 Heisenberg 模型的 Hilbert 空间
-$$\mathcal{H} =\bigotimes_{n=1}^N \mathcal{H}_{n}\quad \dim\mathcal{H}=2^N$$
+
+$$
+\mathcal{H} =\bigotimes_{n=1}^N \mathcal{H}_{n}\quad \dim\mathcal{H}=2^N
+$$
+
 基础态
-$$\ket{s_1,\cdots,s_n\cdots,s_N}=\ket{s_1}\otimes\cdots\otimes\ket{s_n}\otimes\cdots\otimes\ket{s_N}$$
+
+$$
+\ket{s_1,\cdots,s_n\cdots,s_N}=\ket{s_1}\otimes\cdots\otimes\ket{s_n}\otimes\cdots\otimes\ket{s_N}
+$$
+
 正交条件
 
-$$\braket{s'_1,\cdots,s'_n,\cdots,s'_N|s_1,\cdots,s_n\cdots,s_N}=\delta_{s'_1s_1}\cdots \delta_{s'_Ns_N}$$
-$$1=\sum_{s_1,\cdots,s_N}\ket{s_1\cdots s_N}\bra{s_1\cdots s_N}$$
+$$
+\braket{s'_1,\cdots,s'_n,\cdots,s'_N|s_1,\cdots,s_n\cdots,s_N}=\delta_{s'_1s_1}\cdots \delta_{s'_Ns_N}
+$$
+
+$$
+1=\sum_{s_1,\cdots,s_N}\ket{s_1\cdots s_N}\bra{s_1\cdots s_N}
+$$
+
 哈密顿量为
-$$H = -A\sum_{n=1}^{N-1}(\mathcal{S}_{n,n+1}-1)$$
+
+$$
+H = -A\sum_{n=1}^{N-1}(\mathcal{S}_{n,n+1}-1)
+$$
+
  $A$ 刻画了相互作用的强度
 
 >下一步应该做的是对角化哈密顿
@@ -22,20 +40,30 @@ $$H = -A\sum_{n=1}^{N-1}(\mathcal{S}_{n,n+1}-1)$$
 
 >数学地说
 >定义 p - 粒子态空间
->$$\mathcal{H}^{(p)}=\mathrm{Span}\{\ket{p\,\text{粒子态}}\}$$
+>
+> $$
+> \mathcal{H}^{(p)}=\mathrm{Span}\{\ket{p\,\text{粒子态}}\}
+> $$
+>
 >则这是哈密顿的不变子空间
 
 在 n -粒子态分解下, 哈密顿为
 
-$$\begin{pmatrix}
+$$
+\begin{pmatrix}
 0 & 0 & 0 & \cdots \\
 0 & \boxed{H_{0 \text{粒子}}} & 0 & \cdots \\
 0 & 0 & \boxed{H_{1 \text{粒子}}} & \cdots \\
 \vdots & \vdots & \vdots & \ddots
-\end{pmatrix}$$
+\end{pmatrix}
+$$
 
 而 1 - 粒子态实际上就是前面讨论的晶格中的电子系统, 即
-$$\dim \mathcal{H}^{(1)}=N$$
+
+$$
+\dim \mathcal{H}^{(1)}=N
+$$
+
 1 - 粒子态对角化的结果是 bloch 波, 可以想象下一波要做的就是对角化 2 - 粒子态, 3 - 粒子态...
 
 >这种做法实际上是某种能量的做法
@@ -59,11 +87,23 @@ $$\dim \mathcal{H}^{(1)}=N$$
 ### 二粒子态
 
 即 
-$$\ket{x_n,x_m} = \ket{+\cdots \underset{n}{-} \cdots \underset{m}{-} \cdots +}$$
+
+$$
+\ket{x_n,x_m} = \ket{+\cdots \underset{n}{-} \cdots \underset{m}{-} \cdots +}
+$$
+
 >Notice
->$$\ket{x_n,x_m}\neq \ket{x_n}+\ket{x_m}$$
+>
+> $$
+> \ket{x_n,x_m}\neq \ket{x_n}+\ket{x_m}
+> $$
+>
 >二粒子态不是两个单粒子态加在一起, 正确构造多粒子态的做法是张量积
->$$\ket{x_n,x_m}\cong \ket{x_n}\otimes \ket{x_m}$$
+>
+> $$
+> \ket{x_n,x_m}\cong \ket{x_n}\otimes \ket{x_m}
+> $$
+>
 >重要的是这个同构是近似的, 原因是当如果把两个单粒子态的张量积认成一个二粒子态的时候, 已经假设了这两个粒子没有相互作用, $n,m$ 可以独立取值, 两个粒子可以放在同一个位置上 . 即 物理上忽略了两个粒子的相互作用
 >即独立粒子近似
 
@@ -73,13 +113,21 @@ $$\ket{x_n,x_m} = \ket{+\cdots \underset{n}{-} \cdots \underset{m}{-} \cdots +}$
 或者说这种情况下两个粒子的相互作用是短程力
 做法是忽略近邻情形, 然后猜解
 同样, 试解是 bloch 波 
-$$\ket{\psi(k_1,k_2)}=\sum_{n,m}e^{ik_1 nb+ik_2mb}\ket{x_n,x_m}$$
+
+$$
+\ket{\psi(k_1,k_2)}=\sum_{n,m}e^{ik_1 nb+ik_2mb}\ket{x_n,x_m}
+$$
+
 甚至在这里引入了一些从来没有提到的状态, 比如 $\ket{x_n,x_n}$
 实际上对角化最重要的一点就是给这些状态做定义, 就能够顺利对角化
 
 不过先忽略这些东西, 代入 Schrodinger 方程, 我们能解出 $10^{23}$ 量级这么多方程里面的大部分方程
 结果是色散关系
-$$E = 2A(1-\cos k_1b)+2A(1-\cos k_2b)$$
+
+$$
+E = 2A(1-\cos k_1b)+2A(1-\cos k_2b)
+$$
+
 能量是两个单粒子的动能直接相加, 忽略了两个粒子之间的相互作用的能量
 短程力的来源源于哈密顿量是短程的相互作用 -- 这就是独立粒子近似
 
@@ -87,9 +135,17 @@ $$E = 2A(1-\cos k_1b)+2A(1-\cos k_2b)$$
 但不变的事实是 n - 粒子态空间是哈密顿的不变子空间
 
 即任意粒子态空间 $\mathcal{H}^{(p)}$
-$$\mathcal{H}=\bigoplus_{p=0}^N\mathcal{H}^{(p)}$$
+
+$$
+\mathcal{H}=\bigoplus_{p=0}^N\mathcal{H}^{(p)}
+$$
+
 实际上有一个简单的等式 
-$$2^N=\sum_{p=0}^N\dim\mathcal{H}^{(p)}=\sum_{p=0}^N \binom{N}{p}$$
+
+$$
+2^N=\sum_{p=0}^N\dim\mathcal{H}^{(p)}=\sum_{p=0}^N \binom{N}{p}
+$$
+
 >这种不变子空间的构造叫做 Fock Construction
 >即把完整的态空间分解为一些不变子空间的直和
 >这些不变子空间中有真空态, n -粒子态, 并且 n - 粒子态同构于 n 个单粒子态的张量积
@@ -99,7 +155,11 @@ $$2^N=\sum_{p=0}^N\dim\mathcal{H}^{(p)}=\sum_{p=0}^N \binom{N}{p}$$
 >为什么能这样做
 >事实是从真实的物理系统中, 想要去加入能量做有限大的激发时, 只能得到态空间的很小一部分
 >有趣的事情是 $N\to\infty$ 时
->$$2^N=\sum_{p=0}^N \binom{N}{p}$$
+>
+> $$
+> 2^N=\sum_{p=0}^N \binom{N}{p}
+> $$
+>
 >这个等式是不成立的, 左边是 $\aleph_1$ , 右边是 $\aleph_0$
 >这表明在无限多自由度的系统中有本质差别
 
@@ -119,48 +179,112 @@ $$2^N=\sum_{p=0}^N\dim\mathcal{H}^{(p)}=\sum_{p=0}^N \binom{N}{p}$$
 取单粒子态空间的基础态 $\ket{n}$
 
 系数 $C_n =\braket{n|\psi}$ 满足 Schrodinger 方程
-$$i\hbar \frac{\partial}{\partial t}C_n = E_0 C_n -A(C_{n-1}+C_{n+1})$$
+
+$$
+i\hbar \frac{\partial}{\partial t}C_n = E_0 C_n -A(C_{n-1}+C_{n+1})
+$$
+
 有平面波解
-$$C_n \sim e^{-iEt/\hbar +iknb}$$
+
+$$
+C_n \sim e^{-iEt/\hbar +iknb}
+$$
+
 色散关系 
-$$E=E_0-2A\cos kb$$
+
+$$
+E=E_0-2A\cos kb
+$$
+
 在长波极限下有效质量
-$$m = \frac{\hbar^2}{Ak^2b^2}$$
+
+$$
+m = \frac{\hbar^2}{Ak^2b^2}
+$$
+
 现在想取连续极限, 即 $b\to 0$ , 这会导致有效质量发散, 正确的做法是控制 $m$ 取定值
 这样 
-$$C_n =C(x_n)\quad ,\quad x_n=nb$$
+
+$$
+C_n =C(x_n)\quad ,\quad x_n=nb
+$$
+
 这样 Schrodinger 方程改写为
-$$i\hbar \frac{\partial}{\partial t}C(x_n)=\frac{\hbar^2}{2m b^2}(2C(x_n)-C(x_{n-1})-C(x_{n+1}))$$
+
+$$
+i\hbar \frac{\partial}{\partial t}C(x_n)=\frac{\hbar^2}{2m b^2}(2C(x_n)-C(x_{n-1})-C(x_{n+1}))
+$$
+
 在 $b\to 0$ 的时候, 重要的观察是右侧就是二阶导
-$$\frac{2C(x_n)-C(x_{n-1})-C(x_{n+1})}{b^2}=-\frac{\partial^2}{\partial x^2}C(x_n)$$
+
+$$
+\frac{2C(x_n)-C(x_{n-1})-C(x_{n+1})}{b^2}=-\frac{\partial^2}{\partial x^2}C(x_n)
+$$
+
 擦掉指标 $n$ ,得到
-$$i\hbar \frac{\partial }{\partial t}C(x,t)=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}C(x,t)$$
+
+$$
+i\hbar \frac{\partial }{\partial t}C(x,t)=-\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}C(x,t)
+$$
+
 >这当然不是 Schrodinger 方程的公理形式, Schrodinger 方程只在这种特殊的形式下长成这样
 
 一般管 $C(x,t)$ 叫做波函数 $\psi(x,t)$
 
 推广是简单的, 只需要增加空间坐标, 具体地, 做替换
-$$\frac{\partial^2}{\partial x^2}\to\sum_{i}\frac{\partial^2}{\partial x_i^2}=\nabla^2$$
+
+$$
+\frac{\partial^2}{\partial x^2}\to\sum_{i}\frac{\partial^2}{\partial x_i^2}=\nabla^2
+$$
+
 这种方程的解是简单的, 首先有一种解我们已经知道了, 即平面波解
-$$\psi(x,t)\propto e^{-iEt/\hbar+i\vec{k}\cdot \vec{x}}$$
+
+$$
+\psi(x,t)\propto e^{-iEt/\hbar+i\vec{k}\cdot \vec{x}}
+$$
+
 当然还有球面波解
-$$\psi(\vec{x},t)\propto \frac{1}{|\vec{x}|}e^{-iEt/\hbar+ikx }$$
+
+$$
+\psi(\vec{x},t)\propto \frac{1}{|\vec{x}|}e^{-iEt/\hbar+ikx }
+$$
+
 这种解没有确定的动量方向
 
 同样, 下一步是讨论正交归一条件, 从离散版本的连续极限入手
 
 在离散版本
-$$\braket{m|n}=\delta_{mn}\quad,\quad \sum_{n}\ket{n}\bra{n}=1$$
+
+$$
+\braket{m|n}=\delta_{mn}\quad,\quad \sum_{n}\ket{n}\bra{n}=1
+$$
+
 在连续极限下 $\ket{x_n}=\frac{1}{\sqrt{b}}\ket{n}$
 得到
-$$\braket{m|n}=\frac{1}{b}\delta_{mn}\quad,\quad \sum_{n} b\ket{n}\bra{n}=1$$
+
+$$
+\braket{m|n}=\frac{1}{b}\delta_{mn}\quad,\quad \sum_{n} b\ket{n}\bra{n}=1
+$$
+
 对任意态 $\ket{\psi}$ , 波函数 $\psi(x_n) =\braket{n|\psi}$ 
 在 $b\to 0$ 下, 结果是前面的求和都获得了 Riemann 和的意义
-$$\ket{\psi}=\sum_{n}b\ket{n}\braket{n|\psi}\to\int\mathrm{d}x\ket{x}\braket{x|\psi}$$
+
+$$
+\ket{\psi}=\sum_{n}b\ket{n}\braket{n|\psi}\to\int\mathrm{d}x\ket{x}\braket{x|\psi}
+$$
+
 特别的, 基础态的正交归一条件
-$$\braket{x|y}=\delta(x-y)$$
+
+$$
+\braket{x|y}=\delta(x-y)
+$$
+
 实际上这里给了一种 delta 函数的新的定义, 后果是
-$$\boxed{\braket{x|x}\neq 1}$$
+
+$$
+\boxed{\braket{x|x}\neq 1}
+$$
+
 这不是一个 "归一化" 好的状态, 或者说这些态 $\ket{x}$ 不是态空间的状态, 但是态空间中任意归一化好的状态可以用 $\ket{x}$ 做线性展开
 本质上的结果是, 我们实际上不能用一个连续变量 $\ket{x}$ 去得到态空间, 我们不能得到连续维的态空间
 
@@ -172,21 +296,36 @@ $$\boxed{\braket{x|x}\neq 1}$$
 即态空间中的某种列向量, 只不过这个列的指标是一个连续变量
 如果意识到这件事情, 前面对波函数的操作都被赋予的线性代数的意义
 比如内积
-$$\braket{\psi|\phi}=\int\mathrm{d}x\braket{\psi|x}\braket{x|\phi}=\int\mathrm{d}x\psi^*\phi$$
+
+$$
+\braket{\psi|\phi}=\int\mathrm{d}x\braket{\psi|x}\braket{x|\phi}=\int\mathrm{d}x\psi^*\phi
+$$
+
 特别的, 熟知的归一化条件
-$$\braket{\psi|\psi}=\int\mathrm{d}x |\psi|^2=1$$
+
+$$
+\braket{\psi|\psi}=\int\mathrm{d}x |\psi|^2=1
+$$
 
 即波函数平方可积
 
 ### 动量表象
 用完全相同的方式, 可以取动量基础态
-$$\ket{k}=C_k\int \mathrm{d}x e^{-ikx}\ket{x}$$
+
+$$
+\ket{k}=C_k\int \mathrm{d}x e^{-ikx}\ket{x}
+$$
+
 $C_k$ 来源于对归一化条件的指定
 同样可以使用动量基础态展开任何一个归一化好的态, 坐标叫动量空间波函数, 和坐标波函数的关系是 Fourier 变换
 
 >练习: 写出动量表象下的自由粒子 Schrodinger 方程
 >即
->$$i\hbar \frac{\partial}{\partial t}C_p = \frac{p^2}{2m}C_p$$
+>
+> $$
+> i\hbar \frac{\partial}{\partial t}C_p = \frac{p^2}{2m}C_p
+> $$
+>
 >做法是对 Schrodinger 方程做 Fourier 变换
 
 现在把前面的内容推广到任意的经典力学系统
@@ -196,15 +335,25 @@ $C_k$ 来源于对归一化条件的指定
 在任何经典力学系统中, 刻画一个系统的方式是通过相空间, 即
 广义坐标 $q_1,\cdots ,q_N$ 和广义动量 $p_1,\cdots,p_N$ 这些变量生活在一个 2 N 维相空间中
 这些广义坐标和动量不是任意选取的, 需要满足正则关系
-$$\{q_i,p_j\}=\delta_{ij}$$
+
+$$
+\{q_i,p_j\}=\delta_{ij}
+$$
 
 >这里 $\{\}$ 为 Poisson 括号
->$$\{f,g\}\coloneqq \sum_{i}\frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i}-\frac{\partial g}{\partial q_i}\frac{\partial f}{\partial p_i}$$
-
+>
+> $$
+> \{f,g\}\coloneqq \sum_{i}\frac{\partial f}{\partial q_i}\frac{\partial g}{\partial p_i}-\frac{\partial g}{\partial q_i}\frac{\partial f}{\partial p_i}
+> $$
+>
 
 这和对易括号很像, 实际上正则量子化的做法就是在经典力学的相空间和量子力学中的态空间建立某种联系
 做法是把 广义坐标, 动量这些变量的 Poisson 括号解释为 坐标, 动量算符的对易子
-$$\{q_i,p_i\}=\delta_{ij}\leftrightarrow [x_i,p_j]=i\hbar \delta_{ij}$$
+
+$$
+\{q_i,p_i\}=\delta_{ij}\leftrightarrow [x_i,p_j]=i\hbar \delta_{ij}
+$$
+
 在有限维系统中无法做到对易关系
 
 >经典力学系统中的广义坐标甚至不一定是可数的
@@ -237,7 +386,6 @@ $$\{q_i,p_i\}=\delta_{ij}\leftrightarrow [x_i,p_j]=i\hbar \delta_{ij}$$
 >不等价的意思是他们对观测量的预言不同
 >由实验决定
 
-
 ## 带有相互作用的 Schrodinger 方程
 
 怎么在 Schrodinger 方程中加入相互作用?
@@ -255,15 +403,27 @@ $$\{q_i,p_i\}=\delta_{ij}\leftrightarrow [x_i,p_j]=i\hbar \delta_{ij}$$
 >即在波恩 - 奥本海默近似意义下的粒子间的相互作用
 
 结果是
-$$i\hbar\frac{\partial }{\partial t}\psi(t,\vec{x})=\left[-\frac{\hbar^2}{2m}\nabla^2+V(\vec{x})\right]\psi(t,\vec{x})$$
+
+$$
+i\hbar\frac{\partial }{\partial t}\psi(t,\vec{x})=\left[-\frac{\hbar^2}{2m}\nabla^2+V(\vec{x})\right]\psi(t,\vec{x})
+$$
+
 一维非相对论性的粒子 + 外势场
 
 多粒子 Schrodinger 方程的例子
 首先需要一个刻画多粒子的波函数, 推广是直接的 (不是直接加在一起, 这是一个单粒子态)
 正确的做法是张量积
-$$\psi(t,\vec{x}_1,\vec{x}_2)=\braket{\vec{x}_1,\vec{x}_2|\psi}$$
+
+$$
+\psi(t,\vec{x}_1,\vec{x}_2)=\braket{\vec{x}_1,\vec{x}_2|\psi}
+$$
+
 比如说考虑两个带电粒子
-$$i\hbar\frac{\partial }{\partial t}\psi(t,\vec{x}_1,\vec{x}_2)=\left[-\frac{\hbar^2}{2m_1}\nabla_1^2-\frac{\hbar^2}{2m_2}\nabla_2^2+q_1\phi(\vec{x}_1)+q_2\phi(\vec{x}_2)+\frac{q_1q_2}{|\vec{x}_1-\vec{x}_2|}\right]\psi(t,\vec{x}_1,\vec{x}_2)$$
+
+$$
+i\hbar\frac{\partial }{\partial t}\psi(t,\vec{x}_1,\vec{x}_2)=\left[-\frac{\hbar^2}{2m_1}\nabla_1^2-\frac{\hbar^2}{2m_2}\nabla_2^2+q_1\phi(\vec{x}_1)+q_2\phi(\vec{x}_2)+\frac{q_1q_2}{|\vec{x}_1-\vec{x}_2|}\right]\psi(t,\vec{x}_1,\vec{x}_2)
+$$
+
 比如说考虑氢原子的时候, 这就是完整的 Schrodinger 方程
 而波恩 - 奥本海默近似
 首先先按住原子核, 控制他们的位置, 则这些粒子的势场就变成了一种外势场, 再去解方程, 解出来之后再去看电子的波函数对原子核的反作用, 结果就是所谓交换力, 即共价键
@@ -275,11 +435,23 @@ $$i\hbar\frac{\partial }{\partial t}\psi(t,\vec{x}_1,\vec{x}_2)=\left[-\frac{\hb
 离散的结果并不奇怪, 这在经典力学中也存在: 有限范围内的波动的振动模式也是连续的
 
 1 d 的单粒子
-$$i\hbar\frac{\partial }{\partial t}\psi(t,x)=\left[-\frac{\hbar^2}{2m}\nabla^2+V(x)\right]\psi(t,x)$$
+
+$$
+i\hbar\frac{\partial }{\partial t}\psi(t,x)=\left[-\frac{\hbar^2}{2m}\nabla^2+V(x)\right]\psi(t,x)
+$$
+
 首先找定态
-$$\psi(t,x)=\varphi(x)e^{-iEt/\hbar}$$
+
+$$
+\psi(t,x)=\varphi(x)e^{-iEt/\hbar}
+$$
+
 得到
-$$E\varphi(x)=\left[-\frac{\hbar^2}{2m}\nabla^2+V(x)\right]\varphi(x)$$
+
+$$
+E\varphi(x)=\left[-\frac{\hbar^2}{2m}\nabla^2+V(x)\right]\varphi(x)
+$$
+
 即定态 Schrodinger 方程
 
 >实际上是做时间的傅立叶变换, 让时间导数对角化了, 但是由于 $V(x)$ 的形式也许很复杂, 这里不太能做空间的傅立叶变换
@@ -300,22 +472,47 @@ $$E\varphi(x)=\left[-\frac{\hbar^2}{2m}\nabla^2+V(x)\right]\varphi(x)$$
 
 ### 定解条件
 在 $x\to-\infty$ 时, $V\to 0\quad E<0$ 则
-$$\psi(x)\sim e^{\pm\kappa x}\quad \kappa=\sqrt{2m|E|}/\hbar>0\quad x\to-\infty$$
+
+$$
+\psi(x)\sim e^{\pm\kappa x}\quad \kappa=\sqrt{2m|E|}/\hbar>0\quad x\to-\infty
+$$
+
 则 
-$$\psi(x)=c_1\psi_1(x)+c_2\psi_2(x)$$
+
+$$
+\psi(x)=c_1\psi_1(x)+c_2\psi_2(x)
+$$
+
 取
-$$\psi_1(x)\sim e^{\kappa x}\quad \psi_2(x)\sim e^{-\kappa x}$$
+
+$$
+\psi_1(x)\sim e^{\kappa x}\quad \psi_2(x)\sim e^{-\kappa x}
+$$
+
 所以为了 $\psi$ 可以归一化, 在 $-\infty$ 处要求 $c_2=0$ 
 于是 $\psi(x)=c_1\psi_1(x)$
 
 另一端 $x\to+\infty$ 仍有两个独立解
 但我们无权要求 $\psi_1,\psi_2$ 和 $e^{\pm\kappa x}$ 一一对应
 所以 $\psi_1,\psi_2$ 在 $x\to\infty$ 的行为由 Schrodinger 方程确定
-特别地 $$\psi_1\to d_1e^{+\kappa x}+d_2e^{-\kappa x}\quad x\to\infty$$
+特别地
+
+$$
+\psi_1\to d_1e^{+\kappa x}+d_2e^{-\kappa x}\quad x\to\infty
+$$
+
 归一化要求 $d_1=0$ , 而这被方程的参数控制, 即
-$$d_1\left(m,V(x),E\right)=0$$
+
+$$
+d_1\left(m,V(x),E\right)=0
+$$
+
 一般来说给定物理系统时, 我们只能去动束缚态的能量
-$$d_1(E)=0$$
+
+$$
+d_1(E)=0
+$$
+
 >只要方程里的势函数不太坏, 则方程解的系数关于方程参数的函数应该是一个行为良好的函数
 >即 $d_1(E)=0$ 的解应该是一些离散的值
 
@@ -352,13 +549,21 @@ $$d_1(E)=0$$
 规范一点的语言:
 镜像对称: 空间反射 / 宇称 parity 变换
 意思是我们应该把宇称理解为某种算符 $P$
-$$P\ket{1}=\ket{2}\quad P\ket{2}=\ket{1}$$
+
+$$
+P\ket{1}=\ket{2}\quad P\ket{2}=\ket{1}
+$$
+
 也许应该存在一个相因子, 但是这不是本质的, 我们可以重定义态消去相因子
 我们关注的对称性总是某种动力学对称性, 在时间演化的意义下
 
 ### 动力学对称性(时间演化)
 对任意一个系统 
-$$\ket{A(t_1)}=c_1\ket{1}+c_2\ket{2}$$
+
+$$
+\ket{A(t_1)}=c_1\ket{1}+c_2\ket{2}
+$$
+
 然后我们让这个系统做时间演化 $t_1\to t_2$ 到 $\ket{A(t_2)}$
 
 我们同样可以去对初始态做 parity 变换 $P\ket{A(t_1)}=\ket{B(t_1)}$
@@ -370,32 +575,58 @@ $$\ket{A(t_1)}=c_1\ket{1}+c_2\ket{2}$$
 
 此处有一交换图
 
-
 这样的后果是
-$$P\mathcal{U}(t_2,t_1)=\mathcal{U}(t_2,t_1)P$$
+
+$$
+P\mathcal{U}(t_2,t_1)=\mathcal{U}(t_2,t_1)P
+$$
+
 Taylor 展开的结果是
-$$[P,H]=0$$
+
+$$
+[P,H]=0
+$$
+
 这是对称性的一种定义, 对称变换与哈密顿对易
 
 >这显然不只有这种对称性的定义, 如果只和哈密顿交换的话
 >比如在二态系统, 我们能找到无数种对称性
 >考虑哈密顿的本征态, 此时哈密顿是对角的, 在这组坐标基下, 可以去写任意的一个算符
->$$\Lambda =\begin{pmatrix}\lambda_1& 0\\0 & \lambda_2\end{pmatrix}\quad \lambda_1,\lambda_2 \in \mathbb{C}$$
+>
+> $$
+> \Lambda =\begin{pmatrix}\lambda_1& 0\\0 & \lambda_2\end{pmatrix}\quad \lambda_1,\lambda_2 \in \mathbb{C}
+> $$
+>
 >这样的算符都和哈密顿对易, 但显然不是任意的这种算符都叫对称性
 >比如投影
->$$P =\begin{pmatrix}1&0\\0&0\end{pmatrix}$$
+>
+> $$
+> P =\begin{pmatrix}1&0\\0&0\end{pmatrix}
+> $$
+>
 >这也和哈密顿对易, 但我们不把这种东西叫对称性
 
 当我们说一个变换下的不变性的时候, 到底是什么不变?
 Wigner: 如果一个变换是对称性的话, 应该保证观测量不变
 而全部的观测量都应该有这样的形状
-$$|\braket{\chi|\psi}|^2\quad- \text{Wigner}$$
+
+$$
+|\braket{\chi|\psi}|^2\quad- \text{Wigner}
+$$
+
 去问: 满足上面这种东西不变的算符有什么性质?
 考虑一个可能的对称性变换
 
-$$\ket{\psi}\to\mathcal{U}\ket{\psi}$$
+$$
+\ket{\psi}\to\mathcal{U}\ket{\psi}
+$$
+
 要点是这个算符应该作用在所有态上
-$$|\braket{\chi|\psi}|^2\to|\braket{\chi|\mathcal{U}^\dagger \mathcal{U}|\psi}|^2$$
+
+$$
+|\braket{\chi|\psi}|^2\to|\braket{\chi|\mathcal{U}^\dagger \mathcal{U}|\psi}|^2
+$$
+
 观测量的不变性要求这个结果不变
 
 >这种对称性的刻画不涉及系统的动力学! 
@@ -403,9 +634,17 @@ $$|\braket{\chi|\psi}|^2\to|\braket{\chi|\mathcal{U}^\dagger \mathcal{U}|\psi}|^
 
 所以满足这种等式的算符都是什么?
 一种可能是
-$$\braket{\chi|\psi}=\braket{\chi|\mathcal{U}^\dagger \mathcal{U}|\psi}$$
+
+$$
+\braket{\chi|\psi}=\braket{\chi|\mathcal{U}^\dagger \mathcal{U}|\psi}
+$$
+
 这种情况下
-$$1=\mathcal{U}^\dagger\mathcal{U}$$
+
+$$
+1=\mathcal{U}^\dagger\mathcal{U}
+$$
+
 即 $\mathcal{U}$ 是幺正的
 这是一个充分条件
 
@@ -423,28 +662,51 @@ $$1=\mathcal{U}^\dagger\mathcal{U}$$
 >但是 Schrodinger 方程是时间的一阶方程, 如果做一次时间反演会出现一个负号
 >如何保证 Schrodinger 方程是时间反演不变的?
 >回忆热扩散方程
->$$\frac{\partial u}{\partial t}+D\nabla^2u=0$$
+>
+> $$
+> \frac{\partial u}{\partial t}+D\nabla^2u=0
+> $$
+>
 >但 Schrodinger 方程中有复数, 如果做时间反演的同时再去做复共轭, 方程又不变号了
-
 
 ### 时间反演
 这不可以是一个线性算符
 考虑时间反演算符 $\mathcal{T}$
 一些观察: 一些算符在时间反演下的变化
-$$\mathcal{T}\hat{X}\mathcal{T}^{-1}=\hat{X}\quad\mathcal{T}\hat{P}\mathcal{T}^{-1}=-\hat{P}$$
+
+$$
+\mathcal{T}\hat{X}\mathcal{T}^{-1}=\hat{X}\quad\mathcal{T}\hat{P}\mathcal{T}^{-1}=-\hat{P}
+$$
+
 后果是对于量子力学的对易关系
-$$[\hat{X},\hat{P}]=i\hbar$$
+
+$$
+[\hat{X},\hat{P}]=i\hbar
+$$
+
 得到
-$$-[\hat{X},\hat{P}]=\mathcal{T}(i\hbar)\mathcal{T}^{-1}=-i\hbar$$
+
+$$
+-[\hat{X},\hat{P}]=\mathcal{T}(i\hbar)\mathcal{T}^{-1}=-i\hbar
+$$
+
 这表明
-$$[i,\mathcal{T}]\neq 0\quad \mathcal{T}i=-i\mathcal{T}$$
+
+$$
+[i,\mathcal{T}]\neq 0\quad \mathcal{T}i=-i\mathcal{T}
+$$
+
 这表明刻画时间反演的算符是一个反线性, 反幺正的算符
 
 >但是让我们忘掉时间反演
 >假设对称性算符就是幺正算符
 
 即幺正算符形如
-$$\mathcal{U}=\begin{pmatrix}e^{i\delta_1}\\ & \ddots & \\  &&e^{i\delta_n}\end{pmatrix}$$
+
+$$
+\mathcal{U}=\begin{pmatrix}e^{i\delta_1}\\ & \ddots & \\  &&e^{i\delta_n}\end{pmatrix}
+$$
+
 这和第一种动力学对称性的关系是什么?
 有没有和 $H$ 不对易的对称性算符?
 一个例子是惯性系变换, 比如 Galileo 变换
@@ -457,9 +719,17 @@ $$\mathcal{U}=\begin{pmatrix}e^{i\delta_1}\\ & \ddots & \\  &&e^{i\delta_n}\end{
 
 ## 宇称 parity
 在氢分子离子系统中, 宇称的定义是简单的
-$$P\ket{1}=\ket{2}\quad P\ket{2}=\ket{1}$$
+
+$$
+P\ket{1}=\ket{2}\quad P\ket{2}=\ket{1}
+$$
+
 容易验证哈密顿的两个本征态也是宇称的本征态
-$$P\ket{\pm}=\pm\ket{\pm}$$
+
+$$
+P\ket{\pm}=\pm\ket{\pm}
+$$
+
 叫 $+$ 为偶宇称, $-$ 为奇宇称
 
 >这个也要记忆
@@ -468,15 +738,31 @@ $$P\ket{\pm}=\pm\ket{\pm}$$
 
 这件事可以推广到一般系统
 对任意系统, 可以对角化宇称算符
-$$P=\begin{pmatrix}e^{i\delta_1}\\ & \ddots & \\  &&e^{i\delta_n}\end{pmatrix}$$
+
+$$
+P=\begin{pmatrix}e^{i\delta_1}\\ & \ddots & \\  &&e^{i\delta_n}\end{pmatrix}
+$$
+
 注意到
-$$P^2-1=0$$
+
+$$
+P^2-1=0
+$$
+
 >原则上也许是
->$$P^2 -e^{i\delta}=0$$
+>
+> $$
+> P^2 -e^{i\delta}=0
+> $$
+>
 >重要的是这个相位应该对所有态是一样的, 则可以重定义态 or 重定义算符, 使得 $\delta =0$
 
 这表明
-$$e^{i\delta_j}=\pm 1$$
+
+$$
+e^{i\delta_j}=\pm 1
+$$
+
 即宇称变换只有两个本征态: 奇宇称和偶宇称
 
 若宇称守恒 $[P,H]=0$
@@ -486,9 +772,17 @@ $$e^{i\delta_j}=\pm 1$$
 
 例子:
 考虑一个哈密顿的本征态 $\ket{E}$ , 则
-$$H\ket{E} =E\ket{E}$$
+
+$$
+H\ket{E} =E\ket{E}
+$$
+
 考虑宇称变换 $P\ket{E}$
-$$H(P\ket{E})=E (P\ket{E})$$
+
+$$
+H(P\ket{E})=E (P\ket{E})
+$$
+
 一定有 $P\ket{E}\propto \ket{E}$
 这表明 $\ket{E}$ 一定是宇称变换的本征态
 
@@ -499,7 +793,11 @@ $$H(P\ket{E})=E (P\ket{E})$$
 >什么叫左和右?
 >比如在一个系 $(\hat{x}^1,\hat{x}^2,\hat{x}^3)$
 >区分的办法是计算
->$$\epsilon_{ijk}\hat{x}_1^i\hat{x}_2^j\hat{x}_3^k=\begin{cases}+1 \quad \text{右手系}\\ -1\quad\text{左手系}\end{cases}$$
+>
+> $$
+> \epsilon_{ijk}\hat{x}_1^i\hat{x}_2^j\hat{x}_3^k=\begin{cases}+1 \quad \text{右手系}\\ -1\quad\text{左手系}\end{cases}
+> $$
+>
 >但这是一个假的标量, 这个标量在宇称变换下改变符号, 即 pseudo scalar
 
 有多种定义宇称变换的方法
@@ -508,17 +806,32 @@ $$H(P\ket{E})=E (P\ket{E})$$
 
 如果空间旋转是对称性, 那么这两种定义是等价的
 因为第一种宇称变换为
-$$P_1 =\begin{pmatrix}1 \\&1&\\&&-1\end{pmatrix}$$
+
+$$
+P_1 =\begin{pmatrix}1 \\&1&\\&&-1\end{pmatrix}
+$$
+
 第二种定义为
-$$P_1 =\begin{pmatrix}-1 \\&-1&\\&&-1\end{pmatrix}$$
+
+$$
+P_1 =\begin{pmatrix}-1 \\&-1&\\&&-1\end{pmatrix}
+$$
 
 他们相差一个旋转
 在更高维度下看 , 宇称是和单位变换不连通的那个变换, 即分立变换
 
 例子, 在 $d=2$ 时, 上面这两种为
-$$P =\begin{pmatrix}1\\&-1\end{pmatrix}$$
+
+$$
+P =\begin{pmatrix}1\\&-1\end{pmatrix}
+$$
+
 和
-$$P =\begin{pmatrix} -1&\\&-1\end{pmatrix}$$
+
+$$
+P =\begin{pmatrix} -1&\\&-1\end{pmatrix}
+$$
+
 可以看见第二种不是宇称变换, 它是旋转
 
 在 $n$ 维空间中, 宇称变换总是奇数个坐标反号
@@ -527,9 +840,17 @@ $$P =\begin{pmatrix} -1&\\&-1\end{pmatrix}$$
 强, 电磁, 引力相互作用宇称守恒
 这里在讨论的总是一个量子系统
 哈密顿为
-$$H = H_{\text{free}}+H_{\text{weak}}+H_{\text{strong}}+H_{\text{EM}}+H_{\text{gravity}}$$
+
+$$
+H = H_{\text{free}}+H_{\text{weak}}+H_{\text{strong}}+H_{\text{EM}}+H_{\text{gravity}}
+$$
+
 所以宇称不守恒的意思是
-$$[P,H_{\text{weak}}]\neq 0$$
+
+$$
+[P,H_{\text{weak}}]\neq 0
+$$
+
 这实际上是世界上的费米子是分手性的, 它们通过宇称变换联系在一起
 后面是一些科普(
 
@@ -541,11 +862,23 @@ $$[P,H_{\text{weak}}]\neq 0$$
 
 $\Lambda^0$ 是一个重子, $0$ 的意思是不带电, 自旋 $s=1/2$ , 质量 $m\simeq 1116\,\text{MeV}$ 是由 $(uds)$ 组成的
 夸克排序
-$$\begin{pmatrix}u\\ d\end{pmatrix}\begin{pmatrix}c\\ s\end{pmatrix}\begin{pmatrix}t\\ b\end{pmatrix}\quad\begin{align}+\frac{2}{3}\\-\frac{1}{3}\end{align}$$
+
+$$
+\begin{pmatrix}u\\ d\end{pmatrix}\begin{pmatrix}c\\ s\end{pmatrix}\begin{pmatrix}t\\ b\end{pmatrix}\quad\begin{align}+\frac{2}{3}\\-\frac{1}{3}\end{align}
+$$
+
 知道 
-$$\Lambda^0 \to p^+ +\pi^{-}$$
+
+$$
+\Lambda^0 \to p^+ +\pi^{-}
+$$
+
 这个过程由弱作用控制, 其中
-$$\Lambda^0 =uds\quad p^{+}=uud\quad \pi^{-1}=d\overline{u}$$
+
+$$
+\Lambda^0 =uds\quad p^{+}=uud\quad \pi^{-1}=d\overline{u}
+$$
+
 当时物理学家并不知道这个, 但已经知道了这个反应被弱作用控制
 
 >弱作用的意思是在考虑的能量区间里, 弱作用的效应很弱

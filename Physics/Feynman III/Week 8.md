@@ -3,20 +3,56 @@
 
 回顾一下上节课: 电场的时间依赖 $\vec{\varepsilon}(t)$
 取上下的两个基态 $\ket{\phi}=C_{+}\ket{+}+C_-\ket{-}$
-然后取缓慢的振荡解 $$C_{\pm}(t)=\gamma_{\pm}(t)e^{-iE_{\pm}t/\hbar}$$
-得到 $$i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon(t) e^{\mp i 2At/\hbar}\gamma_{\mp}$$
+然后取缓慢的振荡解
+
+$$
+C_{\pm}(t)=\gamma_{\pm}(t)e^{-iE_{\pm}t/\hbar}
+$$
+
+得到
+
+$$
+i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon(t) e^{\mp i 2At/\hbar}\gamma_{\mp}
+$$
+
 > 如果不做近似, 得到的解也是有意思的, 是 .. 方程
 > 这种叫 Floquet Analysis
 
-现在只关心共振情形: 引入一种频率在 $2A$ 附近的电磁波, 即共振条件 $$\omega \sim 2A$$
-代入外场的形式, 得到新的方程 $$i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0\left[e^{i(\omega\mp\omega_0)t}+e^{-i(\omega\pm\omega_0)t}\right]\gamma_{\mp} \quad \omega_0 =2A/\hbar$$
-由于共振, 我们有 $$\omega+\omega_0 \gg |\omega-\omega_0|$$
+现在只关心共振情形: 引入一种频率在 $2A$ 附近的电磁波, 即共振条件
+
+$$
+\omega \sim 2A
+$$
+
+代入外场的形式, 得到新的方程
+
+$$
+i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0\left[e^{i(\omega\mp\omega_0)t}+e^{-i(\omega\pm\omega_0)t}\right]\gamma_{\mp} \quad \omega_0 =2A/\hbar
+$$
+
+由于共振, 我们有
+
+$$
+\omega+\omega_0 \gg |\omega-\omega_0|
+$$
+
 现在的做法就是尺度分隔: 我们略去大量, 保留小量
 >这件事情可以做的原因是因为 任何物理测量都是带着精度的, 这个精度不仅指空间, 也指时间
 >我们总是在一个有限区间上测量物理量的变化
 >所以我们应该做的是在某个时间尺度上解方程
 
-要做的就是在某个时间周期上取平均, 即 $$T=\frac{2\pi}{\omega+\omega_0}$$时间平均的意思就是对时间积分, 但是应该留下一种时间: 我们能测量到的时间 $$\frac{\omega+\omega_0}{2\pi}\int_{t}^{t+T}\mathrm{d}t\begin{cases}e^{\pm i(\omega+\omega_0)t}\\ 1\end{cases}=\begin{cases}0 \\ 1\end{cases}$$
+要做的就是在某个时间周期上取平均, 即
+
+$$
+T=\frac{2\pi}{\omega+\omega_0}
+$$
+
+时间平均的意思就是对时间积分, 但是应该留下一种时间: 我们能测量到的时间
+
+$$
+\frac{\omega+\omega_0}{2\pi}\int_{t}^{t+T}\mathrm{d}t\begin{cases}e^{\pm i(\omega+\omega_0)t}\\ 1\end{cases}=\begin{cases}0 \\ 1\end{cases}
+$$
+
 >对于频率更低的 $\omega-\omega_0$, 我们应该认为这是在周期内是一个缓变的量, 应该拿到积分号外: 
 >即我们有权利把更快的项严格地去掉, 这不仅是数学严格地, 并且意味着你能做更高阶的近似
 > 误差项是带着 $\omega+\omega_0$ 的变化阶的项
@@ -25,22 +61,51 @@
 
 # Chapter 10 其他双态系统
 
-再回顾之前的内容: 封闭的双态系统的哈密顿的一般形式 $$H = \begin{pmatrix}E_1 & -A \\ -A & E_2\end{pmatrix}$$
+再回顾之前的内容: 封闭的双态系统的哈密顿的一般形式
+
+$$
+H = \begin{pmatrix}E_1 & -A \\ -A & E_2\end{pmatrix}
+$$
+
 而非对角元的相位可以通过坐标变换消掉, 本征态是好解的
 
 >我们总说 $E_1$ 和 $E_2$ 是双态系统的基础态的能量, 这是一个糟糕的术语:
 >这是当忽略掉 $A$ 时的能量
 >
->举个例子:比如考虑电子的哈密顿 $$H = 1/2 m_e v^2 + V_{\text{Coulomb}}$$
->这个库伦场的来源: 因为电子有电磁场, 电磁场的能量 $$\phi \sim \frac{e}{r}\to|E|^2$$
+> 举个例子:比如考虑电子的哈密顿
 >
-实际上我们永远不能测到电子的质量: 测量电子质量的方法是推电子, 去测加速度, 但推动时也推动了电磁场, 这会对电子的质量产生贡献. 但我们并不用考虑这件事, 因为在非相对论情形这项很小, 被 $c^2$ 压制 $$m =m_e +\frac{V_e}{c^2}$$但在相对论情形, 不再能取 $c\to \infty$ , 故不能忽略
+> $$
+> H = 1/2 m_e v^2 + V_{\text{Coulomb}}
+> $$
+>
+> 这个库伦场的来源: 因为电子有电磁场, 电磁场的能量
+>
+> $$
+> \phi \sim \frac{e}{r}\to|E|^2
+> $$
+>
+> 实际上我们永远不能测到电子的质量: 测量电子质量的方法是推电子, 去测加速度, 但推动时也推动了电磁场, 这会对电子的质量产生贡献. 但我们并不用考虑这件事, 因为在非相对论情形这项很小, 被 $c^2$ 压制
+>
+> $$
+> m =m_e +\frac{V_e}{c^2}
+> $$
+>
+> 但在相对论情形, 不再能取 $c\to \infty$ , 故不能忽略
 >这种量实际上叫做裸量 bare mass
 实际上你知道裸量都是非物理的量, 你永远也无法测得它们, 它们是理论中构造的量
 
+哈密顿的本征值是容易解得的
 
-哈密顿的本征值是容易解得的 $$E_{\pm}=\frac{1}{2}\left[E_1+E_2\pm\sqrt{(E_1-E_2)^2+4A^2}\right]$$
-当 $|E_1-E_2|\gg A$ 时 $$E_{+}-E_- =E_1-E_2+\frac{A}{E_1-E_2}A$$
+$$
+E_{\pm}=\frac{1}{2}\left[E_1+E_2\pm\sqrt{(E_1-E_2)^2+4A^2}\right]
+$$
+
+当 $|E_1-E_2|\gg A$ 时
+
+$$
+E_{+}-E_- =E_1-E_2+\frac{A}{E_1-E_2}A
+$$
+
 一个有用的观察是: 耦合会导致能级分裂, 使得一个能量更高, 一个能量更低, 这叫能级的排斥
 这都是在回顾之前的内容
 
@@ -69,15 +134,50 @@ Feynman 在之前提到这种能级分裂对背景的反作用
 >我们现在就研究这种力
 
 半定量分析: 某种 WKB 近似  我们总假设电子处在基态上
-具有确定能量 $E$ 的自由电子的波函数 $$\psi(r)=\frac{1}{r}e^{+i\phi(E)r/\hbar}$$
-$\phi(E)$ 是某种非相对论色散关系 $$E=\frac{p^2}{2m}\to\phi(E)$$
+具有确定能量 $E$ 的自由电子的波函数
+
+$$
+\psi(r)=\frac{1}{r}e^{+i\phi(E)r/\hbar}
+$$
+
+$\phi(E)$ 是某种非相对论色散关系
+
+$$
+E=\frac{p^2}{2m}\to\phi(E)
+$$
 
 现在做糟糕的事情: 将自由电子得到的结果用在束缚态里
 对于束缚态 $E < 0 \quad |E|\ll m_e$
-故如果还用电子非相对论性的色散关系 $$p=i\sqrt{2m_e|E|}$$
-故电子从某个位置传播到 $r$ 远处的概率幅 $$\psi(r)\sim \frac{1}{r} e^{-\sqrt{2m_e|E|}r/\hbar}$$ 现在系统有两部分能量: 一部分是库伦势, 一部分是交换势(电子的隧穿效应) $$V(r)=V_{\text{Coulomb}}+V_{ex}(r)$$
-而 $$V_{ex}(r)\sim A(r)\sim\psi(r)$$
-交换势产生了某种束缚态, 即势能出现局部极小值, 对应的力 $$F \sim-\nabla V_{ex}\sim-\nabla\psi(r)$$
+故如果还用电子非相对论性的色散关系
+
+$$
+p=i\sqrt{2m_e|E|}
+$$
+
+故电子从某个位置传播到 $r$ 远处的概率幅
+
+$$
+\psi(r)\sim \frac{1}{r} e^{-\sqrt{2m_e|E|}r/\hbar}
+$$
+
+现在系统有两部分能量: 一部分是库伦势, 一部分是交换势(电子的隧穿效应)
+
+$$
+V(r)=V_{\text{Coulomb}}+V_{ex}(r)
+$$
+
+而
+
+$$
+V_{ex}(r)\sim A(r)\sim\psi(r)
+$$
+
+交换势产生了某种束缚态, 即势能出现局部极小值, 对应的力
+
+$$
+F \sim-\nabla V_{ex}\sim-\nabla\psi(r)
+$$
+
 即交换产生了某种等效的吸引力
 
 > $A\sim \psi$ ?
@@ -95,7 +195,6 @@ $\phi(E)$ 是某种非相对论色散关系 $$E=\frac{p^2}{2m}\to\phi(E)$$
 >但非对称的双原子分子容易形成, 原因是此时多了一个电子
 >因为多了一个电子, 实际上的基态也是两个相同能量的基态, 故仍然有交换的等效力
 
-
 >为什么全同粒子可以分出这么多态?
 >比如氢分子离子的两个质子, 但是此时质子的 de Brogile 波长很小, 所以由交换质子产生的幅被指数压低
 >即这种情况可以把费米子当经典粒子
@@ -106,30 +205,63 @@ $\phi(E)$ 是某种非相对论色散关系 $$E=\frac{p^2}{2m}\to\phi(E)$$
 
 ## 核力 四种基本相互作用
 
-
 核力 (汤川 yukawa force)
 
 >汤川认为核子之间的作用应该也是一种交换效应, 交换的粒子叫 $\pi$ 介子
 >$\pi$ 介子
 >带电的 $\pi$ 介子通过弱相互作用衰变, 不带电的通过电磁相互作用衰变: 衰变为两个光子
 
-非相对论性的 $P-N$ 散射 $$E_p \simeq m_p \quad E_n\simeq m_n$$
-则发生散射的能量差差不多就是质子和中子的能量差 $$|E_p-E_n|\simeq |m_p-m_n|\ll m_{\pi}$$
-即在质子发射一个 $\pi$ 介子变成中子的时候, 这个过程能量应该是守恒的 $$E_{\pi}\sim |E_p-E_n|\ll m_{\pi}$$
->你可能觉得 $\pi$ 介子是一个非相对论性的介子, 但这不对, 这里必须使用相对论性的色散关系 $$\sqrt{p_{\pi}^2+m_{\pi}^2}\ll m_{\pi}\implies p_{\pi}\simeq im_{\pi}$$
+非相对论性的 $P-N$ 散射
 
-外推到束缚态, 则可认为交换势有如下形式 , 即 Yukawa 势$$\boxed{V(r)\sim\frac{1}{r}e^{-m_{\pi}r/\hbar}}$$
+$$
+E_p \simeq m_p \quad E_n\simeq m_n
+$$
+
+则发生散射的能量差差不多就是质子和中子的能量差
+
+$$
+|E_p-E_n|\simeq |m_p-m_n|\ll m_{\pi}
+$$
+
+即在质子发射一个 $\pi$ 介子变成中子的时候, 这个过程能量应该是守恒的
+
+$$
+E_{\pi}\sim |E_p-E_n|\ll m_{\pi}
+$$
+
+> 你可能觉得 $\pi$ 介子是一个非相对论性的介子, 但这不对, 这里必须使用相对论性的色散关系
+>
+> $$
+> \sqrt{p_{\pi}^2+m_{\pi}^2}\ll m_{\pi}\implies p_{\pi}\simeq im_{\pi}
+> $$
+>
+
+外推到束缚态, 则可认为交换势有如下形式 , 即 Yukawa 势
+
+$$
+\boxed{V(r)\sim\frac{1}{r}e^{-m_{\pi}r/\hbar}}
+$$
+
 >但这本质上是在胡扯
 >这个散射过程是极短的, 那么你就不能认为这是能量守恒的, 因为你无法测量能量
 >并且由于时间极短, 实际上应该考虑多次粒子的交换, 对于束缚态系统, 更是无穷次粒子的交换!
 >在做物理的时候, 应该知道哪些问题是胡扯, 而且并不排斥胡扯
 
-则 Yukawa 势有如下渐进 $$\begin{cases}r\ll m_{\pi}^{-1} \quad V\to 0\\r\ll m_{\pi}^{-1} \quad V\sim\frac{1}{r}\end{cases}$$
+则 Yukawa 势有如下渐进
+
+$$
+\begin{cases}r\ll m_{\pi}^{-1} \quad V\to 0\\r\ll m_{\pi}^{-1} \quad V\sim\frac{1}{r}\end{cases}
+$$
+
 这个结果可以估计光子质量的下限
 
 ## 交换力
 重新讲之前的氢分子离子: 在看两个质子和一个电子形成的系统里, 把两个质子按住, 然后去看势能和电子位置的关系, 可以看到有两个势井(两个质子) , 在双态系统, 因为有一个非零的隧穿概率, 于是哈密顿有非 $0$ 的非对角元
-$$A\propto \psi(r)\propto \frac{1}{r}e^{-\sqrt{2mE}r/\hbar}$$
+
+$$
+A\propto \psi(r)\propto \frac{1}{r}e^{-\sqrt{2mE}r/\hbar}
+$$
+
 这里一个重要的地方是使用了电子非相对论性的色散关系, 才能这么写虚动量
 由于存在非 0 的对角元, 于是存在能级分裂 $E-A,E+A$ 这里我们不关心一切相位和符号, 总之就是有一个高能级和低能级, 重要的是分裂后形成的基态能量比原先低 $|A|$ , 并且我们假设电子坐在分裂的基态上
 
@@ -138,9 +270,22 @@ $$A\propto \psi(r)\propto \frac{1}{r}e^{-\sqrt{2mE}r/\hbar}$$
 此时去看能量作为电子距离的函数 $E-A(r)$ , 可以看到这个能量和电子距离是成正相关的, 于是等效出一个引力
 
 然后是核力, 同样可以看作一个三体系统: 质子, 中子和一个 $\pi$ 介子, 我们得到了一个交换势 
-$$\boxed{V(r)\sim\frac{1}{r}e^{-m_{\pi}r/\hbar}}$$这里和氢分子离子的区别在于: 在计算介子的虚动量时使用了相对论性的色散关系 $$E_{\pi}=|E_n-E_p|=\sqrt{m_\pi^2+p_{\pi}^2}$$
+
+$$
+\boxed{V(r)\sim\frac{1}{r}e^{-m_{\pi}r/\hbar}}
+$$
+
+这里和氢分子离子的区别在于: 在计算介子的虚动量时使用了相对论性的色散关系
+
+$$
+E_{\pi}=|E_n-E_p|=\sqrt{m_\pi^2+p_{\pi}^2}
+$$
+
 而 
-$$m_{\pi}\sim O(100MeV)\quad E_{\pi}\sim O(MeV)$$
+
+$$
+m_{\pi}\sim O(100MeV)\quad E_{\pi}\sim O(MeV)
+$$
 
 >上面两种情形类似, 但使用不同的色散关系: 同样是动量远小于静质能
 >在做氢分子离子的系统中, 电子数是守恒的, 当你在讨论电子的能量时, 必须选好能量的基准: 你不能把电子关掉, 你做的最好的方式是把电子拿到无穷远, 所以使用相对论性的色散关系时也应该减去电子的静质能
@@ -179,7 +324,12 @@ $$m_{\pi}\sim O(100MeV)\quad E_{\pi}\sim O(MeV)$$
 >即单粒子交换近似的条件为 : 高能散射
 >粒子散射的能量远高于束缚态的能量 , 原则上不需要相对论性
 
-重复我们之前关于核力的讨论, 得到电子的交换势 - 库伦势 $$\boxed{V(r)\sim\frac{1}{r}}$$
+重复我们之前关于核力的讨论, 得到电子的交换势 - 库伦势
+
+$$
+\boxed{V(r)\sim\frac{1}{r}}
+$$
+
 >在质心系里, 库伦散射不改变初末态的能量
 >这解释不了电子和质子的相互作用( , 本身这个理论就是不严格的
 
@@ -274,16 +424,30 @@ $$m_{\pi}\sim O(100MeV)\quad E_{\pi}\sim O(MeV)$$
 在狭义相对论中, 实际上需要考虑源 $j^\mu =(\rho,\vec{j})$ , 而光子是自旋 1 的粒子
 交换的相互作用的 lagrangian 应该是一个标量 $\Delta \mathcal{L}\sim j_{\mu}A^{\mu}$
 光子的交换力应该是某种流的函数, 在这种意义上光子应该消失掉
-应该去猜 流 - 流相互作用的 lagrangian $$\mathcal{L}\sim j_{1\mu}j^{2\mu}=-\rho_1\rho_2 +\vec{j_1}\cdot\vec{j_2}$$即狭义相对论的后果: 相对论的协变性要求
+应该去猜 流 - 流相互作用的 lagrangian
+
+$$
+\mathcal{L}\sim j_{1\mu}j^{2\mu}=-\rho_1\rho_2 +\vec{j_1}\cdot\vec{j_2}
+$$
+
+即狭义相对论的后果: 相对论的协变性要求
 同号电荷相斥(吸) , 则同向电流相吸(斥)
 解释同号电流是相吸的: 这需要解释光子是什么
 光子 $A_{\mu}=(0,A_x,A_y,0)$ (沿 $z$ 方向运动) 即物理的真实光子藏在空间分量中
 而交换空间光子是吸引的, 即流和流之间的电磁相互作用是吸引的 $\sim \vec{j}\cdot \vec{A}$ 
 
-
 ## 为什么万有引力是吸引的?
 引力 $s=2$ 
-引力子 (沿 $z$ 方向) $$h_{\mu\nu}=\begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & * &*&0\\0 &*&*&0\\ 0&0&0&0\end{pmatrix}$$ 刻画源的是能动量张量 $$T_{\mu\nu} =
+引力子 (沿 $z$ 方向)
+
+$$
+h_{\mu\nu}=\begin{pmatrix}0 & 0 & 0 & 0 \\ 0 & * &*&0\\0 &*&*&0\\ 0&0&0&0\end{pmatrix}
+$$
+
+刻画源的是能动量张量
+
+$$
+T_{\mu\nu} =
 \left(
 \begin{array}{c|ccc}
 \rho & & \mathbf{p}^{T} & \\[2pt]\hline
@@ -291,18 +455,36 @@ $$m_{\pi}\sim O(100MeV)\quad E_{\pi}\sim O(MeV)$$
 \mathbf{p} & & \boldsymbol{\Pi} & \\
 & & &
 \end{array}
-\right)$$
+\right)
+$$
+
 故事的结果是: 同向的动量流密度之间的万有引力是吸引的, 同向动量密度之间的万有引力是排斥的, 同号的能量密度之间的万有引力是吸引的
 
 >>关于上面的内容, 我不知道在说什么
 
-
 ## Appendix
 完成文中跳过的一些计算和补充一些内容
 首先是方程的解: 
-$$i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0\left[e^{i(\omega\mp\omega_0)t}+e^{-i(\omega\pm\omega_0)t}\right]\gamma_{\mp} \quad \omega_0 =2A/\hbar$$
+
+$$
+i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0\left[e^{i(\omega\mp\omega_0)t}+e^{-i(\omega\pm\omega_0)t}\right]\gamma_{\mp} \quad \omega_0 =2A/\hbar
+$$
+
 在共振情形, 在尺度分隔的意义上, 对时间做平均得到(下面是共振情形的解)
-$$i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0 e^{\pm i(\omega-\omega_0)t}\gamma_{\mp}\implies i\hbar\ddot{\gamma_{\pm}}=\mu\varepsilon_0 e^{i(\omega-\omega_0)t}\dot{\gamma_{\mp}}=\mu^2\varepsilon_0^2 \gamma_{\pm}/i\hbar$$
+
+$$
+i\hbar \dot{\gamma}_{\pm}=\mu\varepsilon_0 e^{\pm i(\omega-\omega_0)t}\gamma_{\mp}\implies i\hbar\ddot{\gamma_{\pm}}=\mu\varepsilon_0 e^{i(\omega-\omega_0)t}\dot{\gamma_{\mp}}=\mu^2\varepsilon_0^2 \gamma_{\pm}/i\hbar
+$$
+
 即
-$$\ddot{\gamma}_{\pm}=-\left(\frac{\mu\varepsilon_0}{\hbar}\right)^2 \gamma_{\pm}$$
-通解 $$\begin{align}&\gamma_{+}(t) =a \cos(\frac{\mu\varepsilon_0}{\hbar} t)+b\sin(\frac{\mu\varepsilon_0}{\hbar}t)\\ &\gamma_{-}(t)= ib\cos(\frac{\mu\varepsilon_0}{\hbar}t)-ia\sin(\frac{\mu\varepsilon_0}{\hbar}t) \end{align}$$
+
+$$
+\ddot{\gamma}_{\pm}=-\left(\frac{\mu\varepsilon_0}{\hbar}\right)^2 \gamma_{\pm}
+$$
+
+通解
+
+$$
+\begin{align}&\gamma_{+}(t) =a \cos(\frac{\mu\varepsilon_0}{\hbar} t)+b\sin(\frac{\mu\varepsilon_0}{\hbar}t)\\ &\gamma_{-}(t)= ib\cos(\frac{\mu\varepsilon_0}{\hbar}t)-ia\sin(\frac{\mu\varepsilon_0}{\hbar}t) \end{align}
+$$
+

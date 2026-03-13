@@ -1,9 +1,17 @@
 # Chapter 13 晶格中的传播
 之前全同玻色子的张量积的系数
-$$\ket{p_1,p_2}=\frac{1}{2}(\ket{p_1}\otimes \ket{p_2}+\ket{p_2}\otimes\ket{p_2})$$
+
+$$
+\ket{p_1,p_2}=\frac{1}{2}(\ket{p_1}\otimes \ket{p_2}+\ket{p_2}\otimes\ket{p_2})
+$$
+
 问前面的系数是 1/2 还是 $1/\sqrt{2}$ 
 实际上这完全取决于怎么取归一化
-$$\braket{q_1,q_2|p_1,p_2}=\frac{1}{4}(\braket{q_1|p_1}\braket{q_2| p_2}+\cdots)=\frac{1}{2}[\delta_{p_1,q_1}\delta_{p_2,q_2}+\delta_{p_1,q_2}\delta_{q_1,p_2}]$$
+
+$$
+\braket{q_1,q_2|p_1,p_2}=\frac{1}{4}(\braket{q_1|p_1}\braket{q_2| p_2}+\cdots)=\frac{1}{2}[\delta_{p_1,q_1}\delta_{p_2,q_2}+\delta_{p_1,q_2}\delta_{q_1,p_2}]
+$$
+
 这可以定义为张量积的归一化条件, 这个系数其实不重要, 只要你的归一化条件保持一致即可
 对 Fermion 也是相同的
 
@@ -24,6 +32,7 @@ $$\braket{q_1,q_2|p_1,p_2}=\frac{1}{4}(\braket{q_1|p_1}\braket{q_2| p_2}+\cdots)
 即态空间为 $\mathcal{H} =\mathrm{Span}\{\ket{n}\quad,\quad n=1,2,\cdots,N\}$ , 即这是一个有限维的问题
 另一件事情是晶格之间的电子可以发生隧穿, 作为最简单的假设: 只有近邻格点间的电子可以隧穿, 并且隧穿幅为 $-A$ 
 从而系统的 Hamiltonian 在上述基础态的表示
+
 $$
 H =
 \begin{pmatrix}
@@ -34,24 +43,57 @@ H =
        &        &        &        & \ddots & \ddots & \ddots
 \end{pmatrix}
 $$
+
 这样任何状态有基础态展开
-$$\ket{\psi}=\sum_nc_n\ket{n}$$
+
+$$
+\ket{\psi}=\sum_nc_n\ket{n}
+$$
+
 在这组基下也可以写出 Schrodinger 方程
-$$i\hbar \frac{\partial}{\partial t}c_n =E_0c_n -A(c_{n+1}+c_{n-1})$$
+
+$$
+i\hbar \frac{\partial}{\partial t}c_n =E_0c_n -A(c_{n+1}+c_{n-1})
+$$
+
 一个直觉是 $c_n$ 应该有一个相同的相因子, 实际上是在做 Fourier 变换
-$$c_n(t) =e^{-iEt/\hbar}\times ?$$
+
+$$
+c_n(t) =e^{-iEt/\hbar}\times ?
+$$
+
 一个猜解是
-$$c_n = c(x_n) \quad x_n =nb$$
+
+$$
+c_n = c(x_n) \quad x_n =nb
+$$
+
 这里 $b$ 是格距, 则上面的哈密顿实际上是某种空间导数
 所以猜解是 $c_n$ 有某种平面波的形式
-$$c(x_n) =\exp[-iEt/\hbar+ikx_n]$$
+
+$$
+c(x_n) =\exp[-iEt/\hbar+ikx_n]
+$$
+
 代入方程
-$$Ec_n =E_0 c_n-Ac_n\times 2\cos(kb)$$
+
+$$
+Ec_n =E_0 c_n-Ac_n\times 2\cos(kb)
+$$
+
 即, 可以发现能量关于时间的依赖消失了
-$$\boxed{E =E_0-2A\cos(kb)}$$
+
+$$
+\boxed{E =E_0-2A\cos(kb)}
+$$
+
 得到了一个有波数 $k$ 的东西, 这意味着找到了某种色散关系
 叫这个波动解为 
-$$\ket{k} =\sum \exp(-iEt/\hbar+ik x_n) \ket{n}$$
+
+$$
+\ket{k} =\sum \exp(-iEt/\hbar+ik x_n) \ket{n}
+$$
+
 这个结果实际上就是 Bloch wave
 我们期待这种 wave 应该对应某种粒子
 
@@ -74,7 +116,11 @@ $$\ket{k} =\sum \exp(-iEt/\hbar+ik x_n) \ket{n}$$
 这些故事就是导体半导体之类东西 (3./4.)
 
 >看这种准粒子的方法是去做长波极限 $k\to 0$
->$$E = E_0 -2A+A(kb)^2=(E_0-2A)+p^2/2m_{\text{eff}}$$ 
+>
+> $$
+> E = E_0 -2A+A(kb)^2=(E_0-2A)+p^2/2m_{\text{eff}}
+> $$
+>
 >得到一个非相对论性的色散关系, 有有效质量 $m_{\text{eff}} =\frac{\hbar^2}{2Ab^2}$
 >这实际上是把色散关系在底端展开
 >这种准粒子是电子在某种周期性势场中的集体效应 (集体不是多电子, 是单电子的多个状态干涉)
@@ -84,26 +130,53 @@ $$\ket{k} =\sum \exp(-iEt/\hbar+ik x_n) \ket{n}$$
 >>可以计算一下这个有效质量的大小, 作为直观认识
 
 同样, 可以计算这种波动的群速度
-$$v_g =\frac{\mathrm{d}E}{\mathrm{d}k}=2Ab\sin kb$$
+
+$$
+v_g =\frac{\mathrm{d}E}{\mathrm{d}k}=2Ab\sin kb
+$$
+
 在 $k\to 0$ 的极限下, 群速度正比于 $k$ 和预想的一样 
 但是在非常大的 $k$ 下, 比如 $k=\pi/b$ 时, 有 $v_g=0$
 
 这件事情可以简单地推广到三维晶格
 仍然可以找到一个 bloch 波动解
-$$\ket{k} =\ket{k_1,k_2,k_3}=\sum_{n_1,n_2,n_3}\exp(+i\vec{k}\cdot\vec{x}_n-iEt/\hbar)\ket{n_1,n_2,n_3}$$
+
+$$
+\ket{k} =\ket{k_1,k_2,k_3}=\sum_{n_1,n_2,n_3}\exp(+i\vec{k}\cdot\vec{x}_n-iEt/\hbar)\ket{n_1,n_2,n_3}
+$$
+
 得到三维的色散关系
-$$E=E_0-2\sum_{i=1}^{3}A_i\cos(k_ib_i)$$
+
+$$
+E=E_0-2\sum_{i=1}^{3}A_i\cos(k_ib_i)
+$$
+
 >这里的隧穿同样只考虑了相邻格子的隧穿
 
 在这种情况下, 再取长波极限 $\vec{k}\to \vec{0}$ , 得到了某种色散关系, 但是不同的地方在于, 得到了一种方向依赖的质量
-$$E = E_0 -\sum_{i=1}^3 A_i (b_ik_i)^2$$
+
+$$
+E = E_0 -\sum_{i=1}^3 A_i (b_ik_i)^2
+$$
+
 所以一般情况下, 我们并不能把这个色散关系写成一个三维粒子的色散关系 $\vec{p}^2/2m_{\mathrm{eff}}$ , 因为这不是对角的
 而是应该写成张量
-$$E = (\frac{\hbar^2}{2m_{\text{eff}}})_{ij}k_ik_k$$
+
+$$
+E = (\frac{\hbar^2}{2m_{\text{eff}}})_{ij}k_ik_k
+$$
+
 这件事并不神奇, 因为一般的晶格并没有空间旋转对称性, 但在特殊的情形: 
-$$A_1 b_1^2=A_2b_2^2=A_3b_3^2$$
+
+$$
+A_1 b_1^2=A_2b_2^2=A_3b_3^2
+$$
+
 我们就得到一个各向同性的色散关系
-$$E =\frac{\vec{p}^2}{2m_{\text{eff}}}$$
+
+$$
+E =\frac{\vec{p}^2}{2m_{\text{eff}}}
+$$
 
 >这种叫做宏观衍生 (emergent) 的旋转对称性
 >衍生的意思是: 这是一个在微观上本身没有对称性, 但在宏观, 低能的极限下
@@ -127,32 +200,46 @@ $$E =\frac{\vec{p}^2}{2m_{\text{eff}}}$$
 意思是说仍然有前面的晶格系统, 但是有一个格点的能量被移动为了 $E_0+F$ , 不妨取第 $0$ 个
 即哈密顿量几乎是规则的, 除了第 $n$ 个对角元变得不一样 
 假设缺陷并不改变相邻的隧穿幅 (这个假设一般是不对的, 但是不做的结果只是增加计算量)
-$$H =
+
+$$
+H =
 \begin{pmatrix}
 \ddots & \ddots & \ddots &        &        &        \\
        & -A     & E_0    & -A     &        &        \\
        &        & -A     & E_0+F    & -A     &        \\
        &        &        & -A     & E_0    & -A     \\
        &        &        &        & \ddots & \ddots & \ddots
-\end{pmatrix}$$
+\end{pmatrix}
+$$
+
 显然, 问题还是对角化这个哈密顿
 作为物理课, 正确的做法是猜解: 只要捂住第 $n$ 个矩阵元, 其他解都是没问题的
 而被捂住的地方会导致: 空间背景不再是均匀的, 对 bloch wave 来说可以想象在这里会发生反射, 透射
 所以正确的做法是引入两个方向的 bloch wave
 
 绝大多数的方程是相同的
-$$i\hbar \frac{\partial}{\partial t}c_n =E_0c_n -A(c_{n+1}+c_{n-1})\quad n\neq 0$$
+
+$$
+i\hbar \frac{\partial}{\partial t}c_n =E_0c_n -A(c_{n+1}+c_{n-1})\quad n\neq 0
+$$
+
 在缺陷处
-$$i\hbar \frac{\partial}{\partial t}c_n =(E_0+F)c_n -A(c_{n+1}+c_{n-1})\quad n= 0$$
+
+$$
+i\hbar \frac{\partial}{\partial t}c_n =(E_0+F)c_n -A(c_{n+1}+c_{n-1})\quad n= 0
+$$
+
 所以引入的解为
-$$c_n =
+
+$$
+c_n =
 \left\{
 \begin{aligned}
 e^{ikx_n} + \beta e^{-ikx_n} \quad & n < 0\\
 \gamma e^{ikx_n}\quad & n > 0
 \end{aligned}
-\right.$$
-
+\right.
+$$
 
 >这不是对称性自发破缺, 因为现在找的不是基态
 >你坐在教室的某个位置不是空间平移对称性的**自发**破缺
@@ -164,12 +251,16 @@ e^{ikx_n} + \beta e^{-ikx_n} \quad & n < 0\\
 >总之这三个方程可以确定三个未知量 $\beta,\gamma,c_0$
 
 并且色散关系是不变的 $E= E_0-2A\cos kb$ , 就可以定出
-$$\begin{align}
+
+$$
+\begin{align}
 \begin{cases}
 \beta = \dfrac{-F}{F - 2 i A \sin(kb)}\\
 \gamma = \dfrac{-2 i A \sin(kb)}{F - 2 i A \sin(kb)}
 \end{cases}
-\end{align}$$
+\end{align}
+$$
+
 ## 束缚态
 可以想象的事情是缺陷的位置可能会导致一个束缚态 $F<0$ 
 这时候实际上是得到了某种势阱 , 现在我们做的完全就是离散版本的求解势井
@@ -181,18 +272,34 @@ $$\begin{align}
 这里就会看到能量小于能带底端, 会导致虚波数 $k$ 
 做法是取 $k$ 为纯虚数 $k =i\kappa$ 
 可以继续猜解
-$$c_n =\begin{cases}c e^{+\kappa x_n}\quad n<0\\ c'e^{-\kappa x_n} \quad n>0\end{cases}$$
+
+$$
+c_n =\begin{cases}c e^{+\kappa x_n}\quad n<0\\ c'e^{-\kappa x_n} \quad n>0\end{cases}
+$$
+
 这里和前面不一样的地方来源于归一化要求不能有指数增加的成分
 然后要做的事情仍然是代入方程
 对 $|n|>1$ , 有
-$$E = E_0 -2A \cosh \kappa b$$
+
+$$
+E = E_0 -2A \cosh \kappa b
+$$
+
 >同样这里做的事情仍是一种解析延拓
 >我们得到了一种实的波数解, 然后我们让这个波数可以取复值
 
 代入其他方程, 可以确定两个系数和 $c_0$ , 结果是
-$$\begin{cases}c=c'=c_0\\ F =-2A\sinh \kappa b\end{cases}$$
+
+$$
+\begin{cases}c=c'=c_0\\ F =-2A\sinh \kappa b\end{cases}
+$$
+
 这里不一样的地方是: 波数是唯一确定的, 将这个波数代入色散关系, 得到束缚态的能量
-$$E =E_0 -\sqrt{(2A)^2+F^2}$$
+
+$$
+E =E_0 -\sqrt{(2A)^2+F^2}
+$$
+
 这确实比能带的所有能量都低
 即对应于稠密的能带下方的一个孤立的状态
 
@@ -200,7 +307,11 @@ $$E =E_0 -\sqrt{(2A)^2+F^2}$$
 >他也是哈密顿量的本征态
 
 有意思的是得到了散射振幅可以改写为能量的函数
-$$\beta=\beta(E)$$
+
+$$
+\beta=\beta(E)
+$$
+
 如果要求 $E$ 可以取复值, 那么可以发现, 束缚态的能量来自于 $\beta(E)$ 的极点, 自由传播态的能量对应于 $\beta(E)$ 的割线
 这是一个非常一般的结果: 但凡你看到一个极点, 他就是极点, 但凡看到一个割线, 他就是割线
 
@@ -231,7 +342,10 @@ $$\beta=\beta(E)$$
 这里不仅是考虑单粒子, 都是在每个格点放一个 Hilbert 空间 $\mathcal{H}_n$ , 一共有 $N$ 个
 
 并且 
-$$\mathcal{H}_{n}=\mathrm{Span}\{\ket{\pm z}\}\quad \dim \mathcal{H}_n =2$$
+
+$$
+\mathcal{H}_{n}=\mathrm{Span}\{\ket{\pm z}\}\quad \dim \mathcal{H}_n =2
+$$
 
 >物理上可以认为是在每一个格点上放一个自由转的电子, 那就是自旋态放在格点上
 >即每个格点是一个二态空间
@@ -239,23 +353,41 @@ $$\mathcal{H}_{n}=\mathrm{Span}\{\ket{\pm z}\}\quad \dim \mathcal{H}_n =2$$
 现在问整个系统处在什么样的空间, 可以发现就是氢原子的超精细结构的推广, 前者是两格点的情形
 
 结果是张量积
-$$\mathcal{H} =\bigotimes_{n=1}^N \mathcal{H}_{n}\quad \dim\mathcal{H}=2^N$$
+
+$$
+\mathcal{H} =\bigotimes_{n=1}^N \mathcal{H}_{n}\quad \dim\mathcal{H}=2^N
+$$
 
 这个维数相当大, 可以想象这个系统与前面截然不同
 
 但是技术是一致的, 首先选择张量积空间的基础态, 由各个子空间的张量积得到
 
-$$\ket{s_1,\cdots,s_n\cdots,s_N}=\ket{s_1}\otimes\cdots\otimes\ket{s_n}\otimes\cdots\otimes\ket{s_N}$$
+$$
+\ket{s_1,\cdots,s_n\cdots,s_N}=\ket{s_1}\otimes\cdots\otimes\ket{s_n}\otimes\cdots\otimes\ket{s_N}
+$$
+
 正交归一性为
-$$\braket{s'_1,\cdots,s'_n,\cdots,s'_N|s_1,\cdots,s_n\cdots,s_N}=\delta_{s'_1s_1}\cdots \delta_{s'_Ns_N}$$
+
+$$
+\braket{s'_1,\cdots,s'_n,\cdots,s'_N|s_1,\cdots,s_n\cdots,s_N}=\delta_{s'_1s_1}\cdots \delta_{s'_Ns_N}
+$$
+
 现在我们假设哈密顿量为
-$$H = -\frac{A}{2}\sum_{n=1}^{N-1}\vec{\sigma_{n}}\cdot\vec{\sigma_{n+1}}$$
+
+$$
+H = -\frac{A}{2}\sum_{n=1}^{N-1}\vec{\sigma_{n}}\cdot\vec{\sigma_{n+1}}
+$$
+
 即假设只有近邻的磁针有相互作用
 
 >小心上面的结果!
 >这个自旋矩阵省略掉了许多张量积, 即 $\otimes I$ 这样的东西我们擦掉了, 因为 $H$ 是张量积空间的哈密顿
 >严格地写其实是
->$$\vec{\sigma}_n = 1_1\otimes\cdots\otimes\vec{\sigma}_n\otimes\cdots\otimes 1_N$$
+>
+> $$
+> \vec{\sigma}_n = 1_1\otimes\cdots\otimes\vec{\sigma}_n\otimes\cdots\otimes 1_N
+> $$
+>
 
 在哈密顿前面加一个负号, 意思是我们希望磁针在平行的时候能量更低, 这样在低温的时候应该存在自发磁化
 
@@ -284,64 +416,119 @@ Heisenberg 模型可以推广到 $d$ 维, 这和我们去做 $d$ 维晶体是很
 
 实际上是前面的内容, 比如两个张量积空间 $\mathcal{H}_1 \otimes \mathcal{H}_2$
 去计算 
-$$\vec{\sigma}_1 \cdot \vec{\sigma}_2 =\begin{pmatrix}
+
+$$
+\vec{\sigma}_1 \cdot \vec{\sigma}_2 =\begin{pmatrix}
 1 & 0 & 0 & 0 \\
 0 & -1 & 2 & 0 \\
 0 & 2 & -1 & 0 \\
 0 & 0 & 0 & 1
-\end{pmatrix}$$
+\end{pmatrix}
+$$
+
 而交换算符
-$$\mathcal{S}_{12} \ket{i_1,j_2}=\ket{j_2,i_1}$$
+
+$$
+\mathcal{S}_{12} \ket{i_1,j_2}=\ket{j_2,i_1}
+$$
+
 即 
-$$\mathcal{S}_{12}=\begin{pmatrix}
+
+$$
+\mathcal{S}_{12}=\begin{pmatrix}
 1 & 0 & 0 & 0 \\
 0 & 0 & 1 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 0 & 1
-\end{pmatrix}$$
+\end{pmatrix}
+$$
+
 推广到任意两个节点的结果是
-$$\vec{\sigma}_m\cdot\vec{\sigma}_n=2 \mathcal{S}_{mn} -1$$
+
+$$
+\vec{\sigma}_m\cdot\vec{\sigma}_n=2 \mathcal{S}_{mn} -1
+$$
+
 哈密顿量为 
-$$H = -\frac{A}{2}\sum_{n=1}^{N-1}(2\mathcal{S}_{n,n+1}-1)$$
+
+$$
+H = -\frac{A}{2}\sum_{n=1}^{N-1}(2\mathcal{S}_{n,n+1}-1)
+$$
+
 再做一次零点平移
-$$H = -A\sum_{n=1}^{N-1}(\mathcal{S}_{n,n+1}-1)$$
+
+$$
+H = -A\sum_{n=1}^{N-1}(\mathcal{S}_{n,n+1}-1)
+$$
+
 这个哈密顿量是很好用的
 
 ## 定态
 实际上有 $2^N$ 个, 现在取 $N\to\infty$ 
 猜测: 全正和全负都是哈密顿的本征态, 即
-$$\ket{+_1+_2\cdots+_N}\quad \ket{-_1-_2-\cdots-_N}$$
+
+$$
+\ket{+_1+_2\cdots+_N}\quad \ket{-_1-_2-\cdots-_N}
+$$
+
 并且本征值为 0
 称全正态为真空态 $\ket{\text{vac}}$ 
 
 现在去找别的态, 一个观察是: 哈密顿量只做两件事情, 要么什么都不做, 要么交换相邻态, 即哈密顿不会改变态中的正负号数量
 现在考虑在真空态中做激发, 比如用手扳一下磁针, 得到
-$$\ket{x_n}=\ket{+_1+_2\cdots -_n\cdots+_N}$$
+
+$$
+\ket{x_n}=\ket{+_1+_2\cdots -_n\cdots+_N}
+$$
+
 我们称这样的态为单粒子态, 但这不是哈密顿的本征态, 但是我们尝试作用一下
 因为当交换算符的指标不在 $n$ 附近的时候, 给出 0 结果
-$$H \ket{x_n} =-A\left(\ket{x_{n+1}}-\ket{x_n}+\ket{x_{n-1}}-\ket{x_n}\right)=2A\ket{x_n}-A(\ket{x_{n+1}}+\ket{x_{n-1}})$$
+
+$$
+H \ket{x_n} =-A\left(\ket{x_{n+1}}-\ket{x_n}+\ket{x_{n-1}}-\ket{x_n}\right)=2A\ket{x_n}-A(\ket{x_{n+1}}+\ket{x_{n-1}})
+$$
 
 >Remark
 >可以定义某种单粒子态空间
->$$\mathcal{H}^{(1)} =\mathrm{Span}\{\ket{x_n}\quad ,n=1,\cdots,N-1\}$$
+>
+> $$
+> \mathcal{H}^{(1)} =\mathrm{Span}\{\ket{x_n}\quad ,n=1,\cdots,N-1\}
+> $$
+>
 >并且 $\mathcal{H}^{(1)}$ 是哈密顿的不变子空间 , 这导致于粒子数守恒
 
 可以发现在这样的子空间下, 哈密顿的表示
-$$H =
+
+$$
+H =
 \begin{pmatrix}
 \ddots & \ddots & \ddots &        &        &        \\
        & -A     & 2A    & -A     &        &        \\
        &        & -A     & 2A    & -A     &        \\
        &        &        & -A     & 2A    & -A     \\
        &        &        &        & \ddots & \ddots & \ddots
-\end{pmatrix}$$
+\end{pmatrix}
+$$
+
 即与前面的空间是同构的
 并且我们知道此时哈密顿的定态解是 bloch wave
-$$\ket{\psi(k)}=\sum_n e^{inkb}\ket{n}$$
+
+$$
+\ket{\psi(k)}=\sum_n e^{inkb}\ket{n}
+$$
+
 具有色散关系
-$$E = 2A(1-\cos(kb))$$
+
+$$
+E = 2A(1-\cos(kb))
+$$
+
 同样, 在长波极限下 
-$$E(k)\simeq Ab^2k^2$$
+
+$$
+E(k)\simeq Ab^2k^2
+$$
+
 >重要的观察是 $k=0$ 时, $E(k=0)=0$
 >这里能量的零点是有意义的, 我们已经规定真空态的能量为 0
 >即长波极限下单粒子态的能量和真空态的能量是一样的
@@ -356,13 +543,24 @@ $$E(k)\simeq Ab^2k^2$$
 >在我们的系统中其实有无数种真空态, 即系统发生了空间旋转对称性的自发破缺, 于是就出现了上面的 gapless mode
 
 没有时间证明这个定理, 但是可以比划一下, 考虑一个 $y$ 轴的转动
-$$\mathcal{R}_{y}(\alpha)\ket{\mathrm{vac}}=\mathcal{R}_y(\alpha)\ket{+_1\cdots+_N}_z$$
+
+$$
+\mathcal{R}_{y}(\alpha)\ket{\mathrm{vac}}=\mathcal{R}_y(\alpha)\ket{+_1\cdots+_N}_z
+$$
+
 这个东西是一个真空态, 因为空间旋转和哈密顿是对易的
 在小角度转动下
 
-$$\bigotimes_{n}\left(\cos\frac{\alpha}{2}\ket{+}-\sin\frac{\alpha}{2}\ket{-}\right)\simeq\bigotimes_n \ket{+}_n-\sum_{n}\frac{\alpha}{2}\ket{x_n}+\mathcal{O}(\alpha^2)$$
+$$
+\bigotimes_{n}\left(\cos\frac{\alpha}{2}\ket{+}-\sin\frac{\alpha}{2}\ket{-}\right)\simeq\bigotimes_n \ket{+}_n-\sum_{n}\frac{\alpha}{2}\ket{x_n}+\mathcal{O}(\alpha^2)
+$$
+
 即在小角度下
-$$\mathcal{R}_y(\alpha)\ket{\text{vac}}-\ket{\text{vac}}\sim \ket{\psi(k=0)}$$
+
+$$
+\mathcal{R}_y(\alpha)\ket{\text{vac}}-\ket{\text{vac}}\sim \ket{\psi(k=0)}
+$$
+
 而这个态也是零能态
 
 >实际上这就是 goldstone 定理的证明方式
@@ -374,7 +572,11 @@ $$\mathcal{R}_y(\alpha)\ket{\text{vac}}-\ket{\text{vac}}\sim \ket{\psi(k=0)}$$
 >为什么有两个? atiyan 指标定理
 
 >顺带一提, 对于相对论性系统, 色散关系是唯一的
->$$E =\sqrt{p^2+m^2}$$
+>
+> $$
+> E =\sqrt{p^2+m^2}
+> $$
+>
 >所以对于相对论性的系统, 无能隙就是零质量
 >所以相对论系统中, 对称性破缺的结果是期待零质量粒子, 比如对于核子来说, $\pi$ 介子就像一个零质量粒子
 >实际上是某种近似的手征对称性自发破缺
@@ -389,16 +591,25 @@ $$\mathcal{R}_y(\alpha)\ket{\text{vac}}-\ket{\text{vac}}\sim \ket{\psi(k=0)}$$
 >所以在真空态上作用这种对称性, 必然会得到新的态, 但是和哈密顿量对易导致这个新的态必然和真空态的能量
 >即导致了真空态的简并
 
-
 >前面的 $\mathcal{O}(\alpha^2)$ 里面包含了更多的多粒子态
 
 >电场线守恒是什么一回事: 实际上是流守恒
->$$\partial_\mu J^{\mu} =0$$
+>
+> $$
+> \partial_\mu J^{\mu} =0
+> $$
+>
 >我们知道在没有电荷的情形 Maxwell 方程为
->$$\begin{align}&\partial_{\mu} F^{\mu\nu}=0 \\& \partial_{\mu}\tilde{F}^{\mu\nu}=0\end{align}$$
+>
+> $$
+> \begin{align}&\partial_{\mu} F^{\mu\nu}=0 \\& \partial_{\mu}\tilde{F}^{\mu\nu}=0\end{align}
+> $$
+>
 >这里 
->$$\tilde{F}^{\mu\nu}=\frac{1}{4}\epsilon^{\mu\nu\sigma\rho}F_{\sigma\rho}$$
+>
+> $$
+> \tilde{F}^{\mu\nu}=\frac{1}{4}\epsilon^{\mu\nu\sigma\rho}F_{\sigma\rho}
+> $$
+>
 >实际上这就是某种电场线守恒方程
-
-
 

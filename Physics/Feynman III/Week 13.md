@@ -6,7 +6,10 @@ $s$ 不能发射 $Z^0$玻色子, 这种过程叫 flavor changing neutral current
 
 假设所有处态粒子都有相同确定的自旋指向, 则两个粒子的发射方向相反
 对过程
-$$\Lambda^0\to p^++\pi^-$$
+
+$$
+\Lambda^0\to p^++\pi^-
+$$
 
 >这里 Feynman 做了一个错误的假设, 若粒子在自旋方向发射, 则此时没有空间角动量, 末态角动量由质子自旋承担
 >这里的问题在于粒子不是严格的点粒子, 飞出的两个粒子不一定是从同一点飞出
@@ -15,24 +18,53 @@ $$\Lambda^0\to p^++\pi^-$$
 >所以这里应该理解为末态由 s 波主导
 
 开始写概率幅
-$$\braket{p^+_{\uparrow}(+z)\pi^-(-z)|\Lambda^0_{\uparrow}}=a$$
+
+$$
+\braket{p^+_{\uparrow}(+z)\pi^-(-z)|\Lambda^0_{\uparrow}}=a
+$$
+
 我们不会算这个概率幅, 因为对于这附近的强相互作用是难以计算的
-$$\braket{p^+_{\downarrow}(+z)\pi^-(-z)|\Lambda^0_{\uparrow}}=0\quad\text{角动量守恒}$$
+
+$$
+\braket{p^+_{\downarrow}(+z)\pi^-(-z)|\Lambda^0_{\uparrow}}=0\quad\text{角动量守恒}
+$$
+
 还有一些其他情形
-$$\braket{p^+_{\downarrow}(+z)\pi^-(-z)|\Lambda^0_{\downarrow}}=b$$
-$$\braket{p^+_{\uparrow}(+z)\pi^-(-z)|\Lambda^0_{\downarrow}}=0$$
+
+$$
+\braket{p^+_{\downarrow}(+z)\pi^-(-z)|\Lambda^0_{\downarrow}}=b
+$$
+
+$$
+\braket{p^+_{\uparrow}(+z)\pi^-(-z)|\Lambda^0_{\downarrow}}=0
+$$
+
 然后就可以计算任意方向飞出质子的角分布
 问初态 $\Lambda^0$ 的自旋任意(确定) , 向 $+z$ 方向发射质子的概率?
 $\Lambda^0$ 的自旋 $(\theta,\phi)$
 则在前面的基下的坐标
-$$\braket{\pm z|\Lambda^0}=C_{\pm}$$
-$$\mathcal{R}_y(\theta)\ket{+z}$$
+
+$$
+\braket{\pm z|\Lambda^0}=C_{\pm}
+$$
+
+$$
+\mathcal{R}_y(\theta)\ket{+z}
+$$
+
 >这个问题里有旋转对称性, $\phi$ 没有出现
 
 则
-$$P_{\Lambda^0(\theta)\to p^+(z)}=|a\cos\frac{\theta}{2}|^2+|b\sin\frac{\theta}{2}|^2$$
+
+$$
+P_{\Lambda^0(\theta)\to p^+(z)}=|a\cos\frac{\theta}{2}|^2+|b\sin\frac{\theta}{2}|^2
+$$
+
 即
-$$\frac{|a|^2+|b|^2}{2}+\frac{|a|^2-|b|^2}{2}\cos\theta$$
+
+$$
+\frac{|a|^2+|b|^2}{2}+\frac{|a|^2-|b|^2}{2}\cos\theta
+$$
 
 实际上自旋向上和向下由宇称联系起来
 在这样的宇称变换下, 动量会反号, 但角动量不反号
@@ -46,34 +78,74 @@ $$\frac{|a|^2+|b|^2}{2}+\frac{|a|^2-|b|^2}{2}\cos\theta$$
 对称性 $\implies$ 守恒定律
 这里只考虑和哈密顿对易的那些对称性
 结果是, 如果
-$$[\mathcal{U},H]=0$$
+
+$$
+[\mathcal{U},H]=0
+$$
+
 则存在守恒量
 假设 $\mathcal{U}$ 是幺正算符, 则
-$$\mathcal{U}=\begin{pmatrix}e^{i\delta_1}&&\\&\ddots&\\&&e^{i\delta_N}\end{pmatrix}$$
+
+$$
+\mathcal{U}=\begin{pmatrix}e^{i\delta_1}&&\\&\ddots&\\&&e^{i\delta_N}\end{pmatrix}
+$$
+
 对 $\mathcal{U}$ 对本征态
-$$\mathcal{U}\ket{q}=e^{iq}\ket{q}$$
+
+$$
+\mathcal{U}\ket{q}=e^{iq}\ket{q}
+$$
+
 则这个状态在时间演化下停留在 $\ket{q}$ 态
-$$[\mathcal{U},\mathcal{U}(t_2,t_1)]=0$$
+
+$$
+[\mathcal{U},\mathcal{U}(t_2,t_1)]=0
+$$
+
 作用在 $\ket{q(t)}$ 上
-$$\mathcal{U}\ket{q(t_2)}=\mathcal{U}(t_2,t_1)e^{iq}\ket{q(t_1)}=e^{iq}\ket{q(t_2)}$$
+
+$$
+\mathcal{U}\ket{q(t_2)}=\mathcal{U}(t_2,t_1)e^{iq}\ket{q(t_1)}=e^{iq}\ket{q(t_2)}
+$$
+
 这表明 $q$ 是守恒量
 现在对于任意态, 它的期望值
-$$\braket{\mathcal{U}}=\braket{\psi|\mathcal{U}|\psi}$$
+
+$$
+\braket{\mathcal{U}}=\braket{\psi|\mathcal{U}|\psi}
+$$
+
 是时间演化意义下的守恒量
 这些守恒量的物理意义?
 下面有一些例子
 
 绕定轴的旋转, 比如 $z$ 轴
 首先
-$$\mathcal{R}_z(\theta_1)\mathcal{R}_z(\theta_2)=\mathcal{R}_z(\theta_1+\theta_2)=\mathcal{R}_z(\theta_2)\mathcal{R}_z(\theta_1)$$
+
+$$
+\mathcal{R}_z(\theta_1)\mathcal{R}_z(\theta_2)=\mathcal{R}_z(\theta_1+\theta_2)=\mathcal{R}_z(\theta_2)\mathcal{R}_z(\theta_1)
+$$
+
 则
-$$\mathcal{R}_z(\theta)\ket{m}=e^{i\delta(m)}\ket{m}$$
+
+$$
+\mathcal{R}_z(\theta)\ket{m}=e^{i\delta(m)}\ket{m}
+$$
+
 并且 $\delta(m)$ 应该是旋转角的线性函数, 我们还知道比例系数叫角动量
 
 空间平移, 比如 $x$ 轴
-$$\mathcal{T}_x(a_1)\mathcal{T}_x(a_2)=\mathcal{T}_x(a_1+a_2)=\mathcal{T}_x(a_2)\mathcal{T}_x(a_1)$$
+
+$$
+\mathcal{T}_x(a_1)\mathcal{T}_x(a_2)=\mathcal{T}_x(a_1+a_2)=\mathcal{T}_x(a_2)\mathcal{T}_x(a_1)
+$$
+
 同样有
-$$\mathcal{T}_x(a)\ket{k} =e^{ika}\ket{k}$$
+
+$$
+\mathcal{T}_x(a)\ket{k} =e^{ika}\ket{k}
+$$
+
 相位的比例系数叫动量
 这件事可以推广到 $d$ 维, 无非是增加一个向量箭头
 而旋转在 $d$ 维空间是不交换的, 这只是增加了一些复杂性, 即 Non Abelian 对称性
@@ -96,11 +168,13 @@ $$\mathcal{T}_x(a)\ket{k} =e^{ika}\ket{k}$$
 >>>不同时间的哈密顿两两对易是否可以做这种重定义
 >>>不行, 一个例子是 $H =p^2/2m(t)$
 
-
-
 ## 经典力学
 在经典力学中没有对易括号如何判断守恒量, 原则上如果你先学量子力学再学经典力学, 那应该使用 Poisson 括号
-$$\{\mathcal{O},H\}$$
+
+$$
+\{\mathcal{O},H\}
+$$
+
 去检查这个括号
 一般的经典力学对对称性变换的定义是保持作用量 $S$ 不变的变换
 
@@ -108,7 +182,11 @@ $$\{\mathcal{O},H\}$$
 >例子是 Lorentz 变换
 
 对点粒子
-$$S= -m\int\mathrm{d}\tau$$
+
+$$
+S= -m\int\mathrm{d}\tau
+$$
+
 这是一个 Lorentz 不变量, 故 Lorentz 变换是一个经典力学的对称性, 但它和哈密顿不对易
 在经典力学中也有一个对称性导致守恒律的定理: 
 ### Noether 定理
@@ -121,15 +199,27 @@ $$S= -m\int\mathrm{d}\tau$$
 >考虑一个口袋中的电荷, 你可以把电荷拿出去, 但是后果是在口袋的表面必须产生通量
 >意思是电荷要从口袋中转移到外面, 一定要连续地移动电荷到外面
 >刻画这种守恒流的方式不仅需要分布, 还需要流
->$$\rho(t,\vec{x})\quad \vec{j}(t,\vec{x})$$
+>
+> $$
+> \rho(t,\vec{x})\quad \vec{j}(t,\vec{x})
+> $$
+>
 >则有
->$$\dot{\rho}(t,\vec{x})+\nabla \cdot \vec{j}(t,\vec{x})=0$$
+>
+> $$
+> \dot{\rho}(t,\vec{x})+\nabla \cdot \vec{j}(t,\vec{x})=0
+> $$
+>
 >关键是
 >1. 这是局域的守恒定律
 >2. 这是"在壳"的守恒律, 意思是要满足运动方程, 这个守恒定律只对满足运动方程的路径成立
 >3. 流比荷多一个空间指标
 >>于是想刻画这一点, 需要引入一些奇怪的东西, 比如想刻画动量守恒, 必须引入多一个空间指标的流
->> $$\dot{p}_i+\nabla_{j}\Pi_{ij}=0$$
+>>
+>> $$
+>> \dot{p}_i+\nabla_{j}\Pi_{ij}=0
+>> $$
+>>
 >Lorentz 变换对应的守恒量是什么?
 >>再提一点, 比如相对论中计算运动粒子的质心是一件复杂的事情, 这个质心还做线性运动是一件神奇的事情
 >>这是 Lorentz 变换的数学结构保证的
@@ -137,11 +227,17 @@ $$S= -m\int\mathrm{d}\tau$$
 ## 广义对称性 generalized symmetry
 
 从流守恒方程开始
-$$\boxed{\partial_\mu j^{\mu} =0}$$
 
+$$
+\boxed{\partial_\mu j^{\mu} =0}
+$$
 
 这让我们想到了 Stokes 定理
-$$\int_V \partial_\mu j^{\mu}=0=\int_{\partial V}j^{\mu}n_{\mu}$$
+
+$$
+\int_V \partial_\mu j^{\mu}=0=\int_{\partial V}j^{\mu}n_{\mu}
+$$
+
 这个东西有某种拓扑意义, 这个积分就像在计算某种通量
 
 >>>也许是同伦群吧
@@ -152,16 +248,23 @@ $$\int_V \partial_\mu j^{\mu}=0=\int_{\partial V}j^{\mu}n_{\mu}$$
 
 >这就是电场线守恒和磁场线守恒
 >例如磁力线守恒
->$$\nabla\cdot \vec{B} =0$$
+>
+> $$
+> \nabla\cdot \vec{B} =0
+> $$
+>
 >怎么数磁力线? 比如数螺线管的, 我们就需要用一些一维的圈去圈住螺线管, 并且这些圈不能穿过螺线管
 >所以对于 $p$ 维的物体, 数这种荷的方式是用 $p-1$ 维的物体圈住
 >这种守恒定律对应的对称性是什么?
 >守恒量是二指标的电磁场张量, 故守恒量应该是 1 指标的东西
 >这种对称性叫 Highers - form symmetry
 >对称性叫
->$$A_{\mu}\to A_{\mu}+\partial_{\mu}\Lambda$$
+>
+> $$
+> A_{\mu}\to A_{\mu}+\partial_{\mu}\Lambda
+> $$
+>
 >>并且我们知道电磁学的对称性是自发破缺的, 所以存在一些无能隙的激发, 这些激发叫光子
-
 
 # Chapter 18 角动量
 
@@ -178,19 +281,40 @@ $$\int_V \partial_\mu j^{\mu}=0=\int_{\partial V}j^{\mu}n_{\mu}$$
 
 >我们并不知道为什么
 
-对于无质量粒子, 比角动量更好的量叫螺旋度 helicity , 即粒子的角动量在运动方向的投影 $$h = \frac{\vec{S}\cdot \vec{p}}{|\vec{p}|}$$ 
+对于无质量粒子, 比角动量更好的量叫螺旋度 helicity , 即粒子的角动量在运动方向的投影
+
+$$
+h = \frac{\vec{S}\cdot \vec{p}}{|\vec{p}|}
+$$
+
 对于自旋 $s$ 的无质量粒子只有两种独立取值
-$$h=\pm s$$
+
+$$
+h=\pm s
+$$
+
 >事实上如果不是这样, 则这种粒子必须有无穷多的基础态, 但我们并没有看到
 
 问题: 对任意动量 $\vec{p}$ 的光子, 能不能找到它的一对极化矢量 $\vec{e}_{\pm}(\vec{p})$ , 即找到光子的偏振模式
 如果 $\vec{p}=(0,0,p)$
 则极化矢量为 
-$$\vec{e}_{(x)}=(1,0,0)\quad \vec{e}_{(y)}=(0,1,0)$$
+
+$$
+\vec{e}_{(x)}=(1,0,0)\quad \vec{e}_{(y)}=(0,1,0)
+$$
+
 但这样极化模式不是角动量的本征态, 需要做线性组合
-$$\vec{e}_{(\pm)}=\frac{1}{\sqrt{2}}(\vec{e}_{(x)}\pm i \vec{e}_{(y)})$$
+
+$$
+\vec{e}_{(\pm)}=\frac{1}{\sqrt{2}}(\vec{e}_{(x)}\pm i \vec{e}_{(y)})
+$$
+
 可以证明
-$$\mathcal{R}_{z}(\theta) \vec{e}_{(\pm)}=e^{\pm i\theta}\vec{e}_{(\pm)}$$
+
+$$
+\mathcal{R}_{z}(\theta) \vec{e}_{(\pm)}=e^{\pm i\theta}\vec{e}_{(\pm)}
+$$
+
 即这是角动量的本征态, 并且 helicity 是 $\pm 1$
 能不能写沿任意方向的极化? 做旋转矩阵即可
 
@@ -198,7 +322,11 @@ $$\mathcal{R}_{z}(\theta) \vec{e}_{(\pm)}=e^{\pm i\theta}\vec{e}_{(\pm)}$$
 
 于是对于任意的 $\vec{q} = q(\sin\theta\cos\phi,\sin\theta\sin\theta,\cos\theta)$
 则
-$$\vec{e}_{(\pm)}(\vec{q})=\mathcal{R}(\theta,\phi)\vec{e}_{(\pm)}(\vec{p})$$
+
+$$
+\vec{e}_{(\pm)}(\vec{q})=\mathcal{R}(\theta,\phi)\vec{e}_{(\pm)}(\vec{p})
+$$
+
 这是一个真的 $SO(3)$ 的矢量
 对于一个无质量的粒子, 我们需要在狭义相对论里面谈, 所以我们应该把上面的结果嵌入到 Lorentz 协变里
 
@@ -206,29 +334,55 @@ $$\vec{e}_{(\pm)}(\vec{q})=\mathcal{R}(\theta,\phi)\vec{e}_{(\pm)}(\vec{p})$$
 >一种推广是把时间分量取 0 , 但是这不是 Lorentz 协变的
 >这里发生了什么?
 >在 Lorentz 协变的理论中, 如果去问光子所有可能的动量, 我们知道它的动量落在光锥上
->$$E =p^0 =|\vec{p}|$$
+>
+> $$
+> E =p^0 =|\vec{p}|
+> $$
+>
 >可以去做一个沿 $z$ 方向的 boost , 可以让 $p_z$ 短一点, 然后再做一个 $x$ 方向的 boost 可以得到任意大的动量
 >即得到新的动量既可以通过旋转得到, 也可以通过一系列 boost 复合得到
 >>可以验证一件事情
->>$$\mathcal{R}_y(\theta)e_{(\pm)}^\mu(\vec{p})\neq L_x(\eta_2)L_z(\eta_1)\vec{e}_{(\pm)}(\vec{p})$$
+>>
+>> $$
+>> \mathcal{R}_y(\theta)e_{(\pm)}^\mu(\vec{p})\neq L_x(\eta_2)L_z(\eta_1)\vec{e}_{(\pm)}(\vec{p})
+>> $$
+>>
 >>这件事情可以被证明实际上相差
->>$$\mathcal{R}_{y}^{-1}(\theta)L_x(\eta_2)L_z(\eta_1)e_{(\pm)}^\mu(\vec{p})=e_{(\pm)}^\mu+\frac{\tan\theta}{\sqrt{2}|\vec{p}|}\vec{p}$$
+>>
+>> $$
+>> \mathcal{R}_{y}^{-1}(\theta)L_x(\eta_2)L_z(\eta_1)e_{(\pm)}^\mu(\vec{p})=e_{(\pm)}^\mu+\frac{\tan\theta}{\sqrt{2}|\vec{p}|}\vec{p}
+>> $$
+>>
 >>这种特殊的 Lorentz 变换保持动量不变, 但是极化矢量会改变, 这个结论告诉我们: 
 >>光子的极化矢量只在相差一个动量的意义下是一个极化矢量
 >>即上面的极化矢量的定义不是一个好的定义, 当且仅当极化矢量可以相差一个动量
 
 假如我们定义了一个 Lorentz 极化矢量, 我们拿另外一个 Lorentz 矢量就得到了一个 Lorentz 标量, 但是上面的结果说明这个不对, 会多变出一个动量项, 即
-$$e_{(\pm)}^\mu M_{\mu}\to (e^\mu_{(\pm)}+\alpha p^\mu)M_\mu$$
+
+$$
+e_{(\pm)}^\mu M_{\mu}\to (e^\mu_{(\pm)}+\alpha p^\mu)M_\mu
+$$
+
 除非动量和任意 Lorentz 矢量点乘为 0 
-$$p^\mu M_{\mu}=0$$
+
+$$
+p^\mu M_{\mu}=0
+$$
 
 >事实上这就是规范不变性
 >对于电磁波
->$$A_{\mu}=e_{\mu} e^{ipx-ip^0t}$$
+>
+> $$
+> A_{\mu}=e_{\mu} e^{ipx-ip^0t}
+> $$
+>
 >如果允许极化矢量相差任意动量, $e_\mu\to e_{\mu}+p_{\mu}$
 >在傅立叶变换下, 这要求
->$$A_{\mu}\to A_{\mu}+\partial_{\mu}\epsilon$$
-
+>
+> $$
+> A_{\mu}\to A_{\mu}+\partial_{\mu}\epsilon
+> $$
+>
 
 反而是无质量粒子的角动量是容易的, 而对于有质量粒子, 极化是容易定义的, 我们可以做一个 boost 进入粒子的质心系, 就容易谈论它的角动量, 但是困难在粒子有 $2s+1$ 个基础态, 需要找到它的旋转表示是困难的
 
@@ -248,68 +402,137 @@ $$p^\mu M_{\mu}=0$$
 >这是一个标准的数学问题, 数学家说 $SO(3)$ 群有一个更好的性质
 >这些表示按照自旋 $j=0,1/2,1,\cdots$ 来分类
 >对于给定的 $j$ , 有且仅有一个不等价不可约的幺正表示 $UIR$ , 且表示的维数为 $2j+1$ , 即
->$$D^{(j)}[\mathcal{R}]\in\mathbb{C}^{(2j+1)\times(2j+1)}$$
+>
+> $$
+> D^{(j)}[\mathcal{R}]\in\mathbb{C}^{(2j+1)\times(2j+1)}
+> $$
+>
 
 一个例子是 $j=1/2$
 则绕某个方向的矩阵是
-$$D^{(1/2)}[\mathcal{R}_i]= \exp[i\theta\sigma_i /2]$$
+
+$$
+D^{(1/2)}[\mathcal{R}_i]= \exp[i\theta\sigma_i /2]
+$$
+
 物理学家的任务是把这些 $D$ 都算出来, 下面对任意的 $j$ 来做这件事情
 
 费曼的做法是从自旋 $1/2$ 出发去拼出其他自旋, 即用 $2j$ 个自旋 $1/2$ 去搭出其他自旋
 
 这件事情分两步
 1. 找到一组合适的基础态 $\ket{j,m}\quad m=-j,-j+1,\cdots , j$ 共 $2j+1$ 个角动量, 并且这个态是绕 $z$ 轴角动量的本征态
-2. 将任意旋转用欧拉角分类 $$D^{(j)}[\mathcal{R}(\gamma,\beta,\alpha)]=D^{(j)}[\mathcal{R}_z(\gamma)\mathcal{R}_y(\beta)\mathcal{R}_z(\alpha)]$$
+2. 将任意旋转用欧拉角分类
+
+$$
+D^{(j)}[\mathcal{R}(\gamma,\beta,\alpha)]=D^{(j)}[\mathcal{R}_z(\gamma)\mathcal{R}_y(\beta)\mathcal{R}_z(\alpha)]
+$$
 
 对基础态 $\ket{j,m}$ 用 $j=1/2$ 的 $\ket{\pm}$ 构造
 首先
-$$\ket{j,j}=\bigotimes^j\ket{+}\quad \text{最高权态 highest-weight state}$$
+
+$$
+\ket{j,j}=\bigotimes^j\ket{+}\quad \text{最高权态 highest-weight state}
+$$
+
 同样有最低权态
-$$\ket{j,-j}=\bigotimes^j\ket{-} $$
+
+$$
+\ket{j,-j}=\bigotimes^j\ket{-}
+$$
+
 >对于无质量粒子, 我们已经做完了
 
 对其余 $2j-1$ 个态, $u$ 个 $\ket{+}$ 和 $v$ 个 $\ket{-}$ 这里 $u+v=2j$
 去做全对称的组合
 
-$$\prod(\ket{+}^u\ket{-}^v)=\frac{1}{C_{u+v}^u}\left(\ket{+}^u\ket{-}^v+\text{不等价的排列}\right)$$
+$$
+\prod(\ket{+}^u\ket{-}^v)=\frac{1}{C_{u+v}^u}\left(\ket{+}^u\ket{-}^v+\text{不等价的排列}\right)
+$$
+
 这样做的好处在于去做线性变换的时候
-$$\mathcal{R}\ket{+}=a\ket{+}+b\ket{-}\quad \mathcal{R}\ket{-}=c\ket{+}+d\ket{-}$$
+
+$$
+\mathcal{R}\ket{+}=a\ket{+}+b\ket{-}\quad \mathcal{R}\ket{-}=c\ket{+}+d\ket{-}
+$$
+
 比如考虑 $j=3/2$ 的时候
-$$\mathcal{R}\ket{+++}=\bigotimes^3(a\ket{+}+b\ket{-})$$
+
+$$
+\mathcal{R}\ket{+++}=\bigotimes^3(a\ket{+}+b\ket{-})
+$$
+
 发现其中的全对称态出现组合数因子, 意味着我们某种意义可以做二项式展开
 
 这样对于其他态也可以这么写, 按上面的方式写的话, 我们知道 $z$ 方向的角动量是 $u-v$
 即
-$$\ket{j,m}=\sqrt{\binom{2j}{j+m}}\prod(\ket{+}^{j+m}\ket{-}^{j-m})$$
+
+$$
+\ket{j,m}=\sqrt{\binom{2j}{j+m}}\prod(\ket{+}^{j+m}\ket{-}^{j-m})
+$$
+
 这种做法满足内积关系
-$$\braket{j,m'|j,m}=\delta_{m,m'}$$
+
+$$
+\braket{j,m'|j,m}=\delta_{m,m'}
+$$
+
 那么绕 $z$ 轴的旋转给出
-$$\mathcal{R}^{(j)}(\alpha)\ket{j,m}=e^{+im\alpha}\ket{k,m}$$
+
+$$
+\mathcal{R}^{(j)}(\alpha)\ket{j,m}=e^{+im\alpha}\ket{k,m}
+$$
+
 作用在每一个张量积上即可得到结果
 验证
-$$\begin{align}\mathcal{R}_z^{(j)}(\alpha)\ket{j,m}&=\sqrt{\binom{2j}{j+m}}\prod([e^{i\alpha/2}\ket{+}]^{j+m}[e^{-i\alpha/2}\ket{-}]^{j-m})\\ &=e^{im\alpha}\ket{j,m}\end{align}$$
+
+$$
+\begin{align}\mathcal{R}_z^{(j)}(\alpha)\ket{j,m}&=\sqrt{\binom{2j}{j+m}}\prod([e^{i\alpha/2}\ket{+}]^{j+m}[e^{-i\alpha/2}\ket{-}]^{j-m})\\ &=e^{im\alpha}\ket{j,m}\end{align}
+$$
+
 这个做法是重要的, 因为在算其他方向的时候我们真的要展开算
 结果是符合我们预期的, $z$ 方向的矩阵是对角矩阵
 
 考虑绕 $y$ 的旋转 约定这样的记号: $s=\sin\theta/2\quad c = \cos \theta/2$ 
-$$\begin{align}\mathcal{R}_y(\theta)\ket{j,m}&= \sqrt{\binom{2j}{j+m}}\prod\left([c\ket{+}-s\ket{-}]^{j+m}[c\ket{-}+s\ket{-}]^{j-m}\right)\\ &=\sum_{u'=0}^{2j}A_{u'}\prod(\ket{+}^{u'}\ket{-}^{v'})\\&=\sum_{m'=-j}^j\frac{A_{j+m'}}{\sqrt{\binom{2j}{j+m'}}}\ket{j,m'}\end{align}$$
+
+$$
+\begin{align}\mathcal{R}_y(\theta)\ket{j,m}&= \sqrt{\binom{2j}{j+m}}\prod\left([c\ket{+}-s\ket{-}]^{j+m}[c\ket{-}+s\ket{-}]^{j-m}\right)\\ &=\sum_{u'=0}^{2j}A_{u'}\prod(\ket{+}^{u'}\ket{-}^{v'})\\&=\sum_{m'=-j}^j\frac{A_{j+m'}}{\sqrt{\binom{2j}{j+m'}}}\ket{j,m'}\end{align}
+$$
+
 即
-$$\braket{j,m'|\mathcal{R_y(\theta)|j,m}}=\frac{A_{j+m'}}{\sqrt{\binom{2j}{j+m'}}}$$
+
+$$
+\braket{j,m'|\mathcal{R_y(\theta)|j,m}}=\frac{A_{j+m'}}{\sqrt{\binom{2j}{j+m'}}}
+$$
+
 现在真的去算 $A_{j+m'}$
-$$\begin{align}(c\ket{+}-s\ket{-})^{j+m}(c\ket{+}+s\ket{-})^{j-m}&=\sum_{l=0}^{j+m}\binom{j+m}{l}c^{l}(-s)^{j+m-l}\times\sum_{k=0}^{j-m}\binom{j-m}{k}c^{j+m-k}s^k\end{align}\times\ket{+}^{l+k}\ket{-}^{2k-l-k}$$
+
+$$
+\begin{align}(c\ket{+}-s\ket{-})^{j+m}(c\ket{+}+s\ket{-})^{j-m}&=\sum_{l=0}^{j+m}\binom{j+m}{l}c^{l}(-s)^{j+m-l}\times\sum_{k=0}^{j-m}\binom{j-m}{k}c^{j+m-k}s^k\end{align}\times\ket{+}^{l+k}\ket{-}^{2k-l-k}
+$$
+
 现在做变量代换 $l=j+m'-k$
 $m'=\text{const}$ 给出了 $k,l$ 平面的直线, 这个矩形和求和矩形的边界就有各种情况, 要对各种格点求和
-$$\sum_{k_{\min}}^{k_{\max}}\quad k_{\max}=\min\{j-m,j+m‘\}\quad k_{\min}=\max\{0,m'-m\}$$
+
+$$
+\sum_{k_{\min}}^{k_{\max}}\quad k_{\max}=\min\{j-m,j+m‘\}\quad k_{\min}=\max\{0,m'-m\}
+$$
+
 结果是
-$$ d^{j}_{m'm}(\theta)=\braket{j,m'|\mathcal{R}_y|j,m}=\sqrt{(j+m')!(j-m')!(j+m)!(j-m)!}\times \sum_{k}\frac{(-1)^{m-m'+k} c^{2j-m+m'-2k}s^{m-m'+2k}}{k!(m-m'+k)!(j-m-k)!(j+m'-k)!}$$
+
+$$
+d^{j}_{m'm}(\theta)=\braket{j,m'|\mathcal{R}_y|j,m}=\sqrt{(j+m')!(j-m')!(j+m)!(j-m)!}\times \sum_{k}\frac{(-1)^{m-m'+k} c^{2j-m+m'-2k}s^{m-m'+2k}}{k!(m-m'+k)!(j-m-k)!(j+m'-k)!}
+$$
+
 即 Wigner d - 矩阵
 
 >实际上求和结果是标准的 Gauss 超几何函数
 
-
 最后的任意旋转矩阵
 
-$$\braket{j,m'|\mathcal{R}(\phi,\theta,\psi)|j,m}=e^{+im'\psi}d^{j}_{m'm}(\theta)e^{+im\phi}$$
+$$
+\braket{j,m'|\mathcal{R}(\phi,\theta,\psi)|j,m}=e^{+im'\psi}d^{j}_{m'm}(\theta)e^{+im\phi}
+$$
+
 即 Wigner D - 矩阵
 
 >不用背, 但是推导的方式需要记忆
@@ -321,28 +544,60 @@ $$\braket{j,m'|\mathcal{R}(\phi,\theta,\psi)|j,m}=e^{+im'\psi}d^{j}_{m'm}(\theta
 
 >张量记号
 >一种张量的记号是 $T_{i_1\cdots i_n}$ 前面的张量积态也有对应写法
->$$\ket{i_1}\otimes \cdots\otimes\ket{i_n}=\ket{\Psi_{i_1\cdots i_n}}$$
+>
+> $$
+> \ket{i_1}\otimes \cdots\otimes\ket{i_n}=\ket{\Psi_{i_1\cdots i_n}}
+> $$
+>
 >这在张量积态上做一次旋转, 做法是逐分量旋转
->$$(R\Psi)_{i_1\cdots i_n}=R_{i_1 j_1}\cdots R_{i_n j_n}\Psi_{j_1 \cdots j_n}$$
+>
+> $$
+> (R\Psi)_{i_1\cdots i_n}=R_{i_1 j_1}\cdots R_{i_n j_n}\Psi_{j_1 \cdots j_n}
+> $$
+>
 >则旋转变换不改变一个张量关于所有指标的全对称性
 >例如二维
->$$(R\Psi)_{i_1i_2}=R_{i_1j_1}R_{i_2j_2}\Psi_{j_1j_2}$$
+>
+> $$
+> (R\Psi)_{i_1i_2}=R_{i_1j_1}R_{i_2j_2}\Psi_{j_1j_2}
+> $$
+>
 >在交换 $j_1,j_2$ 下, 如果态是全对称的 $\Psi_{j_1j_2}=\Psi_{j_2j_1}$
->$$R_{i_2 j_2}R_{i_1 j_1}\Psi_{j_2 j_1}= (R\Psi)_{i_2 i_1}$$
+>
+> $$
+> R_{i_2 j_2}R_{i_1 j_1}\Psi_{j_2 j_1}= (R\Psi)_{i_2 i_1}
+> $$
+>
 >而最高权态是全对称的, 并且自旋 $j$ 的所有态都可以用最高权态做一次旋转得到, 所以这些态都是全对称的
 
 >这些反对称组合是什么?
 >实际上是张量的某些缩并
->$$\Psi_{ij}=\Psi_i\otimes \Psi_j$$
+>
+> $$
+> \Psi_{ij}=\Psi_i\otimes \Psi_j
+> $$
+>
 >比如取张量的全对称部分, 就得到了自旋相加的部分, 而做全反对称
->$$\Psi_{ij}\epsilon^{ij}$$
+>
+> $$
+> \Psi_{ij}\epsilon^{ij}
+> $$
+>
 >>一个神奇的事情是: 二维的全反对称张量是二维态空间的旋转不变量, 即二维态空间中三维旋转不变的张量
 >>这件事重要的地方在于, 在做张量的缩并时, 背后有一个几何的解释:
 >>比如在 3 维中做矢量的缩并时实际上在做内积, 为什么内积后的数是三维旋转的标量, 因为缩并用的 delta 符号是三维旋转不变的, 在二维态空间时类似, 此时旋转的表示是幺正矩阵, 则旋转不变的张量实际上是 $\epsilon$
->>$$\Psi_i \Phi_j=\epsilon^{ij}\Psi_i\Psi_j$$
+>>
+>> $$
+>> \Psi_i \Phi_j=\epsilon^{ij}\Psi_i\Psi_j
+>> $$
+>>
 >>实际上这意味着你得到了一个自旋更低的态
 >对一般的情形
->$$\Psi_{i_1\cdots i_{2j}}$$
+>
+> $$
+> \Psi_{i_1\cdots i_{2j}}
+> $$
+>
 >如果做全对称化, 就得到一个自旋更低的态, 如果对其中的一些指标做反对称, 再对其他做全对称化,  比如 $i_1,i_2$ 会让系统的总角动量 $-1$ , 即得到一个 $j-1$ 的态
 >可以想象, 如果对这个新的态再去做一些其他指标的反对称化, 就能得到自旋更低的态, 直到某个位置停下来
 
@@ -360,63 +615,133 @@ $$\braket{j,m'|\mathcal{R}(\phi,\theta,\psi)|j,m}=e^{+im'\psi}d^{j}_{m'm}(\theta
 
 问题: $j_1$ 和 $j_2$ 耦合
 
-$$\ket{j,m}\leftrightarrow\ket{j_1,m_1}\otimes \ket{j_2,m_2}$$
+$$
+\ket{j,m}\leftrightarrow\ket{j_1,m_1}\otimes \ket{j_2,m_2}
+$$
+
 这两个基的关系是什么?
 这个巨大态空间的维数为 $(2j_1+1)\times (2j_2+1)$
 而对于固定的 $j$ 它的维数为 $2j+1$ , 所以需要找 $j$ 使得这两者相同
 
 这个问题不用回答, 这是数学的结果. 同样这是 $SO(3)$ 的一个结果
-$$(2j_1+1)\times (2j_2+1)= \sum^{j_1+j_2}_{j=|j_1-j_2|}(2j+1)$$
+
+$$
+(2j_1+1)\times (2j_2+1)= \sum^{j_1+j_2}_{j=|j_1-j_2|}(2j+1)
+$$
 
 >并且每一个成分都会出现, 并且只出现一次
 >即每个 $j=|j_1-j_2|,\cdots,j_1+j_2$ 必出现并且只出现一次
 >即在原先基础态的选择下, 旋转矩阵是块对角化的, 并且每个块被 $j$ 标记
 >同样我们用空间维数来代替空间本身, 即可以证明
->$$(2j_1+1)\bigotimes (2j_2+1)= \bigoplus^{j_1+j_2}_{j=|j_1-j_2|}(2j+1)$$
+>
+> $$
+> (2j_1+1)\bigotimes (2j_2+1)= \bigoplus^{j_1+j_2}_{j=|j_1-j_2|}(2j+1)
+> $$
+>
 
 可以做一个计算: 在完整的态空间中
-$$\ket{\Psi}=\sum_{j_1m_1j_2m_2}C_{j_1m_1j_2m_2}\ket{j_1m_1}\otimes\ket{j_2m_2}=\sum_{j_1m_1j_2m_2}C_{j_1m_1j_2m_2}\ket{j_1m_1j_2m_2}$$
+
+$$
+\ket{\Psi}=\sum_{j_1m_1j_2m_2}C_{j_1m_1j_2m_2}\ket{j_1m_1}\otimes\ket{j_2m_2}=\sum_{j_1m_1j_2m_2}C_{j_1m_1j_2m_2}\ket{j_1m_1j_2m_2}
+$$
+
 注意这里 $j_1,j_2$ 只取给定值, 求和对 $m_1,m_2$ 进行
 
 考虑态为 $\ket{j,m}$ , 上面的系数如何取
 
-$$\ket{j,m}=\sum_{j_1m_1j_2m_2}C_{j_1m_1j_2m_2}^{jm}\ket{j_1m_1j_2m_2}$$
+$$
+\ket{j,m}=\sum_{j_1m_1j_2m_2}C_{j_1m_1j_2m_2}^{jm}\ket{j_1m_1j_2m_2}
+$$
+
 结果是 Clebsch - Gordan coefficient
 目标是计算系数
 
 一个简单的例子是 
-$$\boxed{2\otimes 2=1\oplus 3}$$
+
+$$
+\boxed{2\otimes 2=1\oplus 3}
+$$
+
 即 $j_1=j_2=1/2$
 
 故 $j=0,1$ , 剩下的计算是标准的, 最后的态为
-$$\begin{align}&\ket{00}= \frac{\ket{+-}-\ket{-+}}{\sqrt{2}}\\&\ket{11}=\ket{++}\\&\ket{10}=\frac{\ket{+-}+\ket{-+}}{\sqrt{2}}\\&\ket{1-1}=\ket{--}\end{align}$$
+
+$$
+\begin{align}&\ket{00}= \frac{\ket{+-}-\ket{-+}}{\sqrt{2}}\\&\ket{11}=\ket{++}\\&\ket{10}=\frac{\ket{+-}+\ket{-+}}{\sqrt{2}}\\&\ket{1-1}=\ket{--}\end{align}
+$$
+
 实际上 C - G 系数已经算完了, 就是上面的系数
 
 另一重要的例子
-$$3\otimes 2= 4\oplus2$$
+
+$$
+3\otimes 2= 4\oplus2
+$$
+
 即 1 - 1/2 耦合, 结果是 1/2 和 3/2
 可以猜
-$$\ket{\frac{3}{2},\frac{3}{2}} = \ket{1,1;\frac{1}{2},\frac{1}{2}}$$
+
+$$
+\ket{\frac{3}{2},\frac{3}{2}} = \ket{1,1;\frac{1}{2},\frac{1}{2}}
+$$
+
 还有
-$$\ket{\frac{3}{2},-\frac{3}{2}} = \ket{1,-1;\frac{1}{2},-\frac{1}{2}}$$
+
+$$
+\ket{\frac{3}{2},-\frac{3}{2}} = \ket{1,-1;\frac{1}{2},-\frac{1}{2}}
+$$
+
 但是其他系数比较复杂
-$$\ket{\frac{3}{2},\frac{1}{2}}$$
+
+$$
+\ket{\frac{3}{2},\frac{1}{2}}
+$$
+
 做法是考虑定轴的角动量, 因为定轴旋转是 Abel 群, 角动量直接相加
 即有 0 + 1/2 和 1 + -1/2 两种可能
-$$\ket{\frac{3}{2},\frac{1}{2}}=\alpha\ket{1,0;1/2,1/2}+\beta\ket{1,1;1/2,-1/2}$$
+
+$$
+\ket{\frac{3}{2},\frac{1}{2}}=\alpha\ket{1,0;1/2,1/2}+\beta\ket{1,1;1/2,-1/2}
+$$
+
 下面需要定系数, 策略是全部打散为自旋 1/2
 首先
-$$\ket{1,0;1/2,1/2}=\frac{1}{\sqrt{2}}(\ket{+-}+\ket{-+})\otimes\ket{+}$$而
-$$\ket{1,1;1/2,-1/2}=\ket{++}\otimes\ket{-}$$
+
+$$
+\ket{1,0;1/2,1/2}=\frac{1}{\sqrt{2}}(\ket{+-}+\ket{-+})\otimes\ket{+}
+$$
+
+而
+
+$$
+\ket{1,1;1/2,-1/2}=\ket{++}\otimes\ket{-}
+$$
+
 而上面的完整态一定是这些基础态的全对称组合
-$$\ket{3/2,1/2}=\frac{1}{\sqrt{3}}(\ket{++-}+\ket{+-+}\ket{-++})$$
+
+$$
+\ket{3/2,1/2}=\frac{1}{\sqrt{3}}(\ket{++-}+\ket{+-+}\ket{-++})
+$$
+
 剩下的就是比对系数
 结果是
-$$\alpha =\sqrt{\frac{2}{3}}\quad \beta=\sqrt{\frac{1}{3}}$$
+
+$$
+\alpha =\sqrt{\frac{2}{3}}\quad \beta=\sqrt{\frac{1}{3}}
+$$
+
 即
-$$\ket{\frac{3}{2},\frac{1}{2}}=\sqrt{\frac{2}{3}}\ket{1,0;1/2,1/2}+\sqrt{\frac{1}{3}}\ket{1,1;1/2,-1/2}$$
+
+$$
+\ket{\frac{3}{2},\frac{1}{2}}=\sqrt{\frac{2}{3}}\ket{1,0;1/2,1/2}+\sqrt{\frac{1}{3}}\ket{1,1;1/2,-1/2}
+$$
+
 剩下一个态
-$$\ket{\frac{3}{2},-\frac{1}{2}}$$
+
+$$
+\ket{\frac{3}{2},-\frac{1}{2}}
+$$
+
 做法是相同的
 
 >这里有一个观察, $\ket{\frac{3}{2},\frac{1}{2}}$一定有一个正交的线性组合
@@ -436,7 +761,11 @@ $$\ket{\frac{3}{2},-\frac{1}{2}}$$
 >这几乎是人类获得的最完美的黑体谱
 
 测量这个黑体谱, 发现温度为 $2.7 K$ , 甚至可以一直往下测量, 发现这个值在第四位第五位后出现一个偏差 $\Delta T(x)$
-$$\frac{\Delta T(x)}{\bar{T}}\approx 10^{-5}$$
+
+$$
+\frac{\Delta T(x)}{\bar{T}}\approx 10^{-5}
+$$
+
 >这是我们能做在这里的终极原因, 如果温度没有涨落, 意味着在 CMB 形成的时候宇宙的分布是完美平均的, 并且宇宙的演化方程是旋转对称的, 不会破坏这个对称性, 这表明宇宙就不会形成星系
 >研究这个过程是考古学工作?
 >为什么宇宙的物质密度如此不平均? 答案是自引力系统是不稳定的, 引力将这个涨落放大了
