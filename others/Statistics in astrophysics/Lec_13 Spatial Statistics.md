@@ -17,7 +17,6 @@
 
 则随机样本的 overdensity 的方差 $\sigma_V^2=\mathrm{Var}(N)/\braket{N}$
 
-
 对于一般的样本, 一般是一个 poisson 成分加上在格子中的 clustering 成分
 
 这里 $\xi(\mathbf{r})$ 是两点相关函数
@@ -26,18 +25,33 @@
 考虑距离为 $\mathbf{r}$ 的两个体积元, 问期望有多少点对
 
 一般的形式为
-$$\mathrm{d}\mathcal{P}_{12}=\bar{n}^2(1+\xi(\mathbf{r}))\mathrm{d}V_1\mathrm{d}V_2$$
+
+$$
+\mathrm{d}\mathcal{P}_{12}=\bar{n}^2(1+\xi(\mathbf{r}))\mathrm{d}V_1\mathrm{d}V_2
+$$
+
 $\xi$ 即两点相关函数
 * $\xi>0$ 两点是相关的
 * $\xi=0$ 两点是无关的
 * $\xi$<0 两点负相关
 
 注意到局域的数密度为
-$$n(\mathbf{x})=\bar{n}(1+\delta(\mathbf{x}))$$
+
+$$
+n(\mathbf{x})=\bar{n}(1+\delta(\mathbf{x}))
+$$
+
 则成对点的期望
-$$\begin{align}\mathrm{d}\mathcal{P}_{12}&=\braket{n\mathrm{d}V_1\cdot n\mathrm{d}V_2}\\&=\\&=\bar{n}^2[1+\braket{\delta\delta}]\end{align}$$
+
+$$
+\begin{align}\mathrm{d}\mathcal{P}_{12}&=\braket{n\mathrm{d}V_1\cdot n\mathrm{d}V_2}\\&=\\&=\bar{n}^2[1+\braket{\delta\delta}]\end{align}
+$$
+
 即相关函数的定义为
-$$\xi(\mathbf{r})=\braket{\delta(\mathbf{x+r})\delta(\mathbf{x})}$$
+
+$$
+\xi(\mathbf{r})=\braket{\delta(\mathbf{x+r})\delta(\mathbf{x})}
+$$
 
 >在真实的数据中, 这个平均值的计算容易收到选择效应影响
 >比如角向的选择效应与完备度, 径向也存在不均匀性
@@ -49,28 +63,44 @@ $$\xi(\mathbf{r})=\braket{\delta(\mathbf{x+r})\delta(\mathbf{x})}$$
 则可以从计数中得到分布函数
 去问距离为 $\Delta r$ 的点对有多少 $\widehat{DD}$ , 对随机样本也这样做 $\widehat{RR}$ , 也可以去用随机样本的数据样本做点对 $\widehat{DR}$
 进行归一化
-$$DD = \frac{\widehat{DD}}{N_D(N_D-1)/2}\quad RR=\frac{\widehat{RR}}{N_R(N_R-1)/2}\quad DR=\frac{\widehat{DR}}{N_R N_D}$$
+
+$$
+DD = \frac{\widehat{DD}}{N_D(N_D-1)/2}\quad RR=\frac{\widehat{RR}}{N_R(N_R-1)/2}\quad DR=\frac{\widehat{DR}}{N_R N_D}
+$$
+
 则相关函数的估计为
-$$\hat{\xi}_{PH}=\frac{DD}{RR}-1$$
+
+$$
+\hat{\xi}_{PH}=\frac{DD}{RR}-1
+$$
+
 * 经常被用在周期性的盒子里, 经常在模拟中使用
 * 问题是受边界条件影响很大
 
 并且模拟此时 $RR$ 的结果是解析的
-$$RR = \frac{4\pi}{3}\frac{(r+\Delta r)^3-r^3}{V}$$
+
+$$
+RR = \frac{4\pi}{3}\frac{(r+\Delta r)^3-r^3}{V}
+$$
 
 在真实的数据中, 需要考虑 $DR$ 项
 
 Landy - Szalay estimator
-$$\hat{\xi}_{LS}=\frac{DD-2DR+RR}{RR}$$
-也有 Hamilton estimator
 
+$$
+\hat{\xi}_{LS}=\frac{DD-2DR+RR}{RR}
+$$
+
+也有 Hamilton estimator
 
 >真实的两点关联函数为
 >在尖尖处对应重子声波振荡, 这是一个用于标定宇宙膨胀的
 
 同样可以做各向异性的测量, 把距离按视线方向分解
 
-$$\mathbf{s}_{\parallel}$$
+$$
+\mathbf{s}_{\parallel}
+$$
 
 可以定义夹角
 
@@ -79,23 +109,32 @@ $$\mathbf{s}_{\parallel}$$
 
 对于大量数据, 还可以做一些压缩方式, 比如多极展开
 比如按 Legendre 展开
-$$\xi_l(s)=\frac{2l+1}{2}\int_{-1}^1\xi(s,\mu)\mathcal{L}_l(\mu)\mathrm{d}\mu$$
+
+$$
+\xi_l(s)=\frac{2l+1}{2}\int_{-1}^1\xi(s,\mu)\mathcal{L}_l(\mu)\mathrm{d}\mu
+$$
+
 然后去看这个谱的分布
 
 在数据不够好的时候, 也可以做径向压缩, 得到投影相关函数
-$$w_p()$$
+
+$$
+w_p()
+$$
 
 角向也可以做
 
-
 另一种做法是计算 marked 2PCF
 即按照一些物理量分布的权重给不同点加权
-$$\mathcal{M}(\mathbf{r})=\frac{1+W(\mathbf{r})}{1+\xi(\mathbf{r})}$$
+
+$$
+\mathcal{M}(\mathbf{r})=\frac{1+W(\mathbf{r})}{1+\xi(\mathbf{r})}
+$$
+
 * 当 $\mathcal{M}>1$ 时, 
 
 >除了标量场, 其他场也可以做相关函数
 >比如速度场, 形变场(张量场) , Lyman $\alpha$ 森林分布, 温度场, 极化场
-
 
 ### tools
 第一个介绍的是老师写的
@@ -113,13 +152,20 @@ Hierarchical universe -- 1900s
 >认为宇宙的第一级结构是一些随机分布的星系团, 
 >然后在第二级结构给每个星系团按照 Gauss 分布分配星系
 >halo model
->$$\xi = \xi_{2h} +\xi_{1h}$$
+>
+> $$
+> \xi = \xi_{2h} +\xi_{1h}
+> $$
+>
 >2 - halo term 考察 haloes 之间的关联
 >1 - halo term 考察 haloes 内部的关联
 >在无噪声的情形, 2 - halo terms 是 0
->$$\xi_{1h}\propto \int \rho(\mathbf{x})\rho(\mathbf{x+r})\mathrm{d}^3x$$
+>
+> $$
+> \xi_{1h}\propto \int \rho(\mathbf{x})\rho(\mathbf{x+r})\mathrm{d}^3x
+> $$
+>
 >这样
-
 
 对于真实宇宙, 按上面的结果计算
 1 - halo term : 一个 universal 的密度分布
@@ -127,7 +173,10 @@ Hierarchical universe -- 1900s
 * E
 
 2 - halo term : 有偏的采样, 偏差反映了暗物质密度分布
-$$\xi_{2h}(r)\approx b_1^2\xi_m(r)$$
+
+$$
+\xi_{2h}(r)\approx b_1^2\xi_m(r)
+$$
 
 对于暗物质分布, 可以通过 CMB 的分布得到
 涨落大小为 $10^{-5}$ 
@@ -135,12 +184,14 @@ $$\xi_{2h}(r)\approx b_1^2\xi_m(r)$$
 
 ### Gauss 随机场
 这是一个多维 gauss 分布
-$$p(\mathbf{\delta})=\frac{1}{(2\pi)^{n/2}|\mathbf{M}|^{1/2}}\exp\left[-\frac{1}{2}\mathbf{\delta}^T\mathbf{M}^{-1}\delta\right]$$
+
+$$
+p(\mathbf{\delta})=\frac{1}{(2\pi)^{n/2}|\mathbf{M}|^{1/2}}\exp\left[-\frac{1}{2}\mathbf{\delta}^T\mathbf{M}^{-1}\delta\right]
+$$
+
 协方差矩阵实际上是两点相关函数
 
-
 >即一个均匀的 Gauss 随机场可以由它的两点分布函数完全决定
-
 
 ### Fourier 空间中的密度场
 
@@ -165,8 +216,6 @@ gauss 分布可以使用 Box - Muller 变换得到
 
 做逆变换即可得到 gauss 场
 
-
-
 CMB 的结果接近于 $\alpha=-1$ 的功率谱
 
 ### 窗函数
@@ -183,12 +232,9 @@ CMB 的结果接近于 $\alpha=-1$ 的功率谱
 >一种方式是 NGP
 >CIC
 
-
 最后的功率谱是
 
-
 按照不同的网格进行这么做
-
 
 宇宙学上的功率谱
 

@@ -15,7 +15,6 @@
 > 但是一般的真实数据并不是这样的
 > 总之我们将面临的数据: 采样不均匀, 误差极大, 存在 gap , 探测极限等
 
-
 >基本方法
 >时域分析
 >频域分析
@@ -24,10 +23,8 @@
 # 傅立叶分析
 傅立叶变换即
 
-
 实际上是使用了周期性的基函数
 频谱包含两部分: 振幅和相位
-
 
 傅立叶变换的有很多性质
 * 线性性
@@ -38,28 +35,31 @@
 
 同样也有对称性
 
-
 卷积性质
 
 事实上大自然有一大部分卷积过程
 
 >Summary
 
-
 在采样等间隔的情形 Fourier 变换是容易进行的, 此时为 DFT
 
 Nyquist frequency
-$$f_{Ny}$$
+
+$$
+f_{Ny}
+$$
 
 考虑一个 Gauss 在高频采样下得到的傅立叶变换
 
 在低频区域可以复原原先函数的信息
 
-
 但如果采样点较稀疏, 高频信息会混合, 在 Nyquist frequency 以外部分的信息丢失了
 
 功率谱, 即描述了傅立叶基的权
-$$P(f)=|H(f)|^2 + |H(-f)|^2$$
+
+$$
+P(f)=|H(f)|^2 + |H(-f)|^2
+$$
 
 有 parseval's theorem
 
@@ -77,7 +77,11 @@ FFT: Fast Fourier Transform
 >
 >对于采样的数据
 >Schuster periodogram
->$$P_S(f)=\frac{2}{NV}[R(f)^2+I(f)^2]$$
+>
+> $$
+> P_S(f)=\frac{2}{NV}[R(f)^2+I(f)^2]
+> $$
+>
 >在没有噪声时等价于 DFT
 
 例子: 
@@ -103,10 +107,12 @@ FFT: Fast Fourier Transform
 # Localized & stochastic signals
 
 对于爆发信号
-$$y_B(t|)$$
+
+$$
+y_B(t|)
+$$
 
 同样, 对于 chirp 信号
-
 
 这两种信号都是局域的, 此时傅立叶变换就不是一个好方法了
 
@@ -115,15 +121,16 @@ $$y_B(t|)$$
 >spectrogram
 >即为短时的傅立叶变换
 
-
 对于 chirp 类型的事件是有用的
 
 >一个例子是 LIGO 的数据处理
 
-
 ## Wavelet Transform
 实际上也是局域的傅立叶变换, 即选择一个特定的窗口函数
-$$H_{w}(t_0;f_0,Q)=\int_{-\infty}^{\infty}$$
+
+$$
+H_{w}(t_0;f_0,Q)=\int_{-\infty}^{\infty}
+$$
 
 窗函数为小波函数
 
@@ -131,11 +138,9 @@ $$H_{w}(t_0;f_0,Q)=\int_{-\infty}^{\infty}$$
 
 对于 burst 信号
 
-
 对于 chirp 信号
 
 表现得很好
-
 
 # 随机过程 stochastic process
 一个随机过程是一系列被时间标记的随机变量 $\{y(t):t\in\mathbb{R}\}$
@@ -145,22 +150,26 @@ $$H_{w}(t_0;f_0,Q)=\int_{-\infty}^{\infty}$$
 一些例子是
 * AGN 的光变
 
-
 ## 自相关函数
 描述不同点之间的关联, 可以引入相关函数
-$$CF(\tau)=\frac{1}{\sigma_{f}\sigma_g}\underset{T\to\infty}{\lim}$$
-同样有自相关函数
 
+$$
+CF(\tau)=\frac{1}{\sigma_{f}\sigma_g}\underset{T\to\infty}{\lim}
+$$
+
+同样有自相关函数
 
 >ACF 的性质
 >* $ACF(0)=1$
 >* 对于
 >* 实际上是功率谱的傅立叶变换
 
-
 一个例子是有阻尼的随机游走
 即为 
-$$y(t+\Delta t)=y(t) e^{-\Delta t/\tau}$$
+
+$$
+y(t+\Delta t)=y(t) e^{-\Delta t/\tau}
+$$
 
 现在需要提取衰减信号, 做法是做离散版本自关联函数
 
