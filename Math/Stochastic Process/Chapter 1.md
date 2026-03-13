@@ -63,22 +63,23 @@ $$
 > $$
 >
 >对于其他状态, 概率皆为 0 即: $P(X_{n+1}=j\mid X_n=k)=0\quad j\neq k,k+1$    
+>
 >```mermaid
-flowchart LR
-D[...] --> A
-A[k-1] -. "1-(k-1)/N" .-> B[k]
-B -. "1-k/N" .-> C[k+1]
-C --> E[...]
+>flowchart LR
+>D["..."] --> A["k-1"]
+>A -. "1-(k-1)/N" .-> B["k"]
+>B -. "1-k/N" .-> C["k+1"]
+>C --> E["..."]
 >
 >%% 节点颜色
 >style A fill:#E3F2FD,stroke:#1E88E5,stroke-width:2px
-style B fill:#E8F5E9,stroke:#43A047,stroke-width:2px
-style C fill:#FFF3E0,stroke:#FB8C00,stroke-width:2px
-style D fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
-style E fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
+>style B fill:#E8F5E9,stroke:#43A047,stroke-width:2px
+>style C fill:#FFF3E0,stroke:#FB8C00,stroke-width:2px
+>style D fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
+>style E fill:#F3E5F5,stroke:#8E24AA,stroke-width:2px
 >
-%% 线条颜色
-linkStyle default stroke:#546E7A,stroke-width:2px
+>%% 线条颜色
+>linkStyle default stroke:#546E7A,stroke-width:2px
 >```
 
 转移概率的信息可以被矩阵储存, 称为转移概率矩阵
@@ -479,4 +480,3 @@ $$
 > $$
 >
 > $q_n(0) = (1-a) q_{n-1}(0) + b q_{n-1}(1)=(1-a-b)q_{n-1}(0)+b$ , 然后这个稳态分布的条件是 $|1-a-b|<1$
-
