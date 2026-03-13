@@ -8,24 +8,6 @@ $$
 Markov chain 就是对上面的分解做一些假设, 我们称 $i<n$ 的事件 $X_i$ 叫过去, $i> n$ 的事件 $X_i$ 为未来, 事件 $X_n$ 为现在
 Markov chain 的假设即: 未来的状态只取决于现在的状态 $X_n$ , 而与过去的状态无关
 
-对于任何事件, 都可以处于某个状态中
-```mermaid
-flowchart LR
-
-P1["Xₙ₋₂"] --> P2["Xₙ₋₁"] --> N["Xₙ"]
-N --> F1["Xₙ₊₁"] --> F2["Xₙ₊₂"]
-
-%% 颜色
-style P1 fill:#ECEFF1,stroke:#607D8B
-style P2 fill:#ECEFF1,stroke:#607D8B
-
-style N fill:#E3F2FD,stroke:#1E88E5,stroke-width:3px
-
-style F1 fill:#E8F5E9,stroke:#43A047
-style F2 fill:#E8F5E9,stroke:#43A047
-
-linkStyle default stroke:#546E7A,stroke-width:2px
-```
 ##### Conditional independence
 Markov chain 的假设为
 
@@ -81,6 +63,7 @@ $$
 >%% 线条颜色
 >linkStyle default stroke:#546E7A,stroke-width:2px
 >```
+>
 
 转移概率的信息可以被矩阵储存, 称为转移概率矩阵
 可以定义首达时间
