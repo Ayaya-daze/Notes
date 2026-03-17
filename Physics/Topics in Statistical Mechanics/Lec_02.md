@@ -66,66 +66,7 @@ $$
 一个观察是：在相空间中，$(x,P)$ 是一组 canonical 坐标，我们可以按等 $x,P$ 线对相空间分 bin。
 但代价是：按等 $x,p$ 线分 bin 时，相空间会被扭曲；不管我们选哪组坐标分 bin，都会导致另一组坐标扭曲。
 
-```tikz
-\begin{document}
-\begin{tikzpicture}[scale=1.18, line cap=round, line join=round]
-
-% 左图 (x,P)
-\begin{scope}[xshift=0cm]
-    \draw[->, line width=0.9pt] (-0.25,0) -- (4.8,0) node[right] {$x$};
-    \draw[->, line width=0.9pt] (0,-2.25) -- (0,2.8) node[above] {$P$};
-
-    \foreach \x in {0.5,1.5,2.5,3.5}{
-        \draw[gray!55, line width=0.45pt] (\x,-2.0) -- (\x,2.45);
-    }
-    \foreach \y in {-1.5,-0.5,0.5,1.5}{
-        \draw[gray!55, line width=0.45pt] (0.2,\y) -- (4.3,\y);
-    }
-
-    \fill[blue!12] (1.5,-0.5) rectangle (2.5,0.5);
-    \draw[blue!65!black, line width=1.1pt] (1.5,-0.5) rectangle (2.5,0.5);
-
-    \node[font=\large] at (2.15,2.58) {$(x,P)$};
-\end{scope}
-
-% 中间箭头
-\draw[->, line width=1.0pt] (5.35,0.2) -- (7.45,0.2);
-\node[fill=white, inner sep=1.5pt] at (6.4,0.62) {$p=P-qA(x)$};
-
-% 右图 (x,p)
-\begin{scope}[xshift=8.8cm]
-    \draw[->, line width=0.9pt] (-0.25,0) -- (4.8,0) node[right] {$x$};
-    \draw[->, line width=0.9pt] (0,-2.8) -- (0,2.8) node[above] {$p$};
-
-    % x = const 仍然是竖线
-    \foreach \x in {0.5,1.5,2.5,3.5}{
-        \draw[gray!55, line width=0.45pt] (\x,-2.55) -- (\x,2.45);
-    }
-
-    % P = const -> p = P - sin(...)
-    \draw[gray!55, line width=0.55pt, domain=0.2:4.1, smooth, variable=\x] plot ({\x},{ 1.5 - 0.9*sin(180*\x/2) });
-    \draw[gray!55, line width=0.55pt, domain=0.2:4.1, smooth, variable=\x] plot ({\x},{ 0.5 - 0.9*sin(180*\x/2) });
-    \draw[gray!55, line width=0.55pt, domain=0.2:4.1, smooth, variable=\x] plot ({\x},{-0.5 - 0.9*sin(180*\x/2) });
-    \draw[gray!55, line width=0.55pt, domain=0.2:4.1, smooth, variable=\x] plot ({\x},{-1.5 - 0.9*sin(180*\x/2) });
-
-    % 高亮一个严格对齐的扭曲 bin
-    \fill[blue!12]
-        (1.5,{ 0.5 - 0.9*sin(180*1.5/2) }) --
-        (1.5,{-0.5 - 0.9*sin(180*1.5/2) }) --
-        (2.5,{-0.5 - 0.9*sin(180*2.5/2) }) --
-        (2.5,{ 0.5 - 0.9*sin(180*2.5/2) }) -- cycle;
-    \draw[blue!65!black, line width=1.1pt]
-        (1.5,{ 0.5 - 0.9*sin(180*1.5/2) }) --
-        (1.5,{-0.5 - 0.9*sin(180*1.5/2) }) --
-        (2.5,{-0.5 - 0.9*sin(180*2.5/2) }) --
-        (2.5,{ 0.5 - 0.9*sin(180*2.5/2) }) -- cycle;
-
-    \node[font=\large] at (2.15,2.58) {$(x,p)$};
-\end{scope}
-
-\end{tikzpicture}
-\end{document}
-```
+![[attachments/tikz/lec02-bin-transform.png]]
 
 >insight from GR
 >>No coordinate makes you feel totally happy
@@ -221,11 +162,15 @@ $$
 \xi^I\quad\text{e.g.}\quad\xi^{I}=(x^i,p_i)
 $$
 
+^0fc686
+
 一般的作用量为
 
 $$
 S=\int_{\text{path}}\left[{\large\gamma}_{I}(\xi,t)\mathrm{d}\xi^I-H(\xi,t)\mathrm{d}t\right]
 $$
+
+^fa85b4
 
 在原先的表述中：
 当没有磁场时
@@ -240,7 +185,7 @@ $$
 {\large\gamma}_{x^i}=p_i+qA_i\quad {\large\gamma}_{p_i}=0
 $$
 
-Semi-classical particle with both magnetic field and Berry phase:
+Semi-classical particle with both magnetic field and Berry phase: ^47a412
 
 $$
 {\large\gamma}_I\mathrm{d}\xi^I
@@ -249,6 +194,8 @@ p_i\mathrm{d}x^i
 +qA_i(\mathbf{x},t)\mathrm{d}x^i
 +\underbrace{\hbar a^i(\mathbf{p})\mathrm{d}p_i}_{\text{Berry connection}}
 $$
+
+^c24196
 
 >这应该是一个量子理论, 但是被做了半经典近似, 使之能用经典物理描述
 
@@ -262,11 +209,13 @@ $$
 ##### Note (Codex 生成): 为什么固定边界条件时只能固定一半?
 先说最直观的版本:
 
-对一阶作用量
+对一阶作用量 ^3c6d64
 
 $$
 S=\int_{t_i}^{t_f}(p\dot{x}-H(x,p))\mathrm{d}t
 $$
+
+^804334
 
 变分后得到的是 Hamilton 方程
 
@@ -283,42 +232,7 @@ $$
 * 然后由驻值条件选出满足这两个端点的经典轨道
 * 一旦轨道确定, 边界上的 $p(t_i),p(t_f)$ 也就随之确定, 它们不再是额外独立输入的数据
 
-```tikz
-\begin{document}
-\begin{tikzpicture}[scale=1.2]
-\draw[->] (0,0) -- (9.2,0) node[right] {$t$};
-\draw[->] (0,-0.2) -- (0,4.3) node[above] {$x$};
-
-\fill[black] (1.0,0.9) circle (1.8pt);
-\fill[black] (8.0,3.0) circle (1.8pt);
-
-\draw[dashed] (1.0,0) -- (1.0,0.9);
-\draw[dashed] (8.0,0) -- (8.0,3.0);
-\draw[dashed] (0,0.9) -- (1.0,0.9);
-\draw[dashed] (0,3.0) -- (8.0,3.0);
-
-\node[below] at (1.0,0) {$t_i$};
-\node[below] at (8.0,0) {$t_f$};
-\node[left] at (0,0.9) {$x_i$};
-\node[left] at (0,3.0) {$x_f$};
-
-\node[below right] at (1.0,0.9) {fixed};
-\node[above left] at (8.0,3.0) {fixed};
-
-\draw[very thick]
-    (1.0,0.9)
-    .. controls (2.8,2.3) and (5.8,1.9) ..
-    (8.0,3.0);
-
-\draw[->,thick] (2.2,1.95) -- (1.55,1.35);
-\draw[->,thick] (6.8,2.35) -- (7.45,2.9);
-
-\node at (4.6,3.8) {classical path fixed by the two endpoints};
-\node at (2.55,2.15) {$p_i$ is then determined};
-\node at (6.4,2.1) {$p_f$ is then determined};
-\end{tikzpicture}
-\end{document}
-```
+![[attachments/tikz/lec02-endpoint-path.png]]
 
 从变分也能直接看出来. 对上式做变分:
 
@@ -367,4 +281,3 @@ $$
 * 因而最自然的是固定两端的 $x$, 而不是同时再独立固定两端的 $p$
 
 >这和不确定关系不是同一件事, 但它们有共同的根源: $x,p$ 是一对 canonical conjugate variables
-
