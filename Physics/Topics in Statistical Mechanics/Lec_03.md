@@ -1,12 +1,14 @@
 
-> Last time
-> 希望作用量中总只出现一阶项, 并考虑了一般相空间中的坐标
->![[Lec_02#^0fc686]]
+> [!note] Last time
+> 希望作用量中总只出现一阶项, 并考虑了一般相空间中的坐标.
 
-> Q: 为什么要写成 1st-order 的形式?
-> A: 1st-order 的计算比较方便, 例如离散方法中的插值更容易实现, 数值上也更稳定. 这是最直观的理由.
-> Q: 我们既然允许不依赖任何坐标系, 为什么不能允许任意阶导数出现?
-> A: 这里想传达的是: 到底哪些东西可以任意, 哪些必须做出一个选择.
+![[Lec_02#^0fc686]]
+
+**Q:** 为什么要写成 1st-order 的形式?  
+**A:** 1st-order 的计算比较方便, 例如离散方法中的插值更容易实现, 数值上也更稳定. 这是最直观的理由.
+
+**Q:** 我们既然允许不依赖任何坐标系, 为什么不能允许任意阶导数出现?  
+**A:** 这里想传达的是: 到底哪些东西可以任意, 哪些必须做出一个选择.
 
 一般的作用量
 
@@ -26,18 +28,17 @@ $$\begin{align}&{\large\gamma}_I(\xi,t)\to{\large\gamma}_I(\xi,t)+\partial_I\chi
 
 则给出相同的 action.
 
->[!example] 
->电磁场
->做规范变换
->
->$$A_i(\mathbf{x},t)\to A_i(\mathbf{x},t)+\partial_i\varphi(\mathbf{x},t),\qquad
->A_0(\mathbf{x},t)\to A_0(\mathbf{x},t)-\partial_t\varphi(\mathbf{x},t)$$
->
->这正对应上面
->
->$$\gamma_I\to\gamma_I+\partial_I\chi,\qquad H\to H-\partial_t\chi$$
->
->的结构. 同样, Berry connection 也有 gauge.
+**例：电磁场**
+
+做规范变换
+
+$$A_i(\mathbf{x},t)\to A_i(\mathbf{x},t)+\partial_i\varphi(\mathbf{x},t),\qquad A_0(\mathbf{x},t)\to A_0(\mathbf{x},t)-\partial_t\varphi(\mathbf{x},t)$$
+
+这正对应上面
+
+$$\gamma_I\to\gamma_I+\partial_I\chi,\qquad H\to H-\partial_t\chi$$
+
+的结构. 同样, Berry connection 也有 gauge.
 
 一般地, 若
 
@@ -67,11 +68,11 @@ $$\tilde{{\large\gamma}}_{\tilde{I}}(\tilde{\xi}^{\tilde{I}},t)={\large\gamma}_I
 
 $$\tilde{H}(\tilde{\xi},t)=H(\xi(\tilde{\xi},t),t)-\partial_t\xi^I{\large\gamma}_I(\xi(\tilde{\xi},t),t)$$
 
-> 关于上下标
-> 
-> $$\mathrm{d}\xi^I=\frac{\partial\xi^I}{\partial\tilde{\xi}^{\tilde{I}}}\mathrm{d}\tilde{\xi}^{\tilde{I}}+\frac{\partial\xi^I}{\partial t}\mathrm{d}t$$
-> 
-> 上下指标都配对消掉了, 对 $\gamma$ 也是一样. 好处在于可以快速看出最终结果的指标结构.
+**关于上下标**
+
+$$\mathrm{d}\xi^I=\frac{\partial\xi^I}{\partial\tilde{\xi}^{\tilde{I}}}\mathrm{d}\tilde{\xi}^{\tilde{I}}+\frac{\partial\xi^I}{\partial t}\mathrm{d}t$$
+
+上下指标都配对消掉了, 对 $\gamma$ 也是一样. 好处在于可以快速看出最终结果的指标结构.
 
 什么时候需要这样的坐标变换?
 
@@ -109,8 +110,14 @@ $$\frac{\delta S}{\delta{\xi^I}}=0\implies \partial_I{\large\gamma}_J\mathrm{d}\
 
 $$(\partial_I{\large\gamma}_J-\partial_J{\large\gamma}_I)\mathrm{d}\xi^J=(\partial_I H+\partial_t{\large\gamma}_I)\mathrm{d}t$$
 
-这两部分在 $\chi$ 的 gauge 变换下都保持不变. ![[Lec_03#^de958e]]
->这两部分看起来就像磁场和电场的结构.
+这两部分在 $\chi$ 的 gauge 变换下都保持不变:
+
+$$
+{\large\gamma}_I(\xi,t)\to{\large\gamma}_I(\xi,t)+\partial_I\chi(\xi,t),\qquad
+H(\xi,t)\to H(\xi,t)-\partial_t\chi(\xi,t)
+$$
+
+这两部分看起来就像磁场和电场的结构.
 
 于是定义记号
 
@@ -125,18 +132,14 @@ $$\gamma=p_i\,\mathrm{d}x^i,\qquad \gamma_{x^i}=p_i,\qquad \gamma_{p_i}=0$$
 
 这里 $\gamma_I$ 只有一个相空间指标 $I$. 写成 $\gamma_{x^i},\gamma_{p_i}$ 时, $x^i,p_i$ 只是坐标标签, 不是在 $\gamma$ 上再额外附加一个需要升降的 $i$ 型指标.
 
-$$\omega_{IJ}=\left(
-
-\begin{array}{c|c}
-
-\omega_{x^i,\;x^j}=0 & \omega_{x^i,\;p_j}=-\delta_i^{\ j} \\
-
-\hline
-
+$$
+\omega_{IJ}
+=
+\left(
+\begin{array}{c@{\;\middle|\;}c}
+\omega_{x^i,\;x^j}=0 & \omega_{x^i,\;p_j}=-\delta_i^{\ j} \\[4pt]
 \omega_{p_i,\;x^j}=\delta_j^{\ i} & \omega_{p_i,\;p_j}=0
-
 \end{array}
-
 \right)
 $$
 
@@ -168,12 +171,11 @@ $$
 (\omega^{-1})^{IJ}
 =
 \left(
-\begin{array}{c|c}
+\begin{array}{c@{\;\middle|\;}c}
 (\omega^{-1})^{x^i,\;x^j}=0
 &
 (\omega^{-1})^{x^i,\;p_j}=\delta^i_{\ j}=\{x^i,p_j\}
-\\
-\hline
+\\[4pt]
 (\omega^{-1})^{p_i,\;x^j}=-\delta_i^{\ j}=\{p_i,x^j\}
 &
 (\omega^{-1})^{p_i,\;p_j}=0
@@ -183,13 +185,13 @@ $$
 
 Poisson bracket 自动出现了. 这无非是在一种特殊坐标系下, 取 2-form 逆的分量.
 
->[!Summary]
->到这里我们做了什么?
->1. 我们从一般的 action 出发, 讨论它的 gauge invariance, 并计算了 EoM.
->2. 将方程整理为在 $\chi$ 的 gauge 变换下不变的形式. 这是 EoM 中真正物理的部分, 并从中定义了 symplectic 2-form.
->3. 从中写出最一般的 EoM, 在 usual case 中计算逆, 发现 Poisson bracket 自动出现. 这表明这个矩阵的逆更为重要, 它不依赖于具体坐标.
+> [!Summary]
+> 到这里我们做了什么?
+> 1. 我们从一般的 action 出发, 讨论它的 gauge invariance, 并计算了 EoM.
+> 2. 将方程整理为在 $\chi$ 的 gauge 变换下不变的形式. 这是 EoM 中真正物理的部分, 并从中定义了 symplectic 2-form.
+> 3. 从中写出最一般的 EoM, 在 usual case 中计算逆, 发现 Poisson bracket 自动出现. 这表明这个矩阵的逆更为重要, 它不依赖于具体坐标.
 >
->所以现在需要去找这个矩阵有哪些不依赖于坐标的性质.
+> 所以现在需要去找这个矩阵有哪些不依赖于坐标的性质.
 
 ### Check Coordinate Transformation Properties
 
@@ -197,7 +199,7 @@ $$\tilde{\omega}_{\tilde{I}\tilde{J}}=\omega_{IJ}\frac{\partial\xi^I}{\partial\t
 
 需要检查这与 $\tilde{\omega}$ 的定义相容.
 
->这是一个作业
+> 这是一个作业
 
 Abstractly, a symplectic 2-form:
 * is antisymmetric:
@@ -216,22 +218,19 @@ Abstractly, a symplectic 2-form:
 #### Darboux theorem
 Locally in phase space, one can always find a coordinate system such that
 
-$$\omega_{IJ}=\left(
-
-\begin{array}{c|c}
-
-\omega_{x^i,\;x^j}=0 & \omega_{x^i,\;p_j}=-\delta_i^{\ j} \\
-
-\hline
-
+$$
+\omega_{IJ}
+=
+\left(
+\begin{array}{c@{\;\middle|\;}c}
+\omega_{x^i,\;x^j}=0 & \omega_{x^i,\;p_j}=-\delta_i^{\ j} \\[4pt]
 \omega_{p_i,\;x^j}=\delta_j^{\ i} & \omega_{p_i,\;p_j}=0
-
 \end{array}
-
-\right)$$
+\right)
+$$
 
 这就是 "canonical" 的定义.
 
 不同的坐标在局部没有本质区别, 但它们有时没有明确的物理意义, 所以很多时候我们不会采用这种方便的坐标.
 
->证明留作作业
+> 证明留作作业
