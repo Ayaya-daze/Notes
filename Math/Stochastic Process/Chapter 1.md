@@ -40,7 +40,9 @@ $$
 > [!examples] coupon collector
 > $X_n:\text{number of distinct types at time n ( N total)}$ 假设每种抽到的概率相同
 >
-> $$ P(X_{n+1}=k+1\mid X_n =k)=1-\frac{k}{N}\quad P(X_{n+1}=k\mid X_n=k)=\frac{k}{N} $$
+> $$
+P(X_{n+1}=k+1\mid X_n =k)=1-\frac{k}{N}\quad P(X_{n+1}=k\mid X_n=k)=\frac{k}{N}
+> $$
 >
 > 对于其他状态, 概率皆为 0 即: $P(X_{n+1}=j\mid X_n=k)=0\quad j\neq k,k+1$    
 >
@@ -75,11 +77,15 @@ $$
 > [!examples] Random walk / gambler‘s ruin
 > $X_n:\text{wealth of time n}$ 转移概率为
 >
-> $$ P(X_{n+1}=k+1\mid X_0=i,\cdots ,X_{n}=k)=p\quad P(X_{n+1}=k-1\mid X_0=i,\cdots,X_n=k)=1-p $$
+> $$
+P(X_{n+1}=k+1\mid X_0=i,\cdots ,X_{n}=k)=p\quad P(X_{n+1}=k-1\mid X_0=i,\cdots,X_n=k)=1-p
+> $$
 >
 > 同时有终止条件
 >
-> $$ \text{Quit if} \,X_n=0 \,\text{or}\, X_n=N $$
+> $$
+\text{Quit if} \,X_n=0 \,\text{or}\, X_n=N
+> $$
 >
 > 称之为吸收态
 
@@ -96,7 +102,9 @@ $$
 > 若 $X_{n+1}$ 不仅依赖于 $X_n$ , 还依赖于 $X_{n-1}$ 是否可以等价地用 Markov chain 刻画
 > 同样做法是定义一个好的状态, 可以将两个状态定义为一个新状态 $(X_n,X_{n-1})=S_n$ 则
 >
-> $$ P(S_{n+1}|S_{n},\cdots,S_0)=P(X_{n+1},X_{n}\mid X_n,X_{n-1},\cdots,X_0)=P(X_{n+1},X_n\mid X_n,X_{n-1})=P(S_{n+1}\mid S_{n}) $$
+> $$
+P(S_{n+1}|S_{n},\cdots,S_0)=P(X_{n+1},X_{n}\mid X_n,X_{n-1},\cdots,X_0)=P(X_{n+1},X_n\mid X_n,X_{n-1})=P(S_{n+1}\mid S_{n})
+> $$
 >
 > 这种做法叫 lifting state space
 
@@ -155,7 +163,13 @@ $$
 > visit state $j$ , reward $f(j)$ 在 $k$ 时刻的 reward 也是一个随机变量 $f(X_k)$ 
 > 想给每个状态给一个加权函数: total reward $r(i):\text{total reward at state i}$ 的期望
 >
-> $$ \begin{align}r(i) &=\mathbb{E}\left[\sum_{k=0}^nf(X_k)\Bigg| X_0=i\right]=\sum_{k=0}^n\mathbb{E}[f(X_k)\mid X_0=i]\\&=\sum_{k=0}^n \sum_{j}f(j)P(X_k=j\mid X_0=i)\\&=\sum_{k=0}^n\sum_{j}f(j)p^k(i,j)=\left((1+p+\cdots +p^n)f\right)_i\end{align} $$
+> $$
+\begin{align}
+r(i) &=\mathbb{E}\left[\sum_{k=0}^nf(X_k)\Bigg| X_0=i\right]=\sum_{k=0}^n\mathbb{E}[f(X_k)\mid X_0=i]\\
+&=\sum_{k=0}^n \sum_{j}f(j)P(X_k=j\mid X_0=i)\\
+&=\sum_{k=0}^n\sum_{j}f(j)p^k(i,j)=\left((1+p+\cdots +p^n)f\right)_i
+\end{align}
+> $$
 >
 > 这是一种强化学习的建模, 即给每个状态打分
 
@@ -174,11 +188,15 @@ $$
 
 > 做一个符号的简化
 >
-> $$ P_i(\cdot)\coloneqq P(\cdot\mid X_0=i) $$
+> $$
+P_i(\cdot)\coloneqq P(\cdot\mid X_0=i)
+> $$
 >
 > 同样期望也有形式
 >
-> $$ \mathbb{E}_i[\cdot]\coloneqq \mathbb{E}[\cdot\mid X_0=i] $$
+> $$
+\mathbb{E}_i[\cdot]\coloneqq \mathbb{E}[\cdot\mid X_0=i]
+> $$
 >
 
 #### Define returning time
@@ -442,7 +460,9 @@ $$
 
 > 一个例子, 考虑 transition matrix
 >
-> $$ \begin{bmatrix}1-a & a \\b&1-b\end{bmatrix} $$
+> $$
+\begin{bmatrix}1-a & a \\b&1-b\end{bmatrix}
+> $$
 >
 > $q_n(0) = (1-a) q_{n-1}(0) + b q_{n-1}(1)=(1-a-b)q_{n-1}(0)+b$ , 然后这个稳态分布的条件是 $|1-a-b|<1$
 > 并且对于不同的参数, 这给出了不同的收敛性, 需要讨论的即为什么情况下会收敛
@@ -450,7 +470,9 @@ $$
 
 一种情况是 $a=b=0$ , 此时
 
-$$p=\begin{bmatrix}1&0\\0&1\end{bmatrix}\implies p^n=\begin{bmatrix}1&0\\0&1\end{bmatrix}$$
+$$
+p=\begin{bmatrix}1&0\\0&1\end{bmatrix}\implies p^n=\begin{bmatrix}1&0\\0&1\end{bmatrix}
+$$
 
 此时给出了一个初值依赖的极限分布, 不是我们想要的稳态
 
@@ -460,36 +482,48 @@ $$p=\begin{bmatrix}1&0\\0&1\end{bmatrix}\implies p^n=\begin{bmatrix}1&0\\0&1\end
 
 #### Necessary condition
 
-$$\underset{n\to \infty}{\lim} p^n(i,j)=\underset{n\to\infty}{\lim}\sum_{k}p^{n-1}(i,k)p(k,j)$$
+$$
+\underset{n\to \infty}{\lim} p^n(i,j)=\underset{n\to\infty}{\lim}\sum_{k}p^{n-1}(i,k)p(k,j)
+$$
 
 若存在一个初值无关的稳态 $\pi(j)$ , 那么 (现在是 DTMC , 极限和求和可交换)
 
-$$\pi(j)=\sum_{k}\pi(k)p(k,j)\implies \pi=\pi P$$
+$$
+\pi(j)=\sum_{k}\pi(k)p(k,j)\implies \pi=\pi P
+$$
 
 这可以给出平稳分布更方便的表述
 
 #### Define steady distribution
 称 $\pi$ 是一个平稳分布, 若 
 
-$$\pi=\pi P\Leftrightarrow \pi(I-P)=0$$
+$$
+\pi=\pi P\Leftrightarrow \pi(I-P)=0
+$$
 
 > 可以看到, 若在某点达到了平稳分布, 那么往后就一直是平稳分布
 > 另外这个解并不一定存在, 我们要求的是非负解
 
 例如一个对称的分布, 每个状态等权, 此时, 列求和也为 1
 
-$$\sum_{i}p(i,j)=\sum_{j}p(i,j)=1$$
+$$
+\sum_{i}p(i,j)=\sum_{j}p(i,j)=1
+$$
 
 那么此时一个容易猜到的平稳分布是均匀分布
 
 #### Detailed balance condition
 细致平衡即为
 
-$$\pi(i)p(i,j)=\pi(j)p(j,i)\quad\forall i,j$$
+$$
+\pi(i)p(i,j)=\pi(j)p(j,i)\quad\forall i,j
+$$
 
 这是上面对称分布的条件的加强版, 两侧对 $i$ 求和得到
 
-$$\sum_{i}\pi(i)p(i,j)=\sum_{i}\pi(j)p(j,i)=\pi(j)\implies \sum_{i}p(j,i)=1$$
+$$
+\sum_{i}\pi(i)p(i,j)=\sum_{i}\pi(j)p(j,i)=\pi(j)\implies \sum_{i}p(j,i)=1
+$$
 
 > 更一般这也叫可逆性, 进一步深入的话也可以在其上建立 Hilbert space
 > Codex 补充：相对于平稳分布 $\pi$ 看, detailed balance 等价于转移算子在 $L^2(\pi)$ 里是自伴的, 所以很多谱性质会更清楚.
@@ -500,7 +534,9 @@ $$\sum_{i}\pi(i)p(i,j)=\sum_{i}\pi(j)p(j,i)=\pi(j)\implies \sum_{i}p(j,i)=1$$
 
 一个例子 
 
-$$\begin{bmatrix}0.5&0.5&0\\0.3 & 0.1& 0.6\\0.2 &0.4& 0.4\end{bmatrix}$$
+$$
+\begin{bmatrix}0.5&0.5&0\\0.3 & 0.1& 0.6\\0.2 &0.4& 0.4\end{bmatrix}
+$$
 
 满足双随机性, 存在平稳分布, 但并不是细致平衡的
 
@@ -514,7 +550,9 @@ Codex 补充：这个转移矩阵对应的拓扑如下.
 
 一般的, 对于一个长度为 $n$ 的 cycle , 满足
 
-$$\prod_{k}p(x_{k-1},x_k)=\prod_{k}p(x_k,x_{k-1})$$
+$$
+\prod_{k}p(x_{k-1},x_k)=\prod_{k}p(x_k,x_{k-1})
+$$
 
 这叫做 Kolmogorov - cycle condition : 对有限不可约链, 若上式对**所有** cycle 成立 $\Leftrightarrow$ 存在一个平稳分布 $\pi$ 满足 detailed balance
 
@@ -525,11 +563,15 @@ $$\prod_{k}p(x_{k-1},x_k)=\prod_{k}p(x_k,x_{k-1})$$
 
 首先对 transient state 的分析, 由于 transient 的性质, 可以猜测
 
-$$p^{n}(i,j)\to 0\quad \text{j transient}$$
+$$
+p^{n}(i,j)\to 0\quad \text{j transient}
+$$
 
 可以给出一个 scratch
 
-$$\mathbb{E}_i[N(j)]=\sum_{n=1}^{\infty}p^n(i,j)=\frac{\rho_{ij}}{1-\rho_{jj}}<\infty$$
+$$
+\mathbb{E}_i[N(j)]=\sum_{n=1}^{\infty}p^n(i,j)=\frac{\rho_{ij}}{1-\rho_{jj}}<\infty
+$$
 
 则余项是趋于 0 的, 故 transient state 的极限行为非常简单, 只需要分析 recurrent state 即可
 
@@ -546,7 +588,9 @@ $$\mathbb{E}_i[N(j)]=\sum_{n=1}^{\infty}p^n(i,j)=\frac{\rho_{ij}}{1-\rho_{jj}}<\
 #### Define period
 态 $j$ 的周期是指
 
-$$d_j \coloneqq \gcd\{n: p^n(j,j)>0\}=\gcd I_j $$
+$$
+d_j \coloneqq \gcd\{n: p^n(j,j)>0\}=\gcd I_j
+$$
 
 这并不说在周期上一定会回来, 只是说可能会回来
 
@@ -556,7 +600,9 @@ $$d_j \coloneqq \gcd\{n: p^n(j,j)>0\}=\gcd I_j $$
 若 $i\mapsto j,j\mapsto i$ , 那么 $d_i=d_j$ 
 proof:
 
-$$i\mapsto j\implies \exists k,m\quad p^k(i,j)>0, p^m(j,i)>0$$
+$$
+i\mapsto j\implies \exists k,m\quad p^k(i,j)>0, p^m(j,i)>0
+$$
 
 不妨取 $d_i\leq d_j$ , 而 $p^{k+m}(j,j)>0$ , 那么 $\forall l\in I_i\quad p^{k+m+l}(j,j)>0$
 这导出 $k+m\in I_j$ , $k+m+l\in I_j$ , $\forall l \in I_i$ 
@@ -570,45 +616,65 @@ $$i\mapsto j\implies \exists k,m\quad p^k(i,j)>0, p^m(j,i)>0$$
 
 这是因为 $I_i$ 对加法封闭, 并且 $\gcd I_i=1$ , 则对于 $a,b\in I_i$ 存在 $m,n\in \mathbb{Z}$ 合于
 
-$$an+bm =1$$
+$$
+an+bm =1
+$$
 
 模 $a$ 得到
 
-$$bm \equiv 1 \quad \mathrm{mod }a$$
+$$
+bm \equiv 1 \quad \mathrm{mod }a
+$$
 在商群里做加法闭包得到
 
-$$\{bm,2bm,3bm,\cdots,abm\}\overset{\mod a\text{ 后}}{=} \mathbb{Z}/a\mathbb{Z}$$
+$$
+\{bm,2bm,3bm,\cdots,abm\}\overset{\mod a\text{ 后}}{=} \mathbb{Z}/a\mathbb{Z}
+$$
 即 $b$ 乘一些正整数跑满了 模 $a$  的整个周期, 取充分大的 $n$ 就有 
 
-$$b I = \{na+1,na+2,\cdots ,na+a-1\}\quad\text{存在一个}\, I\subset\mathbb{Z}_{\geq 0}$$
+$$
+b I = \{na+1,na+2,\cdots ,na+a-1\}\quad\text{存在一个}\, I\subset\mathbb{Z}_{\geq 0}
+$$
 
 对足够大的 $N = an+r$ , 有 $bk = n_0a+r$ 从而
 
-$$N=bk+a(n-n_0)$$
+$$
+N=bk+a(n-n_0)
+$$
 于是取 $n_0=\underset{r\in \mathbb{Z}/a\mathbb{Z}}{\max} n_0(r)$  和 $n>n_0$ 即完成证明, 这个证明只能用于 $I$ 中有两个数的情况
 
 > 这个证明有点像用理想生成整个整数, 
 >
-> $$ \braket{I} = \gcd(I)\mathbb{Z}\quad I \text{ 是理想} $$
+> $$
+\braket{I} = \gcd(I)\mathbb{Z}\quad I \text{ 是理想}
+> $$
 >
 > 但是不一样的是这里只能用正整数去生成, 所以只能保证能铺满大正数
 
 对于一般情况, 也许可以放到更抽象的情形完成证明: 理想的例子中告诉我们对于 $a_1,a_2,\cdots,a_n\in I$  合于 $\gcd (a_1,\cdots,a_n)=1$, 我们自然有满射 $\phi$
 
-$$\mathbb{Z}^n\to \mathbb{Z}\quad (n_i)\to\sum_i n_i a_i$$
+$$
+\mathbb{Z}^n\to \mathbb{Z}\quad (n_i)\to\sum_i n_i a_i
+$$
 
 所以这个定理实际上在说, 左侧限制到正坐标, 右侧限制到一个大正数后, 依旧有满射 
 那么存在 $u\in \mathbb{Z}^n$ 合于 $\phi(u) = 1$  , 但是不能保证坐标都是正的, 所以做一个 shift 保证正坐标
 
-$$u\to u+ M(1,\cdots,1)\quad \phi(u+M(1,\cdots,1))=1+M(a_1+\cdots+a_n)=1+MA$$
+$$
+u\to u+ M(1,\cdots,1)\quad \phi(u+M(1,\cdots,1))=1+M(a_1+\cdots+a_n)=1+MA
+$$
 
 于是可以得到
 
-$$\phi(u) = 1\quad \mod A$$
+$$
+\phi(u) = 1\quad \mod A
+$$
 
 这把问题放回到了二元版本 $\gcd(\phi(u),A)=1$ 存在充分大正数 $n_0$ 使得 $n>n_0$ 
 
-$$n=l_1 \phi(u)+l_2 A\in I_i$$
+$$
+n=l_1 \phi(u)+l_2 A\in I_i
+$$
 
 最后一个属于来自 $I_i$ 对加法封闭
 
@@ -625,27 +691,37 @@ $i$ 是 recurrent 的, 且 $\mathbb{E}_i[T_i]<\infty$  , 强大数定律表明
 > 因为在强 markov 性质下, 它们是独立同分布的
 
 
-$$\frac{T_i^k}{k} \xrightarrow{\text{a.s.}} \mathbb{E}_i[T_i]$$
+$$
+\frac{T_i^k}{k} \xrightarrow{\text{a.s.}} \mathbb{E}_i[T_i]
+$$
 
 > [!note]
 > 那么看访问频率
 >
-> $$ N_{n}(i)=\sum_{l=1}^n \mathbf{1}_{X_l=i} $$
+> $$
+N_{n}(i)=\sum_{l=1}^n \mathbf{1}_{X_l=i}
+> $$
 >
 > 则
 >
-> $$ \frac{n}{N_n(i)}\xrightarrow{\text{a.s.}}\mathbb{E}_i[T_i] $$
+> $$
+\frac{n}{N_n(i)}\xrightarrow{\text{a.s.}}\mathbb{E}_i[T_i]
+> $$
 >
 > 下面这个结果由夹逼给出
 >
-> $$ T_i^{N_n(i)}\leq n < T_i^{N_n(i)+1} $$
+> $$
+T_i^{N_n(i)}\leq n < T_i^{N_n(i)+1}
+> $$
 
 所以我们有如下定理
 
 #### Theorem 访问频率
 $X_n$ 是 irreducible $(I)$ , 所有态都是 recurrent $(R)$ , 那么
 
-$$\frac{N_n(i)}{n}\xrightarrow{\text{a.s.}} \frac{1}{\mathbb{E}_i[T_i]}$$
+$$
+\frac{N_n(i)}{n}\xrightarrow{\text{a.s.}} \frac{1}{\mathbb{E}_i[T_i]}
+$$
 
 > 上面这个结构要求常返态, 然后如果所有 $i$ 都满足这个关系, 那要求不可约
 > 这样我们几乎找到了平稳分布
@@ -656,11 +732,15 @@ $$\frac{N_n(i)}{n}\xrightarrow{\text{a.s.}} \frac{1}{\mathbb{E}_i[T_i]}$$
 
 若 $X_0\sim \pi$ , 那么
 
-$$\mathbb{E}_{\pi}[N_n(i)]=n\times \pi(i)$$
+$$
+\mathbb{E}_{\pi}[N_n(i)]=n\times \pi(i)
+$$
 
 若 $\pi_i>0$ , 那么 
 
-$$\mathbb{E}_{\pi}[N(i)]=\infty$$
+$$
+\mathbb{E}_{\pi}[N(i)]=\infty
+$$
 
 这表明 $i$ 也是一个 recurrent state, 即
 
@@ -669,13 +749,17 @@ $(S)$ , $\pi(i)>0$ , 则 $i$ 是 recurrent state
 
 那上面的例子代入, 有
 
-$$\mathbb{E}_{\pi}[\frac{N_n(i)}{n}]=\pi(i)$$
+$$
+\mathbb{E}_{\pi}[\frac{N_n(i)}{n}]=\pi(i)
+$$
 
 > 注意这两个收敛的行为不同, 一个是几乎处处收敛, 一个是 1 - 范数收敛
 
 #### Theorem
 
-$$(I) , (S) \implies \pi(i)=\frac{1}{\mathbb{E}_iT_i}$$
+$$
+(I) , (S) \implies \pi(i)=\frac{1}{\mathbb{E}_iT_i}
+$$
 
 > 这用到了控制收敛定理 DCT , 即用一个可积函数去控制一列几乎处处收敛的随机变量, 从而交换极限和期望.
 > Codex 补充：DCT 的表述是: 若 $Y_n\to Y$ a.s. 且存在可积随机变量 $Z$ 使得 $|Y_n|\le Z$ 对所有 $n$ 成立, 则 $\mathbb{E}[Y_n]\to \mathbb{E}[Y]$ . 这里在平稳初值 $X_0\sim\pi$ 下取 $Y_n=N_n(i)/n$ , 由前面的访问频率定理知 $Y_n\to 1/\mathbb{E}_i[T_i]$ a.s. , 又因为 $0\le Y_n\le 1$ , 可以取 $Z\equiv 1$ . 另一方面 $\mathbb{E}_\pi[Y_n]=\pi(i)$ , 所以 DCT 给出 $\pi(i)=1/\mathbb{E}_i[T_i]$ .
@@ -689,41 +773,61 @@ $$(I) , (S) \implies \pi(i)=\frac{1}{\mathbb{E}_iT_i}$$
 
 Example: 
 
-$$\sum_{n=0}^{T_{i}-1}\mathbf{1}_{X_n=j}=\sum_{n=0}^{\infty}\mathbf{1}_{X_n=j, n< T_i}$$
+$$
+\sum_{n=0}^{T_{i}-1}\mathbf{1}_{X_n=j}=\sum_{n=0}^{\infty}\mathbf{1}_{X_n=j, n< T_i}
+$$
 
 即在一个 访问 $i$ 的 cycle 里面 访问态 $j$ 的次数, 首先可以看的是期望
 
-$$\mu_i(j)=\sum_{n=0}^{\infty}P_i(X_n=j, n<T_i)$$
+$$
+\mu_i(j)=\sum_{n=0}^{\infty}P_i(X_n=j, n<T_i)
+$$
 
 实际上这在某种程度上定义了平稳分布 (缺少归一化), 
 
-$$\mu_i P=\mu_i$$
+$$
+\mu_i P=\mu_i
+$$
 
 > [!note]
 > 直接看计算
 >
-> $$ \sum_{k}\mu_i(k)P_{kj} $$
+> $$
+\sum_{k}\mu_i(k)P_{kj}
+> $$
 >
 > 意思是先统计 cycle 内有多少次经过 $k$ , 然后再一步走到 $j$ , 实际上就是 cycle 内有多少次到 $j$ 即
 >
-> $$ \begin{align}\mathbb{E}_i[\sum_{n=0}^{T_i-1}\mathbf{1}_{X_{n+1}=j}]&=\sum_{k}\sum_{n=0}^{\infty}P_i(X_n=k ,n<T_i,X_{n+1}=j)\\&=\sum_k\sum_{n=0}^{\infty}P_i(X_n=k,n<T_i)p_{kj}\\&=\sum_k \mu_i(k)p_{kj}\end{align} $$
+> $$
+\begin{align}
+\mathbb{E}_i[\sum_{n=0}^{T_i-1}\mathbf{1}_{X_{n+1}=j}]&=\sum_{k}\sum_{n=0}^{\infty}P_i(X_n=k ,n<T_i,X_{n+1}=j)\\
+&=\sum_k\sum_{n=0}^{\infty}P_i(X_n=k,n<T_i)p_{kj}\\
+&=\sum_k \mu_i(k)p_{kj}
+\end{align}
+> $$
 >
 > 后者来自于 markov 性, 而且有
 >
-> $$ \sum_{n=0}^{T_i -1}\mathbf{1}_{X_n=j}=\sum_{n=0}^{T_i-1}\mathbf{1}_{X_{n+1}=j} $$
+> $$
+\sum_{n=0}^{T_i -1}\mathbf{1}_{X_n=j}=\sum_{n=0}^{T_i-1}\mathbf{1}_{X_{n+1}=j}
+> $$
 >
 > 因为求和边缘一定是 $i$ , 所以中间求和是相同的, 而对于 $i=j$ 的情况, 头尾补偿了
 
 
 归一化系数实际上就为:
 
-$$\sum_{j}\mu_i(j)\sim\sum_j \sum_{n=0}^{T_{i}-1}\mathbf{1}_{X_n=j}=T_i$$
+$$
+\sum_{j}\mu_i(j)\sim\sum_j \sum_{n=0}^{T_{i}-1}\mathbf{1}_{X_n=j}=T_i
+$$
 
 $\sim$ 两边恰好相差一个期望, 于是我们得到如下结果
 
 #### Theorem 
 
-$$(I), (R)\implies \frac{\mu_i(j)}{\mathbb{E}_i T_i} \quad\text{is stationary} \quad , \quad 0<\mu_{i}(j)<+\infty$$
+$$
+(I), (R)\implies \frac{\mu_i(j)}{\mathbb{E}_i T_i} \quad\text{is stationary} \quad , \quad 0<\mu_{i}(j)<+\infty
+$$
 
 当然这里要求 $\mathbb{E}_i T_i <\infty$ , 即对任意正常返态 $i$ 
 即 $\pi$ 存在
@@ -732,25 +836,35 @@ $$(I), (R)\implies \frac{\mu_i(j)}{\mathbb{E}_i T_i} \quad\text{is stationary} \
 >
 > 现在只考虑一个 cycle 内的 reward: reward in one - cycle
 >
-> $$ Y_i =\sum_{n=0}^{T_i-1}f(X_n)\quad Y_k =\sum_{n=T_{i}^{k-1}}^{T_i^k -1} f(X_n) $$
+> $$
+Y_i =\sum_{n=0}^{T_i-1}f(X_n)\quad Y_k =\sum_{n=T_{i}^{k-1}}^{T_i^k -1} f(X_n)
+> $$
 >
 > 那么
 >
-> $$ \frac{1}{k}\sum_{l=0}^k Y_l\xrightarrow{\text{a.s.}} \mathbb{E}_i Y_i=\sum_{j}\mu_i(j)f(j) $$
+> $$
+\frac{1}{k}\sum_{l=0}^k Y_l\xrightarrow{\text{a.s.}} \mathbb{E}_i Y_i=\sum_{j}\mu_i(j)f(j)
+> $$
 >
 > 那么平均 reward
 >
-> $$ \frac{1}{n}\sum_{m=1}^n f(X_m)\approx \frac{k}{n}\frac{1}{k}\sum_{l=1}^{k}Y_l\to\frac{1}{\mathbb{E}_i T_i}\sum_j\mu_i(j)f(j) $$
+> $$
+\frac{1}{n}\sum_{m=1}^n f(X_m)\approx \frac{k}{n}\frac{1}{k}\sum_{l=1}^{k}Y_l\to\frac{1}{\mathbb{E}_i T_i}\sum_j\mu_i(j)f(j)
+> $$
 
 
 #### Theorem Ergodic theorem
 若 $(I),(S), \mathbb{E}_\pi[f]<\infty$ , 那么
 
-$$\frac{1}{n}\sum_{i=1}^n f(X_i)\to \mathbb{E}_\pi[f]=\sum_{i}\pi(i)f(i)$$
+$$
+\frac{1}{n}\sum_{i=1}^n f(X_i)\to \mathbb{E}_\pi[f]=\sum_{i}\pi(i)f(i)
+$$
 
 若取 $f(X)=\mathbf{1}_{X=j}$ , 有
 
-$$\frac{1}{n}\sum_{i=1}^n \mathbf{1}_{X_i=j}\to \pi(j)\quad \frac{1}{n}\sum_{k=1}^n p^k(i,j)\to \pi(j)$$
+$$
+\frac{1}{n}\sum_{i=1}^n \mathbf{1}_{X_i=j}\to \pi(j)\quad \frac{1}{n}\sum_{k=1}^n p^k(i,j)\to \pi(j)
+$$
 
 
 > [!note]
@@ -762,49 +876,72 @@ $I$ , $A$ , $S$ , 下面说明这也是充分条件
 考虑 markov chian 的两个初值给出的过程 $(B_n,G_n)$
 共同相遇时间
 
-$$T=\min\{n\geq0 ,B_n =G_n\}$$
+$$
+T=\min\{n\geq0 ,B_n =G_n\}
+$$
 
 #### Theorem 
 $(A),(S),(I)$ 则 
 
-$$p^n(i,j)\to\pi(j)\quad\forall i$$
+$$
+p^n(i,j)\to\pi(j)\quad\forall i
+$$
 
 Proof:
 
 一种 coupling 的做法, 考虑, 上面的两个过程在相遇之后就同频了, 即 在 $n\geq T$ 之后
 
-$$B_n=G_n$$
+$$
+B_n=G_n
+$$
 
 即在到达时候后的概率相同, 即
 
-$$\begin{align}P(B_n=i, n\geq T)& =P(G_n=i,n\geq T)\\&=\sum_{m=1}^n\sum_{j\in S} P(T=m,B_m=j,B_n=i)\end{align}$$
+$$
+\begin{align}
+P(B_n=i, n\geq T)& =P(G_n=i,n\geq T)\\
+&=\sum_{m=1}^n\sum_{j\in S} P(T=m,B_m=j,B_n=i)
+\end{align}
+$$
 
 用全概率展开
 
-$$|P(B_n=i)-P(G_n=i)|\leq P(B_n=i,T>n)+P(G_n=i,T>n)\leq 2P(T>n)$$
+$$
+|P(B_n=i)-P(G_n=i)|\leq P(B_n=i,T>n)+P(G_n=i,T>n)\leq 2P(T>n)
+$$
 最后取 $B_0=i$ 且 $G_0$ 服从平稳分布, 得到 1 - 范数意义的收敛
 
 ## Hitting time / exit time
 
 考虑一个双状态的 markov 过程, 但每个状态连出去一个自连接的状态, 则 hitting time
 
-$$T=\min\{n\geq 0, X_n\in\{C,D\}\}$$
+$$
+T=\min\{n\geq 0, X_n\in\{C,D\}\}
+$$
 
 分析 $T<+\infty?$ 回答是肯定的, 但最终停留在哪个状态? termination state
 
 考察 
 
-$$h(i)=P_i(X_T=D)$$
+$$
+h(i)=P_i(X_T=D)
+$$
 
 边界条件 
 
-$$h(C)=0,h(D)=1$$
+$$
+h(C)=0,h(D)=1
+$$
 
 继续做 first - step analysis:
 
-$$h(A)=0.75h(A)+0.2 h(B)+0$$
+$$
+h(A)=0.75h(A)+0.2 h(B)+0
+$$
 
-$$h(B)=0.25h(A)+0.5h(B)+0.25$$
+$$
+h(B)=0.25h(A)+0.5h(B)+0.25
+$$
 
 写成矩阵
 
@@ -838,7 +975,9 @@ $$
 
 考虑有限状态空间 $S$ , 子集 $F$ , 定义 hitting time
 
-$$V_F=\min\{n\geq 0, X_n\in F\}$$
+$$
+V_F=\min\{n\geq 0, X_n\in F\}
+$$
 
 则 $A,B\subset S$ 无交, 即 $S =A\sqcup B \sqcup C$ 
 并且 $h(a)=1,\forall a\in A$ , $h(b)=0, \forall b\in B$ 以及 $h(c)=\sum_{j}p(c,j)h(j),\forall c\in C$ 
@@ -864,11 +1003,15 @@ $g(a)=0,\forall a\in A$ 和 $g(c)=1 +\sum_j p(c,j)g(j),\forall c\in C$
 
 定义
 
-$$h(k)=P(X_T=N)$$
+$$
+h(k)=P(X_T=N)
+$$
 
 做相同的 first step analysis
 
-$$h(k)=ph(k+1)+qh(k-1)$$
+$$
+h(k)=ph(k+1)+qh(k-1)
+$$
 
 然后解线性方程组, 这个稀疏矩阵是可以直接解的
 
@@ -897,4 +1040,6 @@ $(I)$ 则 all states are positive recurrent / null recurrent / transient
 
 若进一步有 $(A)$ , 则
 
-$$p^n(i,j)\to\pi(j)=\frac{1}{\mathbb{E}_jT_j}$$
+$$
+p^n(i,j)\to\pi(j)=\frac{1}{\mathbb{E}_jT_j}
+$$
