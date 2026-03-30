@@ -1,6 +1,6 @@
 
->Last time
->![[Lec_01#^2a2161]]
+> Last time: [[Lec_01]]
+> 为什么通常写成第二种形式? 在这里 $f$ 的含义也不太一样
 
 ##### Motivation
 一般的 Boltzmann 方程
@@ -121,6 +121,8 @@ $$
 \frac{\delta S}{\delta x^i}=0\implies-\mathrm{d}p_i+q\partial_{x^i}A_j\mathrm{d}x^j-q\partial_{x^j}A_i\mathrm{d}x^j-\partial_{x^i}H\mathrm{d}t-\partial_{t}A_i\mathrm{dt}=0
 $$
 
+^65659a
+
 若改写
 
 $$
@@ -170,8 +172,9 @@ $$
 S=\int_{\text{path}}\left[{\large\gamma}_{I}(\xi,t)\mathrm{d}\xi^I-H(\xi,t)\mathrm{d}t\right]
 $$
 
-^fa85b4
+^02cfee
 
+^fa85b4
 在原先的表述中：
 当没有磁场时
 

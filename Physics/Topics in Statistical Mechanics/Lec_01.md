@@ -106,11 +106,15 @@ $$
 \partial_t\rho+\partial_{\mathbf{x}}\cdot(\frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t}\rho)+\partial_{\mathbf{p}}\cdot(\frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t}\rho)=0
 $$
 
+^883183
+
 或者是
 
 $$
 \partial_t\rho+\frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t}\cdot\partial_{\mathbf{x}}\rho+\frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t}\cdot\partial_{\mathbf{p}}\rho=0
 $$
+
+^cf00f1
 
 哪条是对的? 
 第一条总是对的, 第二条在 Hamiltonian evolution 下是对的, 做差就可以验证
@@ -151,6 +155,8 @@ Boltzmann Eq. 通常呈现为
 $$
 \partial_t f+\frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t}\partial_{\mathbf{x}}f+\frac{\mathrm{d}\mathbf{p}}{\mathrm{d} t}\partial_{\mathbf{p}}f=\text{collision}
 $$
+
+^496df0
 
 为什么通常写成第二种形式? 在这里 $f$ 的含义也不太一样 ^2a2161
 
