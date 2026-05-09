@@ -183,7 +183,11 @@ $$
 
 回到 Lecture 1 的另一个方程
 
-![[Lec_01#^cf00f1]]
+[[Lec_01]] 中对应的是
+
+$$
+\partial_t\rho+\frac{\mathrm{d}\mathbf{x}}{\mathrm{d}t}\cdot\partial_{\mathbf{x}}\rho+\frac{\mathrm{d}\mathbf{p}}{\mathrm{d}t}\cdot\partial_{\mathbf{p}}\rho=0
+$$
 
 在 canonical 坐标下, 两者几乎相同, 但是必须澄清 $f$ 和 $\rho$ 不是同一个东西
 在后续对 collision 的讨论中, 应该使用 $f$ ; 这才是坐标无关、也更物理的量

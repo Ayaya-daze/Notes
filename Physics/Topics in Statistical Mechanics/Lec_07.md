@@ -1,6 +1,14 @@
 前面只得到了 local equilibrium 
 
-![[Lec_06#^8fed1d]]
+[[Lec_06]] 中最后得到
+
+$$
+\frac{1\pm f}{f} = \exp\left(\sum_{\alpha}\lambda_{\alpha}Q_{\alpha}\right)
+\implies
+f = \frac{1}{\exp\left(\sum_{\alpha}\lambda_{\alpha}Q_{\alpha}\right)\mp 1}
+$$
+
+这是 local equilibrium, $\lambda_{\alpha}=\lambda_{\alpha}(x,t)$ .
 
 $$
 \partial_\mu s^\mu =0

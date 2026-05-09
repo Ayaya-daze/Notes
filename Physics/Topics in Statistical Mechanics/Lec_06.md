@@ -1,6 +1,14 @@
 Review: 用概率性的语言描述粒子的碰撞
 
-![[Lec_05#^36b009]]
+[[Lec_05]] 中采用 Boltzmann 的观点: 不直接追踪相互作用力的细节, 而是把
+
+$$
+\text{details} \mapsto \text{probability}
+$$
+
+即不具体地考虑各个粒子之间的相互作用, 而是将它抽象为概率性的 collision rate.
+
+![[attachments/tikz/lec05-collision-probability.png|420]]
 
 例如 1 - 1
 

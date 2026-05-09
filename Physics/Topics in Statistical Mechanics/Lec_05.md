@@ -3,7 +3,13 @@
 
 考虑了连续对称性之后
 
-![[Lec_04#^989e17]]
+由 [[Lec_04]] 中的推导, 若考虑 $\omega$ 非退化, 则只有
+
+$$
+\delta S=\int_{\text{path}}\epsilon\,\mathrm{d}Q(\xi,t)+\mathrm{d}(\gamma_I\delta\xi^I)
+$$
+
+$Q(\xi,t)$ 就是 Noether charge. 但是这两个全微分的意义不同, 后者是 gauge dependent 的, 但是前者就不一定是 gauge dependent 的.
 
 关于 $Q$ 讨论什么?
 
@@ -12,7 +18,9 @@
 
 即
 
-![[Lec_04#^e66895]]
+$$
+\delta S = \int_{\text{path}}[\delta\xi^I\omega_{IJ}(\xi,t)\mathrm{d}\xi^J-\delta\xi^I(\partial_IH(\xi,t)+\partial_t\gamma_I(\xi,t))\mathrm{d}t+\mathrm{d}(\gamma_I\delta\xi^I)]
+$$
 
 就有
 
