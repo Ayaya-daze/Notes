@@ -208,15 +208,34 @@ $$
 f_{T_1,\cdots,T_n\mid N(t)=n}(t_1,\cdots,t_n)=\frac{n!}{t^n}\mathbf{1}_{0<t_1<\cdots<t_n<t}
 $$
 
-和 $N(t)\sim \mathrm{Poisson}(\lambda t)$ 一起, 这个性质也是刻画 Poisson process 的方式之一.
+这个性质和独立增量是等价地刻画 Poisson process 的方式之一.
+更准确地说, 它通常需要和 $N(t)\sim \mathrm{Poisson}(\lambda t)$ 这样的边缘分布条件一起使用, 才能完整刻画 Poisson process.
+
+当然另一种方式是直接按照 conditional probability 计算, 因为我们已经获得了联合分布
+
+$$\{T_1=t_1,\cdots ,T_n=t_n, N(t)=n \}=\{\tau_1=t_1,\cdots,\tau_n=t_{n}-t_{n-1},\tau_{n+1}>t-t_n\}$$
+
+即
+
+$$(\lambda e^{-\lambda t_1})\cdots (\lambda e^{-\lambda(t_{n}-t_{n-1})})e^{-\lambda (t-t_{n})}=\lambda^n e^{-\lambda t}$$
+
+于是
+
+$$f_{T_1,\cdots,T_n\mid N(t)=n}(t_1,\cdots,t_n)=\frac{\lambda^n e^{-\lambda t}}{(\lambda t)^n e^{-\lambda t}/n!}=\frac{n!}{t^n}$$
+
+>可以计算条件概率
+>
+>$$P(N(s)=m|N(t)=n)\quad s<t,m\leq n$$
+>
+>直接的做法是用条件概率展开, 分析中间的独立增量, 上面已经给出了在条件概率下, 独立
+>增量是均匀分布的 order statistics, 所以这里就相当于一个二项分布的过程, 按照概率 $s/t$ 给每个独立增量分配位置
+>这个结果和发生速率无关
 
 特别地, 对 $0<s<t$ ,
 
 $$
 N(s)\mid N(t)=n\sim \mathrm{Binom}\left(n,\frac{s}{t}\right)
 $$
-
-直觉上, 给定总共有 $n$ 个点后, 每个点独立地落在 $[0,s]$ 的概率是 $s/t$ .
 
 更一般地, 若把 $[0,t]$ 划分为不相交的小段 $A_1,\cdots,A_m$ , 长度为 $|A_i|$ , 则给定 $N(t)=n$ 后有 multinomial 分布:
 
@@ -270,12 +289,24 @@ $$
 
 #### superposition and thinning
 
-两个常用构造:
+##### superposition
+若 $N_i$ 独立, 且 rates 为 $\lambda_i$ , 则 $N=N_1+\cdots+N_n$ 是 rate $\lambda_1+\cdots+\lambda_n$ 的 Poisson process.
 
-* superposition: 若 $N_1,N_2$ 独立, 且 rates 分别为 $\lambda_1,\lambda_2$ , 则 $N_1+N_2$ 是 rate $\lambda_1+\lambda_2$ 的 Poisson process.
-* thinning: 若对 rate $\lambda$ 的 Poisson process 中每个 arrival 独立保留, 保留概率为 $p$ , 则保留下来的过程是 rate $p\lambda$ 的 Poisson process; 删除的过程是 rate $(1-p)\lambda$ 的 Poisson process, 且二者独立.
+验证:
+这是一个 counting process, 再考虑 $s<t$ 的计数分布 $N(t)-N(s)= \sum_i N_i(t)-N_i(s)$ , 这是一堆独立分布的和
+对于独立增量性质, 考虑 $t_1<t_2<\cdots<t_n$ , $N(t_i)-N(t_{i-1})=\sum_j N_j(t_i)-N_j(t_{i-1})$
+都是一些独立分布的和, 且都满足独立增量, 故它们也是相互独立的
 
-superposition 可以直接由生成函数看出:
+##### thinning
+对 $N$ , 对事件 $Y_i=j \quad \mathrm{w.p.} \quad p_j$ , 那么 $N_j(t)=\sum_{i=1}^{N(t)}\mathbf{1}_{Y_i=j}$ , 则 $N_j$ 是相互独立的 poisson process with rate $\lambda p_j$
+
+性质的验证也是简单的, 记 $N_i(s+t)-N_i(s)=X_i$ 那么
+
+$$P(X_1=j, X_2=k)=P(N(t+s)-N(s)=j+k,\sum_{i=1}^{j+k}\mathbf{1}_{Y_i=1}=j)=e^{-\lambda t}\frac{(\lambda t)^{j+k}}{(j+k)!}\binom{j+k}{j}p_1^j p_2^k$$
+
+可以拆分为独立乘积
+
+另一个更快的验证是用生成函数. 对 superposition,
 
 $$
 \mathbb{E}z^{N_1(t)+N_2(t)}
@@ -283,7 +314,7 @@ $$
 =\exp((\lambda_1+\lambda_2)t(z-1))
 $$
 
-thinning 的核心计算是先对 $N(t)$ 条件化. 若保留下来的计数记为 $N_p(t)$ , 则
+对 thinning, 若保留下来的计数记为 $N_p(t)$ , 则
 
 $$
 N_p(t)\mid N(t)=n\sim \mathrm{Binom}(n,p)
@@ -297,69 +328,15 @@ $$
 =\exp(\lambda t p(z-1))
 $$
 
-因此 $N_p(t)\sim\mathrm{Poisson}(p\lambda t)$ . 若删除的过程记为 $N_{1-p}(t)$ , 联合生成函数为
+若删除的过程记为 $N_{1-p}(t)$ , 联合生成函数为
 
 $$
 \mathbb{E}u^{N_p(t)}v^{N_{1-p}(t)}
 =\exp(\lambda t(pu+(1-p)v-1))
-$$
-
-右侧分解为
-
-$$
-\exp(p\lambda t(u-1))\exp((1-p)\lambda t(v-1))
+=\exp(p\lambda t(u-1))\exp((1-p)\lambda t(v-1))
 $$
 
 所以保留和删除两个过程不仅边缘上是 Poisson process, 而且相互独立.
-
-#### non-homogeneous Poisson process
-
-若 rate 随时间变化, 记 intensity 为 $\lambda(t)\geq 0$ , 并令
-
-$$
-\Lambda(t)=\int_0^t \lambda(u)\,\mathrm{d}u
-$$
-
-则 non-homogeneous Poisson process 满足独立增量, 且
-
-$$
-N(t)-N(s)\sim \mathrm{Poisson}(\Lambda(t)-\Lambda(s)),\qquad s\leq t
-$$
-
-特别地, $N(t)\sim\mathrm{Poisson}(\Lambda(t))$ . 它的到达时间联合密度变为
-
-$$
-f_{T_1,\cdots,T_n}(t_1,\cdots,t_n)
-=e^{-\Lambda(t_n)}\prod_{i=1}^n\lambda(t_i)\mathbf{1}_{0<t_1<\cdots<t_n}
-$$
-
-如果 $\Lambda$ 严格递增, 则经过 time change 后 $\Lambda(T_i)$ 是 rate $1$ 的齐次 Poisson process 的到达时间.
-
-小区间刻画对应地变为
-
-$$
-P(N(t+h)-N(t)=1)=\lambda(t)h+o(h)
-$$
-
-以及
-
-$$
-P(N(t+h)-N(t)\geq 2)=o(h)
-$$
-
-给定 $N(t)=n$ 时, unordered arrival times 不再是 uniform, 而是具有密度
-
-$$
-f(u)=\frac{\lambda(u)}{\Lambda(t)},\qquad 0<u<t
-$$
-
-因此 ordered arrival times 的条件 joint density 为
-
-$$
-f_{T_1,\cdots,T_n\mid N(t)=n}(t_1,\cdots,t_n)
-=n!\prod_{i=1}^n\frac{\lambda(t_i)}{\Lambda(t)}
-\mathbf{1}_{0<t_1<\cdots<t_n<t}
-$$
 
 #### compensated Poisson martingale
 
@@ -413,33 +390,179 @@ $$
 
 其中 $\theta$ 取使期望有限的实数. 这个公式和前面的 mgf 是同一个结构.
 
-#### compound Poisson process
-
-若每次 arrival 还带一个独立同分布的 jump size $Y_i$ , 且 $Y_i$ 与 $N(t)$ 独立, 则
-
-$$
-S(t)=\sum_{i=1}^{N(t)}Y_i
-$$
-
-称为 compound Poisson process. 它的期望可由 conditional expectation 得到:
+### simulate Poisson process
+最简单的做法是直接生成时间间隔 $\tau_i \sim \mathrm{Exp}(\lambda)$ , 然后得到 arrival time $T_i$
+然后增量都发生在 arrival time
 
 $$
-\mathbb{E}S(t)=\mathbb{E}[\mathbb{E}(S(t)\mid N(t))]=\lambda t\,\mathbb{E}Y_1
+N(s)=\max\{n:T_n \leq s\}
 $$
 
-若二阶矩存在, 则
+这满足 poisson 的要求
+
+>重要的一点是利用分布的无记忆性
+
+具体算法可以写成:
+
+1. 生成 $\tau_1,\tau_2,\cdots\overset{\text{i.i.d.}}{\sim}\mathrm{Exp}(\lambda)$
+2. 令 $T_n=\tau_1+\cdots+\tau_n$
+3. 对每个 $t$ , 取 $N(t)=\max\{n:T_n\leq t\}$
+
+如果只需要在固定时间 $t$ 模拟 $N(t)$ , 也可以直接抽
 
 $$
-\mathrm{Var}(S(t))=\lambda t\,\mathbb{E}(Y_1^2)
+N(t)\sim \mathrm{Poisson}(\lambda t)
 $$
 
-并且补偿后
+但如果需要整条 sample path, 用 arrival times 更自然.
+
+前面只考虑了时齐的 poisson process, 现在考虑 non - homogeneous 版本
+
+### Non - homogeneous poisson process
+同样, 这也应该满足 poisson process 的性质. 这里至少要求 $\lambda(t)\geq 0$ 且在有限区间上可积.
+
+1. counting process $N(0)=0$
+2. Independent increments
+3. $N(t)-N(s)=\mathrm{Poisson}(\int_s^t \lambda(u)\mathrm{d}u)$
+
+若记
 
 $$
-S(t)-\lambda t\,\mathbb{E}Y_1
+\Lambda(t)=\int_0^t\lambda(u)\,\mathrm{d}u
 $$
 
-也是 martingale.
+则 $N(t)-N(s)\sim\mathrm{Poisson}(\Lambda(t)-\Lambda(s))$ . 如果 $\Lambda$ 严格递增, 经过 time change 后 $\Lambda(T_i)$ 是 rate $1$ 的齐次 Poisson process 的到达时间.
+
+小区间刻画对应为
+
+$$
+P(N(t+h)-N(t)=1)=\lambda(t)h+o(h)
+$$
+
+以及
+
+$$
+P(N(t+h)-N(t)\geq 2)=o(h)
+$$
+
+这时不再有 stationary increments, 因为增量分布不仅取决于区间长度, 还取决于区间所在的位置.
+
+
+>poisson regression
+>更一般地考虑带参强度
+>$$\log \lambda(t,x)=\beta_{t,0}+\beta_{t,1}^T\mathrm{x}$$
+>
+>然后考虑对这种强度进行 regression
+
+### Poisson approximation
+考虑
+
+$$
+\sum_{i=1}^n \mathrm{Bern}(\lambda(t_i)\cdot \varepsilon)
+\simeq \mathrm{Poi}\left(\sum_{i=1}^n \lambda (t_i)\varepsilon\right)
+\simeq \mathrm{Poi}\left(\int_s^t \lambda(u)\mathrm{d}u\right)
+$$
+
+这里的直觉是: 很多小概率、近似独立的事件相加会趋近 Poisson 分布. 若每个小 bin 的概率是 $p_i$ , 且 $\max_i p_i\to 0$ , $\sum_i p_i\to \mu$ , 则
+
+$$
+\sum_i \mathrm{Bern}(p_i)\Rightarrow \mathrm{Poisson}(\mu)
+$$
+
+#### arrival time
+
+$$
+\{T_1>t\}=\{N(t)=0\},\qquad N(t)\sim \mathrm{Poisson}\left(\int_0^t \lambda(u)\mathrm{d}u\right)
+$$
+
+则
+
+$$
+P(T_1>t)=\exp\left(-\int_0^t\lambda(u)\mathrm{d}u\right),
+\qquad f_{T_1}(t)=\lambda(t)\exp(-\mu(t))
+$$
+
+这里
+
+$$
+\mu(t)=\int_0^t\lambda(u)\mathrm{d}u
+$$
+
+#### Inter - event time
+事件之间发生的等待时间不是独立的, 因为现在强度是含时的
+
+$$
+P(\tau_2>t\mid \tau_1=s)
+=P\left(\mathrm{Poi}\left(\int_s^{s+t}\lambda(u)\mathrm{d}u\right)=0\right)
+=\exp\left(-\int_s^{s+t}\lambda(u)\mathrm{d}u\right)
+$$
+
+$\tau_1,\tau_2$ dependent , non - identical
+
+给定 $N(t)=n$ 时, unordered arrival times 不再是 uniform, 而是具有密度
+
+$$
+f(u)=\frac{\lambda(u)}{\Lambda(t)},\qquad 0<u<t
+$$
+
+因此 ordered arrival times 的条件 joint density 为
+
+$$
+f_{T_1,\cdots,T_n\mid N(t)=n}(t_1,\cdots,t_n)
+=n!\prod_{i=1}^n\frac{\lambda(t_i)}{\Lambda(t)}
+\mathbf{1}_{0<t_1<\cdots<t_n<t}
+$$
+
+### Compound poisson process
+实际上, poisson 过程的事件发生应该对背后的系统有影响
+
+考虑每个事件的影响 $Y_i$ , 先考虑 i.i.d.
+
+$$
+S(t)=Y_1+Y_2+\cdots +Y_{N(t)}
+$$
+
+那么
+
+$$
+\mathbb{E}(S(t)\mid N(t)=n)=\mathbb{E}(Y_1+\cdots +Y_n)=n \mathbb{E}Y
+$$
+
+那么
+
+$$
+\mathbb{E}(S(t))=\mathbb{E}N(t)\cdot \mathbb{E}Y=\lambda t \mathbb{E}Y
+$$
+
+二阶矩也是相同的
+
+$$
+\mathbb{E}[S^2(t)\mid N(t)=n]
+=\mathbb{E}(Y_1+\cdots+Y_n)^2
+=(n\mathbb{E}Y)^2+n \mathrm{Var}Y
+$$
+
+从而
+
+$$
+\mathbb{E}S^2(t)=\mathbb{E}N^2(t)(\mathbb{E}Y)^2+\mathbb{E}N(t)\cdot \mathrm{Var}Y
+$$
+
+最后计算 variance
+
+$$
+\mathrm{Var}(S(t))=\mathrm{Var}(N(t))(\mathbb{E}Y)^2+\mathbb{E} N(t)\mathrm{Var}Y=\lambda t \mathbb{E}(Y^2)
+$$
+
+前一步对一般的 counting process 都是适用的; 最后一步使用了 Poisson process 的 $\mathbb{E}N(t)=\mathrm{Var}(N(t))=\lambda t$ .
+
+同样可以补偿成 martingale:
+
+$$
+S(t)-\lambda t\,\mathbb{E}Y
+$$
+
+是 martingale, 这里默认 $Y_i$ 与 $N(t)$ 独立且一阶矩存在.
 
 compound Poisson process 的分布通常不用直接写 pmf, 而是用 transform 描述. 若 $Y_1$ 的 mgf 存在, 则
 
@@ -458,32 +581,90 @@ $$
 
 从独立增量看, $S(t)-S(s)$ 只由 $(s,t]$ 内的 arrivals 和 jump sizes 决定, 因而 compound Poisson process 仍有 independent increments. 若 $Y_i\geq 0$ , 它也是一个 non-decreasing process; 若 $Y_i$ 可正可负, 它就是一个带有限活动 jumps 的纯跳过程.
 
-在小时间间隔中,
+对 $\tau_i$ 的分布的无记忆性的推广, 即为 renewal process
+
+### Renewal process
+即等待时间满足
+
+1. $\tau_1,\tau_2,\cdots\overset{\text{i.i.d.}}{\sim} F$  且 $F(0)=0$
+2. $T_n=\tau_1+\tau_2+\cdots +\tau_n$
+3. $N(t)=\max\{n: T_n\leq t\}$
+
+当 $F$ 是指数分布时, 回到 poisson process
+
+和 Poisson process 不同, 一般 renewal process 的 increments 不独立, 也通常不是 Markov process. 原因是未来的等待时间分布会依赖当前时刻在一个 renewal interval 中已经等待了多久, 即所谓 age 或 residual lifetime.
+
+#### renewal rate
+考虑平均发生次数, 则满足
 
 $$
-P(N(t+h)-N(t)=1)=\lambda h+o(h)
+\frac{N(t)}{t}\quad \lim_{t\to \infty}\frac{N(t)}{t}=\frac{1}{\mathbb{E}\tau_1}
 $$
 
-并且在发生一次 jump 的条件下, jump size 的分布就是 $Y_1$ 的分布.
-
-#### Poisson process as a renewal process
-
-从 inter-event time 的角度看, Poisson process 是 renewal process 的一个特例:
+这个结果一样来自 SLLN
 
 $$
-T_n=\tau_1+\cdots+\tau_n,\qquad \tau_i\overset{\text{i.i.d.}}{\sim}\mathrm{Exp}(\lambda)
+\frac{T_n}{n}=\frac{\tau_1+\cdots+\tau_n}{n}\overset{\mathrm{a.s.}}{\to} \mathbb{E}\tau
 $$
 
-计数过程由 arrival times 反过来定义:
+从而
 
 $$
-N(t)=\max\{n:T_n\leq t\}
+T_{N(t)}\leq t<T_{N(t)+1}
 $$
 
-指数分布的 memoryless property
+同样夹逼得到结果:
 
 $$
-P(\tau>s+t\mid \tau>s)=P(\tau>t)
+\frac{T_{N(t)}}{N(t)}\leq \frac{t}{N(t)}<\frac{T_{N(t)+1}}{N(t)}
 $$
 
-正是 Poisson process 同时具有 stationary independent increments 的关键原因. 一般 renewal process 仍然可以写成 $N(t)=\max\{n:T_n\leq t\}$ , 但如果 inter-event time 不是指数分布, 通常就不会再有 Markov property 和独立增量.
+左右两边都趋向 $\mathbb{E}\tau_1$ , 因而 $N(t)/t\to 1/\mathbb{E}\tau_1$ .
+
+#### renewal reward process
+和前面的想法几乎相同, 在每个事件发生时, 都有 reward $r_i$ , pair $(r_i,\tau_i)$ 是 i.i.d. 的
+
+$$
+R(t)=r_1+\cdots+r_{N(t)}
+$$
+
+同样有 reward rate, 看长期的收益率
+
+$$
+\frac{R(t)}{t}
+$$
+
+则也有
+
+$$
+\frac{R(t)}{t}\overset{\mathrm{a.s.}}{\to} \frac{\mathbb{E}r_1}{\mathbb{E}\tau_1}
+$$
+
+同样是使用 SLLN
+
+$$
+\frac{R(t)}{t}=\frac{N(t)}{t}\frac{1}{N(t)}\sum_{i=1}^{N(t)}r_i
+$$
+
+这里要求 $\mathbb{E}|r_1|<\infty$ 和 $\mathbb{E}\tau_1<\infty$ . 若 $r_i$ 和 $\tau_i$ 不独立也没关系, 只要 pair $(r_i,\tau_i)$ 是 i.i.d. 即可.
+
+
+>前面的 renewal rate 可以看作一个特殊的 reward rate
+
+另一个例子是 alternating renewal process
+
+考虑每次发生事件会改变系统的状态, 如: 可用/不可用
+
+那么
+
+$$
+\tau_i=s_i+u_i\quad r_i=s_i
+$$
+
+从而
+
+$$
+\frac{R(t)}{t}\to \frac{\mathbb{E}s_i}{\mathbb{E}(s_i+u_i)}=\frac{\mu_F}{\mu_F+\mu_G}
+$$
+
+还有一些排队系统的建模
