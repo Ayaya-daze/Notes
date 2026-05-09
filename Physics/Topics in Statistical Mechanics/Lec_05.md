@@ -234,6 +234,8 @@ $$
 \text{rate of creation of particle at }\xi \, -\, \text{rate of annihilation}
 $$
 
+^36b009
+
 rate of creation ? Let
 
 $$

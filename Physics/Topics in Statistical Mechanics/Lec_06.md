@@ -218,4 +218,4 @@ $$
 
 这是 local equilibrium, $\lambda_{\alpha}=\lambda_{\alpha}(x,t)$
 
-问题是: 为什么 $\lambda$ 可以是 local 的, 以及 local equilibrium 时, 为什么 $\lambda$ 还可以继续演化?
+问题是: 为什么 $\lambda$ 可以是 local 的, 以及 local equilibrium 时, 为什么 $\lambda$ 还可以继续演化? ^8fed1d
