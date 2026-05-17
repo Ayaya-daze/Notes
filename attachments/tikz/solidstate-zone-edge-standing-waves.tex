@@ -1,0 +1,48 @@
+\documentclass[tikz,border=4pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{tikzpicture}[
+  >=Stealth,
+  axis/.style={->, line width=0.36pt, black!80},
+  guide/.style={dashed, gray!38, line width=0.28pt},
+  atom/.style={circle, fill=black!72, inner sep=1.05pt},
+  plus/.style={line width=0.52pt, blue!62!black},
+  minus/.style={line width=0.52pt, red!60!black},
+  density/.style={line width=0.48pt},
+  every node/.style={font=\scriptsize}
+]
+  \def\yTop{1.18}
+  \def\yBot{-0.82}
+
+  \draw[axis] (-0.28,\yTop) -- (4.34,\yTop) node[right] {$x$};
+  \draw[axis] (0,0.53) -- (0,1.84) node[above] {$\psi$};
+  \draw[plus, domain=0:4, samples=180]
+    plot (\x,{\yTop + 0.46*cos(180*\x)});
+  \draw[minus, domain=0:4, samples=180]
+    plot (\x,{\yTop + 0.46*sin(180*\x)});
+  \node[blue!62!black, anchor=west, fill=white, inner sep=0.6pt] at (4.08,1.54)
+    {$\psi_+\sim\cos(\pi x/a)$};
+  \node[red!60!black, anchor=west, fill=white, inner sep=0.6pt] at (4.08,0.88)
+    {$\psi_-\sim\sin(\pi x/a)$};
+
+  \draw[axis] (-0.28,\yBot) -- (4.34,\yBot) node[right] {$x$};
+  \draw[axis] (0,-1.00) -- (0,0.17) node[above] {$|\psi|^2$};
+  \draw[density, blue!70!black, domain=0:4, samples=180]
+    plot (\x,{\yBot + 0.68*(cos(180*\x))^2});
+  \draw[density, red!70!black, domain=0:4, samples=180]
+    plot (\x,{\yBot + 0.68*(sin(180*\x))^2});
+
+  \foreach \x in {0,1,2,3,4} {
+    \draw[guide] (\x,-0.98) -- (\x,1.70);
+    \node[atom] at (\x,-1.05) {};
+  }
+  \draw[<->, line width=0.30pt] (2,-1.22) -- node[fill=white, inner sep=0.6pt] {$a$} (3,-1.22);
+  \node[blue!62!black, anchor=west, fill=white, inner sep=0.6pt] at (4.08,-0.24)
+    {$|\psi_+|^2$: sites};
+  \node[red!60!black, anchor=west, fill=white, inner sep=0.6pt] at (4.08,-0.46)
+    {$|\psi_-|^2$: between};
+\end{tikzpicture}
+\end{document}
