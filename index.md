@@ -15,7 +15,7 @@ They won't cover everything, just the parts I find interesting (hopefully).
 ## 📚 Quick gate
 
 - [[Physics]]
-- [[Mathematics]]
+- [[Math]]
 - [[Others]]
 
 ---
