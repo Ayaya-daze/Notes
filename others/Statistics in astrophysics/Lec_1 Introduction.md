@@ -103,7 +103,7 @@ $$
 * 模型的有效性: 用观测测试假设
 * 证据选择: clarifying trade-offs
 
->[!Summary] 
+>[!summary] 
 >为什么天文需要统计?
 >	1. 12
 
@@ -156,7 +156,7 @@ Laplace 的工作: 推测土星的质量 -- 土星的质量为什么有概率?�
 
 ***We cannot 'prove' a theory true*** , 因为它总有可能在明天的某个测试中失效
 
->[!Summary]
+>[!summary]
 >* Bayesian : 由先验知识给出的 degree-of-belief 
 >* Fre : 在重复下给出的 lo
 >* 随机性: 通常是我们无知的, 不可预测的
@@ -169,6 +169,6 @@ Laplace 的工作: 推测土星的质量 -- 土星的质量为什么有概率?�
 
 例子: 精确宇宙学
 
->[!Summary]
+>[!summary]
 >统计与天文的联系
 

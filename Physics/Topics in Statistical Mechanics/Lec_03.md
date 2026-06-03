@@ -244,7 +244,7 @@ $$
 
 Poisson bracket 自动出现了. 这无非是在一种特殊坐标系下, 取 2-form 逆的分量.
 
-> [!Summary]
+> [!summary]
 > 到这里我们做了什么?
 > 1. 我们从一般的 action 出发, 讨论它的 gauge invariance, 并计算了 EoM.
 > 2. 将方程整理为在 $\chi$ 的 gauge 变换下不变的形式. 这是 EoM 中真正物理的部分, 并从中定义了 symplectic 2-form.
