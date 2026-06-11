@@ -190,7 +190,7 @@ $$
 \omega_{IJ}
 =
 \left(
-\begin{array}{c@{\;\middle|\;}c}
+\begin{array}{c|c}
 \omega_{x^i,\;x^j}=0 & \omega_{x^i,\;p_j}=-\delta_i^{\ j} \\[4pt]
 \omega_{p_i,\;x^j}=\delta_j^{\ i} & \omega_{p_i,\;p_j}=0
 \end{array}
@@ -230,7 +230,7 @@ $$
 (\omega^{-1})^{IJ}
 =
 \left(
-\begin{array}{c@{\;\middle|\;}c}
+\begin{array}{c|c}
 (\omega^{-1})^{x^i,\;x^j}=0
 &
 (\omega^{-1})^{x^i,\;p_j}=\delta^i_{\ j}=\{x^i,p_j\}
@@ -283,7 +283,7 @@ $$
 \omega_{IJ}
 =
 \left(
-\begin{array}{c@{\;\middle|\;}c}
+\begin{array}{c|c}
 \omega_{x^i,\;x^j}=0 & \omega_{x^i,\;p_j}=-\delta_i^{\ j} \\[4pt]
 \omega_{p_i,\;x^j}=\delta_j^{\ i} & \omega_{p_i,\;p_j}=0
 \end{array}
