@@ -253,9 +253,9 @@ $$
 同样, 有 $P(B\mid I)\leq 1$ , 代回乘法规则
 
 $$
-\begin{array}{l}P(A\mid BI)\geq P(A\mid I)
+\begin{aligned}P(A\mid BI)&\geq P(A\mid I)
 
-&\implies P(\overline{A}\mid BI)\leq P(\overline{A}\mid I)\\ &\implies P(B\mid \overline{A}I)\leq P(B\mid I)\end{array}
+&\implies P(\overline{A}\mid BI)\leq P(\overline{A}\mid I)\\ &\implies P(B\mid \overline{A}I)\leq P(B\mid I)\end{aligned}
 $$
 
 此即弱 syllogism
